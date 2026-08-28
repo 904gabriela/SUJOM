@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SUJOM — Solo un juego otome más</title>
+<meta name="description" content="SUJOM by ASSIST — una app de citas donde los personajes te escriben.">
+<meta name="theme-color" content="#08070f">
+<link rel="stylesheet" href="styles/main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b0a14'/><path d='M16 25s-8-5-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 6-8 11-8 11z' fill='%23f0c674'/></svg>">
+</head>
+<body>
+
+<!-- Marco del dispositivo: la app vive dentro -->
+<div id="device" class="device">
+  <div class="device-glow" aria-hidden="true"></div>
+
+  <!-- Barra superior de SUJOM (no es una barra de sistema: es la app) -->
+  <header id="appbar" class="appbar" hidden>
+    <button class="appbar-back" id="btn-back" aria-label="Volver">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="appbar-title">
+      <span class="appbar-name" id="appbar-title">SUJOM</span>
+      <span class="appbar-sub" id="appbar-sub"></span>
+    </div>
+    <div class="appbar-right">
+      <div class="clock" id="clock" title="Hora en la simulación">
+        <span class="clock-day" id="clock-day">D1</span>
+        <span class="clock-time" id="clock-time">08:00</span>
+      </div>
+      <button class="appbar-icon" id="btn-settings" aria-label="Ajustes">
+        <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 100-7 3.5 3.5 0 000 7z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 13a7.9 7.9 0 000-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 00-1.7-1L15 3H9l-.3 2.9a7.7 7.7 0 00-1.7 1l-2.4-1-2 3.4L4.6 11a7.9 7.9 0 000 2l-2 1.6 2 3.4 2.4-1c.5.4 1.1.8 1.7 1L9 21h6l.3-2.9c.6-.3 1.2-.6 1.7-1l2.4 1 2-3.4-2-1.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Contenedor de pantallas -->
+  <main id="screen" class="screen" aria-live="polite"></main>
+
+  <!-- Capa de notificaciones emergentes -->
+  <div id="toasts" class="toasts" aria-live="assertive"></div>
+
+  <!-- Capa de efectos de corrupción -->
+  <div id="fxlayer" class="fxlayer" aria-hidden="true">
+    <div class="fx-scanlines"></div>
+    <div class="fx-noise"></div>
+    <div class="fx-flash"></div>
+  </div>
+
+  <!-- Modal genérico -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-x" data-close aria-label="Cerrar">✕</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+</div>
+
+<noscript>
+  <div style="padding:2rem;font-family:sans-serif;color:#eee;background:#0b0a14">
+    SUJOM necesita JavaScript para funcionar.
+  </div>
+</noscript>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
