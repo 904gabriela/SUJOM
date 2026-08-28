@@ -98,8 +98,19 @@ export function channelList(channel, names) {
   }
   // Las nuevas arriba, luego bloqueadas, luego el historial invertido.
   const nw = out.filter((o) => o.state === 'new');
-  const lk = out.filter((o) => o.state === 'locked').slice(0, 3);
   const dn = out.filter((o) => o.state === 'done').reverse();
+
+  // De lo bloqueado sólo se enseña lo siguiente de cada personaje: tres filas
+  // seguidas del mismo nombre no dicen nada y ensucian la lista.
+  const seen = new Set();
+  const lk = out.filter((o) => {
+    if (o.state !== 'locked') return false;
+    const key = o.s.char || o.s.channel;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 4);
+
   return { nw, lk, dn };
 }
 
