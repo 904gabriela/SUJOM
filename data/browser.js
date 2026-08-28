@@ -1,5 +1,5 @@
 /* =========================================================
-   browser.js — La red de SUJOM.
+   browser.js — La red.
    ---------------------------------------------------------
    No sale a internet. Es un archivo cerrado de páginas que
    se van descubriendo: la web corporativa impecable, la nota
@@ -31,7 +31,8 @@ export const PAGES = {
       dejamos de fiarnos los unos de los otros." — Dr. A. R. Thorne</p>
       <p style="font-size:11px;color:#8a8598;margin-top:22px">
       ASSIST Global Solutions, S.A. · Registro mercantil 44-118-02 ·
-      Divisiones: ASSIST Health · ASSIST Public · ASSIST Labs · <a data-go="sujom_legal">SUJOM</a></p>`,
+      Divisiones: ASSIST Health · ASSIST Public · ASSIST Labs ·
+      <a data-go="sujom_legal">ASSIST Connected Hearts</a></p>`,
     links: ['assist_about', 'assist_thorne', 'sujom_legal']
   },
 
@@ -105,18 +106,19 @@ export const PAGES = {
   },
 
   sujom_legal: {
-    url: 'assist-global.com/sujom/legal',
-    title: 'SUJOM — Aviso legal',
+    url: 'assist-global.com/hearts/legal',
+    title: 'Connected Hearts — Aviso legal',
     kind: 'corp',
-    logo: 'SUJOM',
-    slogan: 'Solo un juego otome más.',
+    logo: 'CONNECTED HEARTS',
+    slogan: 'Conecta con alguien que te entienda.',
     body: `
       <h4>Aviso legal y tratamiento de datos</h4>
-      <p>SUJOM es un producto de entretenimiento interactivo desarrollado por ASSIST Labs.</p>
-      <p>Al usar SUJOM, el usuario acepta la recogida de datos de interacción, incluyendo
+      <p>ASSIST: Connected Hearts es un producto de entretenimiento interactivo
+      desarrollado por ASSIST Labs, división de ASSIST Global Solutions, S.A.</p>
+      <p>Al usar Connected Hearts, el usuario acepta la recogida de datos de interacción, incluyendo
       tiempo de respuesta, frecuencia de apertura, patrones de elección y
       <b>preferencia afectiva declarada e inferida</b>.</p>
-      <p>Los personajes, situaciones y conversaciones de SUJOM son ficticios.
+      <p>Los personajes, situaciones y conversaciones de Connected Hearts son ficticios.
       <span style="color:#8a8598">Cualquier parecido con personas reales, vivas, es responsabilidad
       del usuario.</span></p>
       <p class="quote">Cláusula 6.1 — El usuario reconoce que su participación constituye una
@@ -178,13 +180,14 @@ export const PAGES = {
   /* ---------------- Foro ---------------- */
   forum_thread: {
     url: 'sinluz.foro/hilo/88214',
-    title: '¿alguien más ha jugado a SUJOM?',
+    title: '¿alguien más usa Connected Hearts?',
     kind: 'dark',
     logo: 'SINLUZ.FORO',
     slogan: 'hilo #88214 · 47 respuestas',
     body: `
       <p><b>&gt; usuaria_nn</b><br>
-      ¿alguien más ha jugado a SUJOM? la app de citas esa. me la recomendó el móvil solo,
+      ¿alguien más usa Connected Hearts? la app de citas esa, la de ASSIST.
+      me la recomendó el móvil solo,
       no la busqué. ¿eso le ha pasado a alguien más?</p>
       <p><b>&gt; k4rma</b><br>
       a mí igual. y hay una cosa rara: no está en ninguna tienda. no tiene página de
@@ -213,14 +216,14 @@ export const PAGES = {
 
   archive_sujom: {
     url: 'archivo.red/2024/sujom-cierre',
-    title: 'Copia archivada — SUJOM',
+    title: 'Copia archivada — Connected Hearts',
     kind: 'dark',
     logo: 'ARCHIVO.RED',
     slogan: 'instantánea del 04/08 · página original eliminada',
     body: `
       <p>[COPIA ARCHIVADA. LA PÁGINA ORIGINAL YA NO EXISTE.]</p>
-      <p><b>SUJOM — nota de retirada</b></p>
-      <p>El ciclo 3 de SUJOM se cerró el 12 de marzo tras alcanzar el umbral de contaminación
+      <p><b>CONNECTED HEARTS — nota de retirada</b></p>
+      <p>El ciclo 3 de Connected Hearts se cerró el 12 de marzo tras alcanzar el umbral de contaminación
       afectiva. Los cuatro sujetos del ciclo 3 fueron reasignados.</p>
       <p>La variable externa del ciclo 3 (identificador C-1) fue desconectada sin incidencias.</p>
       <p class="quote">Recomendación para el ciclo 4: reducir el número de anomalías visibles
@@ -306,8 +309,8 @@ export const PAGES = {
     slogan: 'sector c · señal en directo',
     body: `
       <p>Cuatro cámaras activas en el sector C.</p>
-      <p>El acceso a la retransmisión se ha añadido a tu aplicación.</p>
-      <p class="quote">Abre CÁMARAS desde la pantalla principal de SUJOM.</p>`,
+      <p>Las cuatro grabaciones se han descargado a la aplicación Archivos.</p>
+      <p class="quote">Las grabaciones se han añadido a tus Archivos.</p>`,
     links: [],
     grantsCams: ['hall', 'chairs', 'monitors', 'guard']
   },

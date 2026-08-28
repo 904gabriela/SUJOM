@@ -552,7 +552,7 @@ export const RYU = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { s: 'ryu', t: 'Perdón. ¿De qué estábamos hablando?', expr: 'neutral' },
     { wait: 2400 },
@@ -630,9 +630,9 @@ export const RYU = [
     { wait: 2400 },
     { s: 'ryu', t: 'Me acuerdo.' },
     { s: 'ryu', t: '{name}, me acuerdo.' },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { sys: 'CORRECCIÓN FALLIDA · SUJETO C-04 · REINTENTANDO', kind: 'alert' },
     { flash: true },
@@ -955,9 +955,9 @@ export const RYU = [
           ],
           else: [
             /* ---------- FINAL NEUTRO ---------- */
-            { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+            { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
             { wait: 2000 },
-            { sys: 'SUJOM · Corrección aplicada. Sujeto C-04 estable.', kind: 'core' },
+            { sys: 'ASSIST · Corrección aplicada. Sujeto C-04 estable.', kind: 'core' },
             { shake: true },
             { flash: true },
             { wait: 2600 },

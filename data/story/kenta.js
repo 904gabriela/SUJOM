@@ -545,7 +545,7 @@ export const KENTA = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { wait: 2000 },
     { s: 'kenta', t: '¿de qué estábamos hablando?', expr: 'neutral' },
@@ -641,9 +641,9 @@ export const KENTA = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo entorno…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo entorno…', kind: 'core' },
     { shake: true },
-    { sys: 'SUJOM · Corrigiendo entorno…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo entorno…', kind: 'core' },
     { shake: true },
     { sys: 'CORRECCIÓN RECHAZADA · SUJETO C-02 · RESISTENCIA ALTA', kind: 'alert' },
     { flash: true },
@@ -978,9 +978,9 @@ export const KENTA = [
           ],
           else: [
             /* ---------- NEUTRO ---------- */
-            { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+            { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
             { wait: 2000 },
-            { sys: 'SUJOM · Corrección aplicada. Sujeto C-02 estable.', kind: 'core' },
+            { sys: 'ASSIST · Corrección aplicada. Sujeto C-02 estable.', kind: 'core' },
             { shake: true },
             { flash: true },
             { wait: 2600 },

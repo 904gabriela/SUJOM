@@ -17,9 +17,9 @@ export const SECRET = [
   phase: 7, mood: 'unease',
   secret: true,
   requires: { endingsGood: 2 },
-  preview: 'SUJOM · Has iniciado un ciclo nuevo.',
+  preview: 'ASSIST · Has iniciado un ciclo nuevo.',
   script: [
-    { sys: 'SUJOM · Has iniciado sesión.' },
+    { sys: 'ASSIST · Has iniciado sesión.' },
     { wait: 1600 },
     { sys: 'Sala común: 0 participantes.', kind: 'alert', delay: 1800 },
     { wait: 2000 },

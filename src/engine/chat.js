@@ -14,7 +14,8 @@ import {
   complete, recordEnding, advanceTime, bus, save, markCall, reopen
 } from './state.js';
 import { meets } from './conditions.js';
-import { chibi, photo as photoArt } from './art.js';
+import { photo as photoArt } from './art.js';
+import { avatar as faceOf } from './portraits.js';
 import { sfx, setMood, duckMusic } from './audio.js';
 import { CHARS, GROUP } from '../../data/characters.js';
 import { PHOTOS } from '../../data/photos.js';
@@ -81,9 +82,21 @@ export class ChatRunner {
   }
 
   avatar(cid, expr) {
-    const spec = CHARS[cid];
-    if (!spec) return '';
-    return chibi(spec, expr || 'neutral', { glitch: S.glitch >= 3 ? S.glitch : 0 });
+    if (!CHARS[cid]) return '';
+    return faceOf(cid, expr || 'neutral');
+  }
+
+  /** Quita la hora del mensaje anterior: sólo la lleva el último de la tanda. */
+  dropPrevStamp() {
+    const msgs = this.stream.querySelectorAll('.msg');
+    const prev = msgs[msgs.length - 1];
+    if (prev && !prev.querySelector('.typing')) prev.querySelector('.meta')?.remove();
+  }
+
+  /** Hora del reloj ficticio, para el pie de cada mensaje. */
+  stamp() {
+    const m = ((S.minutes % 1440) + 1440) % 1440;
+    return `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
   }
 
   /* --------- burbuja de personaje --------- */
@@ -125,9 +138,11 @@ export class ChatRunner {
         <div class="msg-col">
           ${same ? '' : `<div class="msg-who">${spec?.name || cid}</div>`}
           <div class="${cls}" data-c="${cid}">${inner}</div>
+          <div class="meta"><span>${this.stamp()}</span></div>
         </div>
       </div>`;
 
+    if (same) this.dropPrevStamp();
     if (bubbleWrap) {
       const fresh = this.el(html);
       bubbleWrap.replaceWith(fresh);
@@ -144,7 +159,10 @@ export class ChatRunner {
     if (!instant) await wait(180 * speedMul());
     this.add(this.el(`
       <div class="msg me">
-        <div class="msg-col"><div class="bubble">${fill(text)}</div></div>
+        <div class="msg-col">
+          <div class="bubble">${fill(text)}</div>
+          <div class="meta"><span>${this.stamp()}</span><span class="tick">✓✓</span></div>
+        </div>
       </div>`));
     sfx.mine();
     this.lastSpeaker = '__me';
@@ -160,7 +178,12 @@ export class ChatRunner {
     const same = this.lastSpeaker === cid;
     const spec = CHARS[cid];
     const isCorrupt = S.photosCorrupt.includes(node.photo);
-    const svg = photoArt({ ...def, spec: CHARS[def.of] }, { corrupt: isCorrupt });
+    // Si la foto tiene archivo propio se usa; si no, se dibuja.
+    const gen = photoArt({ ...def, spec: CHARS[def.of] }, { corrupt: isCorrupt });
+    const svg = def.file
+      ? `<img src="${def.file}" alt="${def.title || ''}" loading="lazy"
+           onerror="this.outerHTML=this.getAttribute('data-fb')" data-fb="${gen.replace(/"/g, '&quot;')}">`
+      : gen;
 
     if (!this.replay) { await wait(typeTime('', 620)); if (this.stopped) return; }
 

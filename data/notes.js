@@ -1,7 +1,7 @@
 /* =========================================================
    notes.js — Cuaderno.
    ---------------------------------------------------------
-   Algunas notas las escribe SUJOM sola ("para que no se te
+   Algunas notas las escribe ASSIST sola ("para que no se te
    olvide"). Otras las escribe el jugador sin darse cuenta.
    Y algunas, más tarde, dejan de decir lo que decían.
    ========================================================= */
@@ -11,7 +11,7 @@ export const NOTES = {
     title: 'Bienvenida',
     kind: 'info',
     date: 'D1',
-    body: 'SUJOM guarda aquí lo que va pasando, para que no tengas que acordarte de todo.\n\nPuedes volver cuando quieras.'
+    body: 'ASSIST guarda aquí lo que va pasando, para que no tengas que acordarte de todo.\n\nPuedes volver cuando quieras.'
   },
 
   /* --- cotidianas --- */
@@ -66,7 +66,7 @@ export const NOTES = {
     title: 'ASSIST Global Solutions',
     kind: 'evidence',
     date: 'D8',
-    body: 'Ciberseguridad, inteligencia artificial, "análisis emocional".\nContratos con administraciones públicas.\nFundador: Dr. Alistair R. Thorne.\n\nLema: "Conectar el mundo a través de la comprensión emocional".\n\nSUJOM aparece en el pie de página de su web. Muy abajo. En gris.'
+    body: 'Ciberseguridad, inteligencia artificial, "análisis emocional".\nContratos con administraciones públicas.\nFundador: Dr. Alistair R. Thorne.\n\nLema: "Conectar el mundo a través de la comprensión emocional".\n\nASSIST aparece en el pie de página de su web. Muy abajo. En gris.'
   },
   n_thorne: {
     title: 'Dr. Alistair R. Thorne',

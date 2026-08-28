@@ -597,7 +597,7 @@ export const LARA = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { wait: 2400 },
     { s: 'lara', t: 'jajaja perdón', expr: 'happy' },
@@ -679,9 +679,9 @@ export const LARA = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo estado emocional del sujeto…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo estado emocional del sujeto…', kind: 'core' },
     { shake: true },
-    { sys: 'SUJOM · Corrigiendo estado emocional del sujeto…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo estado emocional del sujeto…', kind: 'core' },
     { shake: true },
     { sys: 'CORRECCIÓN PARCIAL · SUJETO C-03 · CARGA AFECTIVA ELEVADA', kind: 'alert' },
     { flash: true },
@@ -1002,9 +1002,9 @@ export const LARA = [
           ],
           else: [
             /* ---------- NEUTRO ---------- */
-            { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+            { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
             { wait: 2000 },
-            { sys: 'SUJOM · Corrección aplicada. Sujeto C-03 estable.', kind: 'core' },
+            { sys: 'ASSIST · Corrección aplicada. Sujeto C-03 estable.', kind: 'core' },
             { shake: true },
             { flash: true },
             { wait: 2600 },

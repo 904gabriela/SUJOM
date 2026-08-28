@@ -24,7 +24,7 @@ export const COMMON = [
   preview: 'Lara: ¡¡HOLA!! ¿eres nuev{a}?',
   script: [
     { day: 'Día 1 · Sala común' },
-    { sys: 'Te has unido a la sala común de SUJOM.' },
+    { sys: 'Te has unido a la sala común de ASSIST.' },
     { s: 'lara', t: '¡¡HOLA!!', expr: 'happy' },
     { s: 'lara', t: 'ay perdón. he gritado.' },
     { s: 'lara', t: 'es que sale gente nueva como una vez cada nunca', expr: 'happy' },
@@ -396,9 +396,9 @@ export const COMMON = [
           }
         ]},
         { t: 'Cerrar la app.', echo: '(cerrar la app)', say: false, then: [
-          { sys: 'Has cerrado SUJOM.', delay: 800 },
+          { sys: 'Has cerrado ASSIST.', delay: 800 },
           { wait: 1400 },
-          { sys: 'SUJOM se ha vuelto a abrir sola.', kind: 'alert', delay: 1600 },
+          { sys: 'ASSIST se ha vuelto a abrir sola.', kind: 'alert', delay: 1600 },
           { shake: true },
           { sys: 'Ryu te ha enviado un mensaje.', delay: 1200 },
           { wait: 1400 },
@@ -485,7 +485,7 @@ export const COMMON = [
     { s: 'lara', t: 'he abierto la galería y he elegido una distinta' },
     { s: 'lara', t: 'la he elegido yo' },
     { s: 'lara', t: 'os lo juro', expr: 'worried' },
-    { sys: 'SUJOM · La imagen que has recibido ya existía en tu galería.', kind: 'core' },
+    { sys: 'ASSIST · La imagen que has recibido ya existía en tu galería.', kind: 'core' },
     { shake: true },
     { s: 'reiko', t: '¿Habéis visto eso?' },
     { s: 'kenta', t: 'sí' },
@@ -511,9 +511,9 @@ export const COMMON = [
   phase: 3,
   mood: 'unease',
   requires: { done: ['g05'] },
-  preview: 'SUJOM · Optimizando tu experiencia…',
+  preview: 'ASSIST · Optimizando tu experiencia…',
   script: [
-    { sys: 'SUJOM · MANTENIMIENTO PROGRAMADO', kind: 'core' },
+    { sys: 'ASSIST · MANTENIMIENTO PROGRAMADO', kind: 'core' },
     { sys: 'Optimizando tu experiencia…', kind: 'core', delay: 1400 },
     { wait: 1200 },
     { sys: 'Revisando coherencia narrativa… 4 incidencias corregidas.', kind: 'core', delay: 1600 },
@@ -546,7 +546,7 @@ export const COMMON = [
         ]}
       ]
     },
-    { sys: 'Mantenimiento completado. Que disfrutes de SUJOM.', kind: 'core', delay: 2000 },
+    { sys: 'Mantenimiento completado. Que disfrutes de ASSIST.', kind: 'core', delay: 2000 },
     { glitchLevel: 2 },
     { flag: 'core_spoke' },
     { page: 'sujom_legal' }
@@ -621,7 +621,7 @@ export const COMMON = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Se ha detectado un tema de conversación no recomendado.', kind: 'core' },
+    { sys: 'ASSIST · Se ha detectado un tema de conversación no recomendado.', kind: 'core' },
     { sys: 'Sugerencia: hablad de algo agradable.', kind: 'core' },
     { shake: true },
     { s: 'lara', t: '…' },
@@ -706,9 +706,9 @@ export const COMMON = [
   phase: 5,
   mood: 'tense',
   requires: { flags: ['route_gate_open'], glitch: 2 },
-  preview: 'SUJOM · Se ha añadido un archivo a tu galería.',
+  preview: 'ASSIST · Se ha añadido un archivo a tu galería.',
   script: [
-    { sys: 'SUJOM · Se ha añadido un archivo a tu galería.' },
+    { sys: 'ASSIST · Se ha añadido un archivo a tu galería.' },
     { wait: 1400 },
     { sys: 'No lo has descargado tú.', kind: 'alert', delay: 1600 },
     { s: 'core', sys: '' },

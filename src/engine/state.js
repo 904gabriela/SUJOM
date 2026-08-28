@@ -55,7 +55,12 @@ function freshState() {
   return {
     v: SAVE_VERSION,
     createdAt: Date.now(),
-    player: { name: '', pronouns: 'elle/le', pronounKey: 'neutral', color: '#f0c674', onboarded: false },
+    player: {
+      name: '', pronouns: 'elle/le', pronounKey: 'neutral',
+      color: '#ff4d94', onboarded: false,
+      look: { hair: '#2a2233', skin: '#f8ddc8', style: 'medio' }
+    },
+    notifLog: [],           // avisos recibidos, para el centro de notificaciones
     day: 1,
     minutes: 8 * 60,       // reloj ficticio, en minutos desde medianoche
     chars,
@@ -274,6 +279,35 @@ export function unlockProfileBit(cid, bit) {
   save();
   bus.emit('profileBit', { char: cid, bit });
   return true;
+}
+
+/* ---------------------------------------------------------
+   Registro de notificaciones
+   ---------------------------------------------------------
+   El centro de notificaciones no es decorativo: más adelante
+   guarda avisos de mensajes que nunca llegaron a existir.
+   --------------------------------------------------------- */
+export function pushNotif(n) {
+  S.notifLog.unshift({
+    char: n.char || null,
+    title: n.title,
+    body: n.body || '',
+    kind: n.kind || '',
+    session: n.session || null,
+    phantom: !!n.phantom,
+    day: S.day,
+    time: clockText(),
+    at: Date.now()
+  });
+  if (S.notifLog.length > 40) S.notifLog.length = 40;
+  save();
+  bus.emit('notif', n);
+}
+
+export function clearNotifs() {
+  S.notifLog = [];
+  save();
+  bus.emit('notif', null);
 }
 
 export function recordEnding(id, char, kind) {

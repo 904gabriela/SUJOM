@@ -131,10 +131,11 @@ const HAIR = {
   // Kenta: puntas hacia arriba, mechón decolorado
   kenta(c, streak = '#f5d98a') {
     return {
-      back: `<path d="M24 52 Q22 26 50 22 Q78 26 76 52 L77 66 Q72 54 70 44 L30 44 Q28 54 23 66 Z" fill="${shade(c, -16)}"/>`,
+      back: `<path d="M24 52 Q22 26 50 22 Q78 26 76 52 L77 66 Q72 54 70 44 L30 44 Q28 54 23 66 Z" fill="${shade(c, -46)}"/>`,
       front: `
         <path d="M24 47 Q23 22 50 19 Q77 22 76 47
-                 Q73 36 68 34 L71 24 L62 32 L58 21 L52 31 L45 20 L41 32 L33 23 L34 34 Q26 37 24 47 Z" fill="${c}"/>
+                 Q73 36 68 34 L71 24 L62 32 L58 21 L52 31 L45 20 L41 32 L33 23 L34 34 Q26 37 24 47 Z"
+              fill="${c}" stroke="${shade(c, -62)}" stroke-width="1.3" stroke-linejoin="round"/>
         <!-- mechón decolorado cayendo sobre la frente, no una corona -->
         <path d="M56 24 Q62 32 60 46 Q57 49 54 46 Q56 34 52 27 Z" fill="${streak}"/>
         <path d="M56 24 Q60 30 59 40" stroke="${shade(streak, 30)}" stroke-width="1.2" fill="none" opacity=".6" stroke-linecap="round"/>`
@@ -146,7 +147,8 @@ const HAIR = {
     return {
       back: `<path d="M18 56 Q14 24 50 19 Q86 24 82 56 L84 88 Q70 76 72 50 L28 50 Q30 76 16 88 Z" fill="${shade(c, -18)}"/>`,
       front: `
-        <path d="M22 48 Q21 20 50 17 Q79 20 78 48 Q76 32 68 28 Q59 36 50 30 Q41 36 32 28 Q24 32 22 48 Z" fill="${c}"/>
+        <path d="M22 48 Q21 20 50 17 Q79 20 78 48 Q76 32 68 28 Q59 36 50 30 Q41 36 32 28 Q24 32 22 48 Z"
+              fill="${c}" stroke="${shade(c, -58)}" stroke-width="1.1" stroke-linejoin="round"/>
         <path d="M24 42 Q20 62 23 82 L31 78 Q27 60 30 44 Z" fill="${c}"/>
         <path d="M76 42 Q80 62 77 82 L69 78 Q73 60 70 44 Z" fill="${c}"/>
         <path d="M40 22 Q34 32 32 44" stroke="${hi}" stroke-width="1.8" fill="none" opacity=".5" stroke-linecap="round"/>
@@ -161,7 +163,8 @@ const HAIR = {
     return {
       back: `<path d="M17 56 Q13 22 50 18 Q87 22 83 56 L86 92 Q72 84 74 52 L26 52 Q28 84 14 92 Z" fill="${shade(c, -14)}"/>`,
       front: `
-        <path d="M21 50 Q20 19 50 16 Q80 19 79 50 Q76 30 68 26 L50 22 L32 26 Q24 30 21 50 Z" fill="${c}"/>
+        <path d="M21 50 Q20 19 50 16 Q80 19 79 50 Q76 30 68 26 L50 22 L32 26 Q24 30 21 50 Z"
+              fill="${c}" stroke="${shade(c, -52)}" stroke-width="1.1" stroke-linejoin="round"/>
         <path d="M50 22 L44 46 L38 42 Q40 30 50 22 Z" fill="${shade(c, -8)}"/>
         <path d="M50 22 L56 46 L62 42 Q60 30 50 22 Z" fill="${shade(c, -8)}"/>
         <path d="M22 44 Q18 66 20 86 L28 82 Q24 62 27 46 Z" fill="${c}"/>
@@ -195,7 +198,20 @@ const ACC = {
   studs: `<circle cx="25" cy="66" r="2.2" fill="#ff9d6e"/><circle cx="25" cy="71" r="1.6" fill="#ffd4b8"/>`,
   clip: `<g transform="translate(70,34) rotate(14)">
       <rect x="-6" y="-2.5" width="12" height="5" rx="2.5" fill="#fff" opacity=".9"/>
-      <circle cx="0" cy="0" r="1.8" fill="#ff5f9e"/></g>`
+      <circle cx="0" cy="0" r="1.8" fill="#ff5f9e"/></g>`,
+  /* Lazo azul de Lara */
+  bow: `<g transform="translate(69,27) rotate(12)">
+      <path d="M0 0 L-11 -6 L-11 6 Z" fill="#6db3f2"/>
+      <path d="M0 0 L11 -6 L11 6 Z" fill="#8ec7f7"/>
+      <path d="M-2 1 L-6 12" stroke="#6db3f2" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M2 1 L7 11" stroke="#8ec7f7" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="0" cy="0" r="3.1" fill="#bcdcff"/></g>`,
+  /* Gargantilla de Kenta */
+  choker: `<g>
+      <path d="M38 92 Q50 99 62 92" stroke="#17131f" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M38 92 Q50 99 62 92" stroke="#3a3348" stroke-width="1.2" fill="none"/>
+      <rect x="47.4" y="95.5" width="5.2" height="5.2" rx="1.2" fill="#c9c4d8" transform="rotate(45 50 98)"/>
+    </g>`
 };
 
 /* ---------------------------------------------------------
@@ -745,22 +761,62 @@ export function starfield(n = 42) {
   return `<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">${s}</svg>`;
 }
 
-/* Icono genérico de app (línea) */
+/* ---------------------------------------------------------
+   Iconografía de la aplicación
+   --------------------------------------------------------- */
 export function icon(name) {
   const I = {
-    chat: '<path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-5 4V6z"/>',
-    dm: '<path d="M4 5h16v12H8l-4 3V5z"/><circle cx="9" cy="11" r="1.2" fill="currentColor" stroke="none"/><circle cx="13" cy="11" r="1.2" fill="currentColor" stroke="none"/><circle cx="17" cy="11" r="1.2" fill="currentColor" stroke="none"/>',
-    gallery: '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M4 17l5-5 4 4 3-2 4 4"/>',
+    home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/>',
+    chat: '<path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2H9l-5 4V6z"/><path d="M8 9h8M8 12h5"/>',
+    dm: '<path d="M4 5h16v12H8l-4 3V5z"/><circle cx="9" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="13" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="17" cy="11" r="1.1" fill="currentColor" stroke="none"/>',
+    people: '<circle cx="9" cy="8" r="3.4"/><path d="M2.5 20c0-3.6 2.9-5.8 6.5-5.8s6.5 2.2 6.5 5.8"/><path d="M16 5.5a3.4 3.4 0 010 6.4"/><path d="M18 14.6c2.2.6 3.5 2.4 3.5 5.4"/>',
+    gallery: '<rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="8.5" cy="10" r="1.7"/><path d="M4 17l5-5 4 4 3-2 4 4"/>',
     notes: '<path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v6h5"/><path d="M9 13h7M9 17h5"/>',
-    browser: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
-    profile: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
-    heart: '<path d="M12 20s-7-4.4-7-9.5A3.9 3.9 0 0112 8a3.9 3.9 0 017 2.5C19 15.6 12 20 12 20z"/>',
-    cam: '<rect x="3" y="7" width="12" height="10" rx="2"/><path d="M15 11l6-3v8l-6-3z"/>',
+    files: '<path d="M3 7a2 2 0 012-2h4l2 2.5h8a2 2 0 012 2V18a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>',
+    globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+    phone: '<path d="M5 3h3.5l1.8 4.5-2.3 1.5a13 13 0 006 6l1.5-2.3L20 14.5V18a2 2 0 01-2.2 2A16.5 16.5 0 013.9 5.2 2 2 0 015 3z"/>',
+    gear: '<circle cx="12" cy="12" r="3.2"/><path d="M19.4 13a7.9 7.9 0 000-2l2-1.6-2-3.4-2.4 1a7.7 7.7 0 00-1.7-1L15 3H9l-.3 2.9a7.7 7.7 0 00-1.7 1l-2.4-1-2 3.4L4.6 11a7.9 7.9 0 000 2l-2 1.6 2 3.4 2.4-1c.5.4 1.1.8 1.7 1L9 21h6l.3-2.9c.6-.3 1.2-.6 1.7-1l2.4 1 2-3.4-2-1.7z"/>',
     bell: '<path d="M18 15V10a6 6 0 10-12 0v5l-2 3h16l-2-3z"/><path d="M10 21h4"/>',
+    heart: '<path d="M12 20.4S4.3 15.6 4.3 10.3A4.3 4.3 0 0112 7.6a4.3 4.3 0 017.7 2.7c0 5.3-7.7 10.1-7.7 10.1z"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+    send: '<path d="M4 12l16-8-6 16-2.6-6.2L4 12z"/>',
+    gift: '<rect x="3" y="9" width="18" height="12" rx="2"/><path d="M3 13h18M12 9v12"/><path d="M12 9S9.5 4 7.2 5.2 9 9 12 9zM12 9s2.5-5 4.8-3.8S15 9 12 9z"/>',
+    download: '<path d="M12 4v11"/><path d="M8 12l4 4 4-4"/><path d="M4 19h16"/>',
+    share: '<circle cx="17" cy="6" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="18" r="2.6"/><path d="M8.4 10.8l6.2-3.4M8.4 13.2l6.2 3.4"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 018 0v3"/>',
     core: '<circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/>',
-    lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
-    end: '<path d="M4 4h16v10a6 6 0 01-6 6h-4a6 6 0 01-6-6V4z"/><path d="M9 20v2h6v-2"/>'
+    end: '<path d="M5 4h14v9a7 7 0 01-14 0V4z"/><path d="M9 20v1.5h6V20"/>',
+    cam: '<rect x="3" y="7" width="12" height="10" rx="2.5"/><path d="M15 11l6-3v8l-6-3z"/>',
+    doc: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h4"/><path d="M10 13h5M10 17h4"/>',
+    missed: '<path d="M5 3h3.5l1.8 4.5-2.3 1.5a13 13 0 006 6l1.5-2.3L20 14.5V18a2 2 0 01-2.2 2A16.5 16.5 0 013.9 5.2 2 2 0 015 3z"/><path d="M15 3l6 6M21 3l-6 6"/>'
   };
-  return `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[name] || I.chat}</svg>`;
+}
+
+/* ---------------------------------------------------------
+   Corazón pixelado — la marca de ASSIST
+   --------------------------------------------------------- */
+export function pixelHeart(size = 104, beat = true) {
+  const P = 'M4 5h2v1h1v1h2V6h1V5h2v1h1v3h-1v1h-1v1h-1v1H8v1H7v-1H6v-1H5v-1H4V9H3V6h1z';
+  const uid = 'ph' + Math.random().toString(36).slice(2, 7);
+  return `<svg viewBox="0 0 16 16" width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+    style="image-rendering:pixelated">
+    <defs>
+      <linearGradient id="g${uid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#ff9ec7"/><stop offset="55%" stop-color="#ff4d94"/>
+        <stop offset="100%" stop-color="#c9256b"/>
+      </linearGradient>
+    </defs>
+    <g${beat ? '' : ''}>
+      <path d="${P}" fill="url(#g${uid})"/>
+      <rect x="5" y="6" width="1" height="1" fill="#ffd6e8"/>
+      <rect x="6" y="6" width="1" height="1" fill="#ffd6e8" opacity=".7"/>
+      ${beat ? `<animateTransform attributeName="transform" type="scale" additive="sum"
+        values="1;1.09;1;1.04;1" dur="1.9s" repeatCount="indefinite"
+        calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+        <animateTransform attributeName="transform" type="translate" additive="sum"
+        values="0 0;-0.72 -0.72;0 0;-0.32 -0.32;0 0" dur="1.9s" repeatCount="indefinite"/>` : ''}
+    </g>
+  </svg>`;
 }

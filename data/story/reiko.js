@@ -509,7 +509,7 @@ export const REIKO = [
     { s: 'reiko', t: 'Sigo. Detrás de la torre no hay nada. Detrás de la torre no hay' },
     { sys: '00:38' },
     { wait: 1400 },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { sys: '00:41', kind: 'alert' },
     { wait: 2000 },
@@ -660,9 +660,9 @@ export const REIKO = [
         ]}
       ]
     },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
-    { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+    { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
     { shake: true },
     { sys: 'SUJETO C-05 · INESTABLE · REVISIÓN DE DOSIS RECOMENDADA', kind: 'alert' },
     { flash: true },
@@ -993,9 +993,9 @@ export const REIKO = [
           ],
           else: [
             /* ---------- NEUTRO ---------- */
-            { sys: 'SUJOM · Corrigiendo incoherencia narrativa…', kind: 'core' },
+            { sys: 'ASSIST · Corrigiendo incoherencia narrativa…', kind: 'core' },
             { wait: 2000 },
-            { sys: 'SUJOM · Corrección aplicada. Sujeto C-05 estable.', kind: 'core' },
+            { sys: 'ASSIST · Corrección aplicada. Sujeto C-05 estable.', kind: 'core' },
             { shake: true },
             { flash: true },
             { wait: 2600 },
