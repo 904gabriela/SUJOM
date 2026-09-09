@@ -5,3 +5,5 @@ node_modules/
 # arte crudo de OpenArt: entra aqui, sale procesado a assets/
 art-crudo/*
 !art-crudo/LEEME.md
+__pycache__/
+*.pyc
