@@ -22,7 +22,28 @@ Luego:
 
     python3 tools/procesa_arte.py
 
-## 2. Videollamadas → `assets/characters/<personaje>/`
+## 2. Tarjetas de interfaz → `art-crudo/ui-<nombre>.png`
+
+Igual que los gestos, pero las procesa `tools/procesa_ui.py`:
+
+    ui-mensajes.png   ui-contactos.png  ui-album.png
+    ui-red.png        ui-notas.png      ui-archivos.png
+    ui-llamadas.png   ui-finales.png    ui-ajustes.png
+
+**Ojo con el color del croma.** El recorte borra el fondo midiendo cuánto
+tira a verde cada píxel, que es lo que le permite quitar el halo oscuro
+del borde y salvar los mechones de pelo. Con una tarjeta verde sobre
+croma verde se come el icono: probado, sale con el 0% del cuerpo opaco y
+el verde aplanado a gris.
+
+Así que **si la pieza es verde, pídela sobre croma AZUL** (`#0047FF`).
+El proceso detecta solo cuál de los dos es y cambia de método; con azul
+mide distancia al color del fondo. Llamadas es la primera que va así.
+
+Y que el fondo sea **plano**: un reflejo o un degradado bajo la tarjeta no
+se puede quitar, y la pieza sale medio transparente.
+
+## 3. Videollamadas → `assets/characters/<personaje>/`
 
 Estas **no se procesan**: no llevan croma, el fondo oscuro forma parte de
 la escena. Van directas, con este nombre exacto:
