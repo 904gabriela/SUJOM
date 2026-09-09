@@ -163,3 +163,17 @@ No merece la pena reintentarlo:
 - **Ojos azulados.** Giran al recolorear el pelo y salen verde oliva.
 - **Pieza verde sobre croma verde.** Se descarta a sí misma: 0% del
   cuerpo opaco. Esas van sobre azul `#0047FF`.
+
+---
+
+## Lo que de verdad manda el estilo
+
+**Los ojos, no la hoja de referencia.** Dos piezas con las mismas
+referencias salieron en estilos distintos, y lo único que cambiaba era
+cómo estaban descritos los ojos. `big eyes` da un borrón oscuro y cara
+de bebé; **ojo almendrado con el iris gris a la vista** da la cara
+limpia y algo adulta que es la buena. Es la línea del prompt que hay que
+cuidar; el resto se puede tocar sin miedo.
+
+Si un día hay que reproducir el estilo desde cero, el linaje es
+**IMG_8895**: de ahí salen las piezas aprobadas.

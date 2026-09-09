@@ -25,6 +25,7 @@ ellos. Nadie se sale del estilo porque el estilo es doble para todos.
 | Recorte de cabeza automático | ✅ busca el cuello, no se le dice dónde |
 | Se lee a 34 px | ✅ mejor que el pintado, formas más limpias |
 | Recolorear pelo y piel | ✅ 18 combinaciones de un dibujo |
+| **Cabeza suelta sobre ropa suelta** | ✅ probado con dos dibujos independientes |
 
 Y lo que **no** funcionó, para que nadie lo reintente:
 
@@ -34,6 +35,38 @@ Y lo que **no** funcionó, para que nadie lo reintente:
 - **La palabra "chibi" sola no basta**, y describir "cabeza grande,
   rasgos pequeños, ojos grandes" da un bebé: son las proporciones de una
   cara infantil.
+
+## Cómo se juntan las dos capas del jugador
+
+Esto era el riesgo del encargo: que una cabeza pedida en un dibujo y una
+prenda pedida en otro no encajasen. Ya está probado con las dos piezas
+sueltas, sin retocarlas a mano. Tres medidas y ya:
+
+- **El eje.** Las dos piezas salen centradas solas. Medido: la cabeza a
+  x=1024 y el jersey a x=1023, de 2048. Un píxel. No hay que alinear
+  nada a ojo, basta con centrar por el eje del hueco del cuello.
+- **La barbilla.** No se busca el cuello: en una pieza que es solo
+  cabeza no existe el estrechamiento, así que el buscador de cuello se
+  mete dentro del pelo. Se busca **la piel**: la fila más baja con más
+  de 40 px de piel es la barbilla. Salió y=1474 de 1821, o sea que por
+  debajo hay 347 px de pelo que caen sobre el jersey y tapan la unión.
+- **El hueco del cuello.** Se detecta solo: dentro de la prenda, los
+  píxeles con luminancia > 225. Salió una elipse de 416 × 147.
+
+La barbilla se apoya a media altura del hueco y el pelo hace el resto.
+No se ve la costura en ninguna de las nueve pruebas.
+
+**El tamaño** sale del reparto, no de mi criterio: en los stickers ya
+aprobados la cabeza pico está al 18–27% de la altura y el cuerpo al
+63–73%, con la cabeza entre el 0,8 y el 1,1 del ancho del cuerpo. Las
+tres pruebas van al 85, 95 y 105% del ancho de hombros.
+
+> **Aviso que afecta a la tienda.** Con el pelo medio o largo, la melena
+> tapa el cuello entero y **el escote no se ve**. Un cuello alto y una
+> camiseta de cuello redondo se ven iguales de peinado largo. Lo que sí
+> distingue a un conjunto de otro es el color, la manga y el cuerpo. Si
+> se quiere que el cuello alto se note, que sea de un color que no lleve
+> ningún otro conjunto.
 
 ## Por qué no hace falta el cuerpo entero
 
