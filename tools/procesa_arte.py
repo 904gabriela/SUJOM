@@ -119,12 +119,20 @@ def alinea(rgba, lado=LADO_BUSTO, ancho_cabeza=0.46, coronilla=0.10):
     return out
 
 
-def recorta_avatar(rgba, lado=LADO_AVATAR, holgura=1.5):
-    cx, cy, w = mide_cabeza(rgba)
-    caja = w * holgura
-    x0, y0 = int(cx - caja / 2), int(cy - caja * 0.10)
-    return rgba.crop((x0, y0, int(x0 + caja), int(y0 + caja))) \
-               .resize((lado, lado), Image.LANCZOS)
+def recorta_avatar(alineada, lado=LADO_AVATAR):
+    """Recorta de la pieza YA ALINEADA, con un cuadro fijo.
+
+    Medir la cabeza otra vez aqui no vale: en Ryu y Kenta el ancho es la
+    cabeza y en Lara y Reiko es la melena, asi que el mismo margen les
+    cortaba la barbilla a ellos. Sobre el lienzo alineado las cuatro estan
+    ya a la misma escala, y un cuadro fijo las coge enteras.
+    """
+    L = alineada.width
+    caja = int(L * 0.52)
+    x0 = (L - caja) // 2
+    y0 = int(L * 0.05)
+    return alineada.crop((x0, y0, x0 + caja, y0 + caja)) \
+                   .resize((lado, lado), Image.LANCZOS)
 
 
 # ------------------------------------------------------------------ curro
