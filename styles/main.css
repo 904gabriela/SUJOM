@@ -676,11 +676,18 @@ input,textarea,select{font:inherit;color:inherit}
 /* Elecciones */
 .choices{
   position:sticky;bottom:0;z-index:4;padding:14px 14px 16px;
-  background:linear-gradient(180deg,transparent,var(--bg) 24%);
+  /* El velo sube despacio: al 24% cortaba el cielo en una línea recta que
+     se veía a media pantalla. */
+  background:linear-gradient(180deg,transparent,var(--bg) 62%);
   display:flex;flex-direction:column;gap:9px;
 }
+/* Estas son TUS frases, y al elegir una se convierte en tu burbuja rosa
+   de la derecha. Así que se recuestan hacia tu lado y llevan la misma
+   esquina mordida que ella: lo que eliges y lo que dices tienen la misma
+   forma. */
 .choice{
-  width:100%;text-align:left;padding:14px 17px;border-radius:18px;
+  width:auto;margin-left:32px;text-align:left;padding:14px 17px;
+  border-radius:20px 20px 6px 20px;
   background:linear-gradient(135deg,var(--card-2),var(--card));
   border:1.5px solid var(--line);font-size:13.5px;line-height:1.45;
   transition:.18s var(--ease);animation:chIn .3s var(--ease-bounce) backwards;

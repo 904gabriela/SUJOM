@@ -71,12 +71,24 @@
 .stream{
   background:linear-gradient(180deg, rgba(8,10,14,.52), rgba(8,10,14,.70));
 }
+/* Arranca donde termina el velo del chat, no en transparente: si no, se
+   veía la costura como una raya recta a media pantalla. */
+.choices{
+  background:linear-gradient(180deg, rgba(8,10,14,.70), var(--bg) 62%);
+}
 
 /* Estas tres traían el magenta escrito a mano, así que no lo arreglaba
    cambiar la variable. */
 .composer .send{ box-shadow:0 4px 14px rgba(212,112,140,.32); }
+/* Un rosa muy bajo ya en reposo, para que se lean como tuyas antes de
+   tocarlas y no solo cuando pasas por encima. */
+.choice{
+  background:linear-gradient(135deg, rgba(212,112,140,.11), rgba(212,112,140,.03)), var(--card);
+  border-color:rgba(212,112,140,.24);
+}
 .choice:hover{
-  background:linear-gradient(135deg, rgba(212,112,140,.22), var(--card-2));
+  background:linear-gradient(135deg, rgba(212,112,140,.26), rgba(212,112,140,.08)), var(--card);
+  border-color:rgba(212,112,140,.55);
   box-shadow:0 6px 18px rgba(212,112,140,.18);
 }
 .daybreak{
