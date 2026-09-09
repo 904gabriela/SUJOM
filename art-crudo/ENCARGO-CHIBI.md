@@ -58,8 +58,13 @@ No se ve la costura en ninguna de las nueve pruebas.
 
 **El tamaño** sale del reparto, no de mi criterio: en los stickers ya
 aprobados la cabeza pico está al 18–27% de la altura y el cuerpo al
-63–73%, con la cabeza entre el 0,8 y el 1,1 del ancho del cuerpo. Las
-tres pruebas van al 85, 95 y 105% del ancho de hombros.
+63–73%, con la cabeza entre el 0,8 y el 1,1 del ancho del cuerpo. Se
+probaron el 85, el 95 y el 105%.
+
+    ELEGIDO: 105% del ancho de hombros.
+
+Es un número del código, no del encargo: mueve las 27 piezas del jugador
+a la vez y se puede cambiar sin volver a pedir nada.
 
 > **Aviso que afecta a la tienda.** Con el pelo medio o largo, la melena
 > tapa el cuello entero y **el escote no se ve**. Un cuello alto y una

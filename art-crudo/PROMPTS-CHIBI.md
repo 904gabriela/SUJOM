@@ -105,7 +105,8 @@ Referencias: `IMG_9137` y `IMG_9138`. Cuadrado, 2K.
 
 **[PEINADO]**
 
-- `short and a little messy, cropped above the ears`
+- `short and a little messy, ending just below the ears, with a full
+  fringe covering the whole forehead down to the eyebrows`
 - `medium length, falling to the jaw, tucked behind one ear`
 - `long and straight, falling past the shoulders`
 - `gathered up in a loose bun with a few strands escaping`
@@ -165,6 +166,32 @@ No merece la pena reintentarlo:
   cuerpo opaco. Esas van sobre azul `#0047FF`.
 
 ---
+
+## El pelo tiene que dominar
+
+Segunda cosa que manda el estilo, y se puede medir. En este dibujo el
+cráneo es grande y la cara va pequeña y baja dentro de él. Si el
+flequillo deja la frente al aire, el modelo rellena el hueco con una
+cara de proporciones reales y sale un adulto, no un chibi.
+
+Medido sobre el área opaca de la pieza:
+
+| | piel | pelo |
+|---|---|---|
+| aprobada | 31% | 56% |
+| salieron bien | 35–39% | 51–60% |
+| salieron adultas | 46–50% | 42–44% |
+
+    FILTRO: se acepta con piel <= 40% y pelo >= 50%.
+
+Por eso todos los prompts de cabeza llevan esta línea, y por eso
+`corto` no dice "cropped above the ears", que fue lo que lo rompió:
+
+> THE HAIR MUST DOMINATE THE SILHOUETTE. In this style the cranium is
+> large and the face is small and sits low inside it. The hair covers
+> the whole forehead and the top and sides of the head as one big soft
+> mass. If the forehead is bare and the face fills most of the head,
+> it is wrong.
 
 ## Lo que de verdad manda el estilo
 
