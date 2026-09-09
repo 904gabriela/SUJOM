@@ -93,12 +93,15 @@ export function portrait(charId, expr = 'neutral') {
    Retrato "real" — sólo la videollamada.
    Aquí la persona pulida de la app se cae y debajo hay
    alguien agotado. Si tienes arte propio para este momento,
-   declara `art.real`.
+   declara `art.real`, sea una ruta o `{ relief, scared }`.
    --------------------------------------------------------- */
 export function realFace(charId, mood = 'tired') {
   const c = CHARS[charId];
   if (!c) return '';
-  const url = c.art?.real;
+  // `real` puede ser una ruta suelta o un objeto por humor: la llamada del
+  // final bueno y la del malo son la misma persona en dos sitios distintos.
+  const real = c.art?.real;
+  const url = typeof real === 'string' ? real : real?.[mood] || real?.tired;
   const svg = genReal(c, mood);
   return probe(url) && url ? imgTag(url, c.name, svg) : svg;
 }
