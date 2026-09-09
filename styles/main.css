@@ -420,52 +420,60 @@ input,textarea,select{font:inherit;color:inherit}
   background:var(--ok);border:2.5px solid var(--bg);
 }
 
-/* Rejilla de apps */
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;padding:0 18px}
-.tile{
-  position:relative;aspect-ratio:1/.94;border-radius:22px;
-  background:linear-gradient(155deg,var(--card-2),var(--card));
-  border:1px solid var(--line-soft);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;
-  transition:.2s var(--ease);overflow:hidden;
+/* =========================================================
+   Órbita de apps
+   ---------------------------------------------------------
+   El chat es el centro de la pantalla, no una app más: es la
+   única pregunta que el jugador viene a contestar. Las demás
+   lo rodean en una elipse, no en una rejilla.
+
+   Las posiciones las calcula hub.js y las escribe en `left` y
+   `top`, porque dependen de cuántas apps haya desbloqueadas
+   en ese momento. Aquí sólo va el aspecto.
+   ========================================================= */
+.orbita{position:relative;margin:2px 0 0}
+.nucleo{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:2px dashed color-mix(in srgb,var(--oro,#e8bc94) 55%, transparent);
+  background:radial-gradient(circle,rgba(12,15,21,.85),rgba(12,15,21,.30));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  cursor:pointer;transition:.2s var(--ease);
 }
-.tile::before{
-  content:'';position:absolute;inset:0;opacity:.14;transition:opacity .2s;
-  background:radial-gradient(80% 60% at 50% 0%,var(--tint,var(--pink)),transparent 70%);
+.nucleo:hover{transform:translate(-50%,-50%) scale(1.04)}
+/* El 58% deja aire entre la lámina y el círculo punteado. Con más, el
+   borde se pega al icono y el rótulo se sale por abajo. */
+.nucleo img{width:58%;height:auto;display:block;filter:drop-shadow(0 7px 16px rgba(0,0,0,.55))}
+.nucleo svg{width:40%;height:40%;color:var(--ink)}
+.nucleo b{
+  color:var(--ink);font-size:12px;letter-spacing:.2em;font-weight:800;
+  text-transform:uppercase;text-shadow:0 2px 10px #000;
 }
-.tile:hover{transform:translateY(-3px);border-color:var(--tint,var(--pink));box-shadow:var(--shadow)}
-.tile:hover::before{opacity:.3}
-.tile .glyph{
-  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
-  background:linear-gradient(145deg,var(--tint,var(--pink)),color-mix(in srgb,var(--tint,var(--pink)) 55%, #000));
-  color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.35);
+.nucleo .n{
+  position:absolute;top:9%;right:9%;min-width:22px;height:22px;padding:0 6px;
+  border-radius:99px;background:var(--pink);color:#fff;font-size:11px;font-weight:800;
+  display:grid;place-items:center;box-shadow:0 0 0 2.5px var(--bg-deep,#07090c);
 }
-.tile .glyph svg{width:22px;height:22px}
-/* Con lámina pintada la pieza ES el icono: fuera la tarjeta y el badge
-   de degradado, que si no se ven dos cuadrados redondeados uno dentro
-   de otro. Queda icono + rótulo, como una pantalla de inicio. */
-.tile.pintada{background:none;border-color:transparent;gap:8px}
-.tile.pintada::before{display:none}
-.tile.pintada:hover{border-color:transparent;box-shadow:none}
-.tile.pintada .glyph{
-  width:60px;height:60px;background:none;box-shadow:none;border-radius:0;
-  filter:drop-shadow(0 6px 14px rgba(0,0,0,.42));
+.orb{
+  position:absolute;transform:translate(-50%,-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  background:none;border:0;padding:0;cursor:pointer;transition:.2s var(--ease);
 }
-.tile.pintada .glyph .lamina{width:100%;height:100%;display:block}
-.tile.pintada .n{box-shadow:0 0 0 2.5px rgba(0,0,0,.45)}
-/* Sin tarjeta detrás, el atenuado de bloqueo se las comía contra el cielo. */
-.tile.pintada.locked{opacity:.5;filter:grayscale(.45)}
-.tile .lbl{
-  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  font-weight:800;color:var(--ink-2);
+.orb:hover{transform:translate(-50%,-50%) translateY(-3px)}
+.orb .glyph{position:relative;display:block;filter:drop-shadow(0 6px 15px rgba(0,0,0,.48))}
+.orb .glyph img{width:100%;height:100%;display:block}
+.orb .glyph svg{width:52%;height:52%;position:absolute;inset:0;margin:auto;color:var(--ink)}
+.orb .lbl{
+  font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;
+  color:var(--ink-2);text-shadow:0 1px 6px #000;white-space:nowrap;
 }
-.tile.locked{opacity:.34;pointer-events:none;filter:grayscale(.6)}
-.tile .n{
-  position:absolute;top:9px;right:9px;min-width:20px;height:20px;padding:0 6px;
+.orb .n{
+  position:absolute;top:-7px;right:-7px;min-width:20px;height:20px;padding:0 6px;
   border-radius:99px;background:var(--pink);color:#fff;font-size:10.5px;font-weight:800;
-  display:grid;place-items:center;box-shadow:0 0 0 2.5px var(--card);
+  display:grid;place-items:center;box-shadow:0 0 0 2.5px var(--bg-deep,#07090c);
 }
-.tile .lockic{position:absolute;top:9px;right:10px;font-size:11px;opacity:.6}
+.orb .lockic{position:absolute;top:-4px;right:-4px;font-size:11px;opacity:.7}
+/* Sin tarjeta detrás, el atenuado de siempre se las comía contra el cielo. */
+.orb.locked{opacity:.5;pointer-events:none;filter:grayscale(.45)}
 
 /* Vínculos */
 .bonds{padding:0 18px}

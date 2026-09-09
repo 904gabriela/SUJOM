@@ -60,7 +60,7 @@ export function home() {
       </div>
       <div id="notice"></div>
       <div class="strip" id="strip"></div>
-      <div class="grid" id="grid"></div>
+      <div class="orbita" id="grid"></div>
       <div class="bonds"><div class="bond-card"><h3>Tus vínculos</h3><div id="bonds"></div></div></div>
     </div>`);
 
@@ -115,7 +115,7 @@ export function home() {
   me.addEventListener('click', () => { sfx.tap(); go('settings'); });
   strip.appendChild(me);
 
-  /* ---------- rejilla de aplicaciones ---------- */
+  /* ---------- órbita de aplicaciones ---------- */
   const grid = node.querySelector('#grid');
   const sysNew = story.unreadCount('system');
   const dmNew = Object.values(perChar).reduce((a, b) => a + b, 0) + story.unreadCount('group');
@@ -135,25 +135,45 @@ export function home() {
   ];
   if (sysNew) tiles.splice(6, 0, { label: 'Sistema', ico: 'core', tint: '#5fd8ff', n: sysNew, to: 'system' });
 
-  tiles.forEach((t) => {
-    const tile = h(`
-      <button class="tile ${t.locked ? 'locked' : ''} ${t.arte ? 'pintada' : ''}" style="--tint:${t.tint}">
-        ${t.n ? `<span class="n">${t.n}</span>` : ''}
-        ${t.locked ? '<span class="lockic">🔒</span>' : ''}
-        <span class="glyph">${t.arte
-          ? `<img class="lamina" src="assets/ui/${t.arte}.png" alt="">`
-          : icon(t.ico)}</span>
+  /* Mensajes es el núcleo, las demás lo rodean. Los ángulos se reparten
+     entre las que haya, así que si entra Sistema la elipse se recoloca
+     sola en vez de dejar un hueco. */
+  const nucleo = tiles.shift();
+  const CAJA = 430;                 // ancho de referencia del aparato
+  const RX = 152, RY = 205;         // radios de la elipse
+  const AIRE = 56;                  // media altura de un icono con su rótulo
+  const CX = CAJA / 2, CY = RY + AIRE;
+  grid.style.height = `${(RY + AIRE) * 2}px`;
+
+  // 196 de diámetro: el radio (98) deja doce píxeles libres hasta el borde
+  // interior de las órbitas, que están a 152 - 42.
+  const centro = h(`
+    <button class="nucleo" style="width:196px;height:196px">
+      ${nucleo.n ? `<span class="n">${nucleo.n}</span>` : ''}
+      ${nucleo.arte ? `<img src="assets/ui/${nucleo.arte}.png" alt="">` : icon(nucleo.ico)}
+      <b>${nucleo.label}</b>
+    </button>`);
+  centro.addEventListener('click', () => { sfx.open(); go(nucleo.to); });
+  grid.appendChild(centro);
+
+  tiles.forEach((t, i) => {
+    const a = -Math.PI / 2 + (i * 2 * Math.PI) / tiles.length;
+    const x = CX + RX * Math.cos(a);
+    const y = CY + RY * Math.sin(a);
+    const orb = h(`
+      <button class="orb ${t.locked ? 'locked' : ''}" style="left:${x}px;top:${y}px">
+        <span class="glyph" style="width:84px;height:84px">
+          ${t.arte ? `<img src="assets/ui/${t.arte}.png" alt="">` : icon(t.ico)}
+          ${t.n ? `<span class="n">${t.n}</span>` : ''}
+          ${t.locked ? '<span class="lockic">🔒</span>' : ''}
+        </span>
         <span class="lbl">${t.label}</span>
       </button>`);
-    const lamina = tile.querySelector('.lamina');
-    if (lamina) {
-      lamina.addEventListener('error', () => {
-        tile.classList.remove('pintada');
-        tile.querySelector('.glyph').innerHTML = icon(t.ico);
-      });
-    }
-    if (!t.locked) tile.addEventListener('click', () => { sfx.open(); go(t.to); });
-    grid.appendChild(tile);
+    const lamina = orb.querySelector('img');
+    // Si falta la lámina se vuelve al icono generado: nunca un hueco.
+    if (lamina) lamina.addEventListener('error', () => lamina.replaceWith(h(icon(t.ico))));
+    if (!t.locked) orb.addEventListener('click', () => { sfx.open(); go(t.to); });
+    grid.appendChild(orb);
   });
 
   /* ---------- vínculos ---------- */
