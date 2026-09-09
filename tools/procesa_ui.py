@@ -25,10 +25,11 @@ DESTINO = os.path.join(RAIZ, 'assets', 'ui')
 LADO = 256
 
 # Cuanto se rebaja el color de una pieza, 1.0 = tal cual salio del pincel.
-# Llamadas y album volvieron con el doble de saturacion que las demas
-# (77% y 54% frente al 7-38% del resto) y se comian la rejilla. Se ajustan
-# aqui y no en el archivo de origen, para que el arte crudo siga intacto.
-AJUSTES = {'llamadas': 0.52, 'album': 0.74}
+# Album volvio con el 54% de saturacion frente al 7-38% del resto y se comia
+# la rejilla. Se ajusta aqui y no en el archivo de origen, para que el arte
+# crudo siga intacto. Llamadas estuvo aqui hasta que se repinto: la nueva ya
+# viene apagada de serie y volver a rebajarla la dejaba en gris muerto.
+AJUSTES = {'album': 0.74}
 
 # Grados que se gira el tono de cada pieza.
 #
@@ -40,15 +41,20 @@ AJUSTES = {'llamadas': 0.52, 'album': 0.74}
 # Aqui se reparten con 25 grados de separacion como minimo. Mensajes no se
 # toca porque es el nucleo de la pantalla, y archivos casi tampoco porque
 # su arena es el neutro de la piel.
-# Solo caben giros cortos. Probados los seis, los de mas de 60 grados
-# rompian la pieza: llamadas acababa en verde menta, o sea volvia a ser la
-# que grita, y a ajustes el marco dorado se le ponia rosa porque a ese
-# tono la mascara ya no lo distingue del cuerpo. Los que colisionan de
-# verdad se repintan, no se giran.
+# El giro no sirve para todo. Lo que decide no es cuantos grados, sino de
+# donde sale la pieza: girar 96 grados finales, que es apagada, la dejo
+# perfecta, pero girar 135 llamadas, que estaba saturada, la convirtio en
+# verde menta, o sea en la que volvia a gritar. Y girar el rosa de ajustes
+# le puso el marco dorado rosa, porque a ese tono la mascara ya no lo
+# distingue del cuerpo.
+#
+# O sea: gira bien lo que ya esta apagado y lejos del dorado. Lo demas se
+# repinta. Llamadas y ajustes se repintaron por eso.
 GIRO = {
     'album': +15,        #  20 ->  32, de rosa polvoriento a arena dorada
     'finales': -96,      # 346 -> 251, de ciruela a indigo
     'contactos': -15,    # 335 -> 325, malva, un retoque
+    'ajustes': +40,      # 247 -> 291, de indigo a violeta
 }
 # El marco dorado interior lo comparten las nueve, asi que girarlo con el
 # resto rompe la familia. Se deja quieto todo lo que sea claro y calido,
