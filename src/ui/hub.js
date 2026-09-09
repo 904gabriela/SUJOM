@@ -123,18 +123,27 @@ export function home() {
 
   // `arte` apunta a la lámina pintada; si falta el archivo se cae al icono
   // generado, así que la rejilla nunca se queda con un hueco.
+  //
+  // El orden ES la posición en la elipse, y en un anillo no hay lectura de
+  // arriba abajo que respetar: lo que importa es que dos vecinas no se
+  // confundan. Este reparto sale de probar las 2.520 ordenaciones y
+  // quedarse con la que deja más distancia perceptual (ΔE en Lab) entre la
+  // pareja más justa. Sube de 10 a 29, casi el triple. Si algún día
+  // cambia el color de una lámina, hay que volver a echar la cuenta.
   const tiles = [
     { label: 'Mensajes', ico: 'chat', arte: 'mensajes', tint: '#ff4d94', n: dmNew, to: 'inbox' },
     { label: 'Contactos', ico: 'people', arte: 'contactos', tint: '#a78bfa', to: 'contacts' },
     { label: 'Álbum', ico: 'gallery', arte: 'album', tint: '#ff8a5c', to: 'album' },
-    { label: 'Red', ico: 'globe', arte: 'red', tint: '#7fd8e8', to: 'browser', locked: !S.pages.length },
     { label: 'Notas', ico: 'notes', arte: 'notas', tint: '#ffd166', to: 'notes', locked: !S.notes.length },
-    { label: 'Archivos', ico: 'files', arte: 'archivos', tint: '#7fd88f', to: 'files', locked: !FILES.some((f) => meets(f.requires)) },
     { label: 'Llamadas', ico: 'phone', arte: 'llamadas', tint: '#5fd8ff', to: 'calls' },
     { label: 'Finales', ico: 'end', arte: 'finales', tint: '#ff87bd', to: 'endings', locked: !Object.keys(S.endings).length },
-    { label: 'Ajustes', ico: 'gear', arte: 'ajustes', tint: '#9c82b8', to: 'settings' }
+    { label: 'Red', ico: 'globe', arte: 'red', tint: '#7fd8e8', to: 'browser', locked: !S.pages.length },
+    { label: 'Ajustes', ico: 'gear', arte: 'ajustes', tint: '#9c82b8', to: 'settings' },
+    { label: 'Archivos', ico: 'files', arte: 'archivos', tint: '#7fd88f', to: 'files', locked: !FILES.some((f) => meets(f.requires)) }
   ];
-  if (sysNew) tiles.splice(6, 0, { label: 'Sistema', ico: 'core', tint: '#5fd8ff', n: sysNew, to: 'system' });
+  // Sistema va al final: no lleva lámina pintada, así que no entra en la
+  // cuenta de arriba, y aparece pocas veces.
+  if (sysNew) tiles.push({ label: 'Sistema', ico: 'core', tint: '#5fd8ff', n: sysNew, to: 'system' });
 
   /* Mensajes es el núcleo, las demás lo rodean. Los ángulos se reparten
      entre las que haya, así que si entra Sistema la elipse se recoloca
