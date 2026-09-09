@@ -36,9 +36,24 @@ export const CHARS = {
     /* --- arte --- */
     hair: '#1c1a26', hairStyle: 'ryu', eyes: '#8fc7d4', skin: '#f2d3b6',
     clothes: '#232a38', acc: 'cross', blush: '#e8798f',
-    // art: { avatar:'assets/characters/ryu/avatar.png',
-    //        portrait:'assets/characters/ryu/portrait.png',
-    //        real:'assets/characters/ryu/real.png' },
+    art: {
+      avatar:   'assets/characters/ryu/avatar.png',
+      portrait: 'assets/characters/ryu/portrait.png',
+      expressions: {
+        neutral:     'assets/characters/ryu/neutral.png',
+        happy:       'assets/characters/ryu/happy.png',
+        smug:        'assets/characters/ryu/happy.png',
+        shy:         'assets/characters/ryu/shy.png',
+        embarrassed: 'assets/characters/ryu/shy.png',
+        angry:       'assets/characters/ryu/angry.png',
+        sad:         'assets/characters/ryu/sad.png',
+        vulnerable:  'assets/characters/ryu/sad.png',
+        worried:     'assets/characters/ryu/sad.png',
+        shocked:     'assets/characters/ryu/shocked.png',
+        tired:       'assets/characters/ryu/neutral.png',
+        sleep:       'assets/characters/ryu/neutral.png'
+      }
+    },
 
     /* --- cómo describe la app vuestra relación --- */
     stages: [
@@ -81,7 +96,24 @@ export const CHARS = {
 
     hair: '#e9e4ef', hairStyle: 'kenta', streak: '#ffb37a', eyes: '#ff9a5e', skin: '#f4cfae',
     clothes: '#2b2233', acc: 'choker', blush: '#ff7a5e',
-    // art: { avatar:'assets/characters/kenta/avatar.png', ... },
+    art: {
+      avatar:   'assets/characters/kenta/avatar.png',
+      portrait: 'assets/characters/kenta/portrait.png',
+      expressions: {
+        neutral:     'assets/characters/kenta/neutral.png',
+        happy:       'assets/characters/kenta/happy.png',
+        smug:        'assets/characters/kenta/happy.png',
+        shy:         'assets/characters/kenta/shy.png',
+        embarrassed: 'assets/characters/kenta/shy.png',
+        angry:       'assets/characters/kenta/angry.png',
+        sad:         'assets/characters/kenta/sad.png',
+        vulnerable:  'assets/characters/kenta/sad.png',
+        worried:     'assets/characters/kenta/sad.png',
+        shocked:     'assets/characters/kenta/shocked.png',
+        tired:       'assets/characters/kenta/neutral.png',
+        sleep:       'assets/characters/kenta/neutral.png'
+      }
+    },
 
     stages: [
       'Te ha escrito para picarte. Es su forma de saludar.',
@@ -124,7 +156,24 @@ export const CHARS = {
 
     hair: '#f2dca4', hairStyle: 'lara', eyes: '#7fd88f', skin: '#f8dcc6',
     clothes: '#2a2233', acc: 'bow', blush: '#ff6f9e',
-    // art: { avatar:'assets/characters/lara/avatar.png', ... },
+    art: {
+      avatar:   'assets/characters/lara/avatar.png',
+      portrait: 'assets/characters/lara/portrait.png',
+      expressions: {
+        neutral:     'assets/characters/lara/neutral.png',
+        happy:       'assets/characters/lara/happy.png',
+        smug:        'assets/characters/lara/happy.png',
+        shy:         'assets/characters/lara/shy.png',
+        embarrassed: 'assets/characters/lara/shy.png',
+        angry:       'assets/characters/lara/angry.png',
+        sad:         'assets/characters/lara/sad.png',
+        vulnerable:  'assets/characters/lara/sad.png',
+        worried:     'assets/characters/lara/sad.png',
+        shocked:     'assets/characters/lara/shocked.png',
+        tired:       'assets/characters/lara/neutral.png',
+        sleep:       'assets/characters/lara/neutral.png'
+      }
+    },
 
     stages: [
       'Te ha dado la bienvenida ella sola.',
@@ -165,7 +214,24 @@ export const CHARS = {
 
     hair: '#ece8f5', hairStyle: 'reiko', eyes: '#c7a4ff', skin: '#f3d8c8',
     clothes: '#241d3d', acc: 'earrings', blush: '#d986b4',
-    // art: { avatar:'assets/characters/reiko/avatar.png', ... },
+    art: {
+      avatar:   'assets/characters/reiko/avatar.png',
+      portrait: 'assets/characters/reiko/portrait.png',
+      expressions: {
+        neutral:     'assets/characters/reiko/neutral.png',
+        happy:       'assets/characters/reiko/happy.png',
+        smug:        'assets/characters/reiko/happy.png',
+        shy:         'assets/characters/reiko/shy.png',
+        embarrassed: 'assets/characters/reiko/shy.png',
+        angry:       'assets/characters/reiko/angry.png',
+        sad:         'assets/characters/reiko/sad.png',
+        vulnerable:  'assets/characters/reiko/sad.png',
+        worried:     'assets/characters/reiko/sad.png',
+        shocked:     'assets/characters/reiko/shocked.png',
+        tired:       'assets/characters/reiko/neutral.png',
+        sleep:       'assets/characters/reiko/neutral.png'
+      }
+    },
 
     stages: [
       'Te trata de usted sin darse cuenta.',
