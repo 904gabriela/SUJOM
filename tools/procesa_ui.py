@@ -30,6 +30,31 @@ LADO = 256
 # aqui y no en el archivo de origen, para que el arte crudo siga intacto.
 AJUSTES = {'llamadas': 0.52, 'album': 0.74}
 
+# Grados que se gira el tono de cada pieza.
+#
+# Las nueve volvieron amontonadas en dos sitios de la rueda: mensajes,
+# llamadas y album entre 2 y 20 grados, y contactos, ajustes y finales
+# entre 335 y 347. No es que se parecieran de tono: coincidian tambien en
+# luz y en saturacion, o sea en los tres ejes a la vez.
+#
+# Aqui se reparten con 25 grados de separacion como minimo. Mensajes no se
+# toca porque es el nucleo de la pantalla, y archivos casi tampoco porque
+# su arena es el neutro de la piel.
+# Solo caben giros cortos. Probados los seis, los de mas de 60 grados
+# rompian la pieza: llamadas acababa en verde menta, o sea volvia a ser la
+# que grita, y a ajustes el marco dorado se le ponia rosa porque a ese
+# tono la mascara ya no lo distingue del cuerpo. Los que colisionan de
+# verdad se repintan, no se giran.
+GIRO = {
+    'album': +15,        #  20 ->  32, de rosa polvoriento a arena dorada
+    'finales': -96,      # 346 -> 251, de ciruela a indigo
+    'contactos': -15,    # 335 -> 325, malva, un retoque
+}
+# El marco dorado interior lo comparten las nueve, asi que girarlo con el
+# resto rompe la familia. Se deja quieto todo lo que sea claro y calido,
+# que es justo el marco y el brillo del icono.
+TONO_MARCO, ANCHO_MARCO, LUZ_MARCO = 38.0, 34.0, 0.72
+
 
 def rebaja_color(rgba, factor):
     """Acerca los colores a su gris sin tocar el brillo ni el alfa."""
@@ -37,6 +62,50 @@ def rebaja_color(rgba, factor):
     rgb = a[..., :3]
     gris = rgb @ np.array([0.299, 0.587, 0.114], np.float32)
     a[..., :3] = gris[..., None] + (rgb - gris[..., None]) * factor
+    return Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGBA')
+
+
+def _rgb_hsv(rgb):
+    """RGB 0-1 a HSV 0-1, vectorizado."""
+    mx, mn = rgb.max(-1), rgb.min(-1)
+    dif = mx - mn
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    h = np.zeros_like(mx)
+    seguro = np.where(dif == 0, 1, dif)
+    h = np.where(mx == r, ((g - b) / seguro) % 6, h)
+    h = np.where(mx == g, (b - r) / seguro + 2, h)
+    h = np.where(mx == b, (r - g) / seguro + 4, h)
+    h = np.where(dif == 0, 0, h / 6.0)
+    return np.dstack([h, np.where(mx == 0, 0, dif / np.where(mx == 0, 1, mx)), mx])
+
+
+def _hsv_rgb(hsv):
+    h, s, v = hsv[..., 0] * 6.0, hsv[..., 1], hsv[..., 2]
+    i = np.floor(h).astype(int) % 6
+    f = h - np.floor(h)
+    p, q, t = v * (1 - s), v * (1 - s * f), v * (1 - s * (1 - f))
+    salida = np.choose(i[..., None], [
+        np.dstack([v, t, p]), np.dstack([q, v, p]), np.dstack([p, v, t]),
+        np.dstack([p, q, v]), np.dstack([t, p, v]), np.dstack([v, p, q]),
+    ])
+    return salida
+
+
+def gira_tono(rgba, grados):
+    """Gira el tono de la pieza dejando quieto el marco dorado.
+
+    El peso cae a cero segun un pixel se acerca al dorado (tono 38, claro):
+    asi el cuerpo de la tarjeta cambia de color y el marco no.
+    """
+    a = np.asarray(rgba).astype(np.float32)
+    hsv = _rgb_hsv(a[..., :3] / 255.0)
+    tono = hsv[..., 0] * 360.0
+    d = np.abs(tono - TONO_MARCO)
+    d = np.minimum(d, 360 - d)
+    es_marco = np.clip(1 - d / ANCHO_MARCO, 0, 1) * np.clip(
+        (hsv[..., 2] - LUZ_MARCO) / (1 - LUZ_MARCO), 0, 1)
+    hsv[..., 0] = (hsv[..., 0] + (grados / 360.0) * (1 - es_marco)) % 1.0
+    a[..., :3] = _hsv_rgb(hsv) * 255.0
     return Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGBA')
 
 
@@ -70,10 +139,16 @@ def main():
         pieza = recorta_ajustado(quita_fondo(os.path.join(CRUDO, f)))
         if nombre in AJUSTES:
             pieza = rebaja_color(pieza, AJUSTES[nombre])
+        if nombre in GIRO:
+            pieza = gira_tono(pieza, GIRO[nombre])
         pieza.resize((LADO, LADO), Image.LANCZOS).save(
             os.path.join(DESTINO, f'{nombre}.png'))
-        print(f'  ui/{nombre}.png' + (
-            f'  (color al {AJUSTES[nombre]:.0%})' if nombre in AJUSTES else ''))
+        notas = []
+        if nombre in AJUSTES:
+            notas.append(f'color al {AJUSTES[nombre]:.0%}')
+        if nombre in GIRO:
+            notas.append(f'tono {GIRO[nombre]:+d}°')
+        print(f'  ui/{nombre}.png' + (f'  ({", ".join(notas)})' if notas else ''))
         n += 1
     print(f'\n{n} piezas de interfaz')
 
