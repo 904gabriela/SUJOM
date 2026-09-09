@@ -3,8 +3,10 @@ node_modules/
 *.log
 
 # arte crudo de OpenArt: entra aqui, sale procesado a assets/
+# El arte crudo no entra al repo: entra aquí y sale procesado a assets/.
+# Lo escrito sí, que es lo que explica cómo pedirlo.
 art-crudo/*
-!art-crudo/LEEME.md
+!art-crudo/*.md
 __pycache__/
 *.pyc
 
