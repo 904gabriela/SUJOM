@@ -1,133 +1,118 @@
-# Encargo: el avatar del jugador
+# Encargo: los chibis
 
-## Para qué es
+> Esta hoja se reescribió entera después de probarla. La primera versión
+> pedía cabeza y hombros pintados al estilo del reparto, y estaba mal en
+> casi todo. Lo que hay aquí es lo que funcionó, con las pruebas.
 
-Es tu foto de perfil dentro de ASSIST. Sale en cuatro sitios y en todos
-es un círculo pequeño:
+## La idea
 
-| Dónde | Tamaño |
+Cada personaje tiene **dos registros**:
+
+- **Su diseño original**, pintado, para cuando está de verdad presente:
+  el perfil, la galería, las videollamadas. Ya existe.
+- **Su versión chibi**, para el chat: el avatar del círculo y los
+  stickers que manda.
+
+El jugador vive en el mismo mundo: su avatar es un chibi como el de
+ellos. Nadie se sale del estilo porque el estilo es doble para todos.
+
+## Lo que ya está probado
+
+| | Resultado |
 |---|---|
-| Al lado de tus mensajes en el chat | 34 px |
-| En la lista de conversaciones | 50 px |
-| En la fila de contactos del inicio | 60 px |
-| En Ajustes, al editarlo | grande |
+| El chibi conserva la identidad | ✅ Ryu se reconoce al instante |
+| Croma fuera y línea blanca intacta | ✅ alfa 0 fuera, 28% opaco |
+| Recorte de cabeza automático | ✅ busca el cuello, no se le dice dónde |
+| Se lee a 34 px | ✅ mejor que el pintado, formas más limpias |
+| Recolorear pelo y piel | ✅ 18 combinaciones de un dibujo |
 
-Eso manda sobre todo lo demás. **A 34 px no se ve un cuerpo, se ve una
-cara.** Así que no encargamos un muñeco entero: encargamos **cabeza y
-hombros**, encuadrado como una foto de perfil.
+Y lo que **no** funcionó, para que nadie lo reintente:
 
-Esa decisión es la que hace que el encargo quepa en tu presupuesto, y
-aquí está la cuenta.
+- **Cuerpo entero: dos intentos, dos fracasos.** Salían adultos en
+  miniatura; al pedir cuerpo redondo salieron achaparrados y perdieron
+  la cara. El sticket de busto salió bien a la primera.
+- **La palabra "chibi" sola no basta**, y describir "cabeza grande,
+  rasgos pequeños, ojos grandes" da un bebé: son las proporciones de una
+  cara infantil.
 
-## Por qué no se pueden pedir los muñecos enteros
+## Por qué no hace falta el cuerpo entero
 
-Si cada combinación fuera un dibujo:
+El avatar sale en círculos de 34, 50 y 60 px, y en el vestidor. **Los
+pantalones y los zapatos no se ven en ninguna pantalla del juego.** En un
+busto se ve todo lo que de verdad se cambia: pelo, piel, camiseta,
+sudadera, cuello alto, chaqueta, pendientes, gafas.
 
-    3 lecturas × 4 peinados × 3 pieles × 5 colores de pelo × 5 conjuntos
-    = 900 dibujos ≈ 18.000 créditos
+## El pedido: 51 piezas
 
-No cabe: tienes unos 8.000.
+### Reparto — 24 stickers, una pieza cada uno
 
-Partiéndolo en dos capas y dejando el color al código:
+Los personajes no cambian de ropa, así que van enteros: cara, manos y
+marca de emoción en el mismo dibujo.
 
-    12 cabezas + 15 hombros = 27 dibujos ≈ 600 créditos
-    → las mismas 900 combinaciones
+Seis estados por personaje, que son **los que el motor ya maneja** y las
+mismas seis expresiones que ya pintaste:
 
-**27 piezas dan 900 aspectos distintos.** Ese es el encargo.
+    <pj>-neutral    sin marca
+    <pj>-contento   corazón o nota
+    <pj>-timido     gota de sudor, rubor fuerte
+    <pj>-enfadado   la cruz roja de enfado
+    <pj>-triste     lágrima
+    <pj>-sorpresa   interrogación o rayas de sorpresa
 
-## Las dos capas
+Para `ryu`, `kenta`, `lara`, `reiko`. **El avatar del chat de cada uno
+sale de recortarle la cabeza al neutral**, no se encarga aparte.
 
-1. **Hombros y ropa** — abajo. Solo se ve el cuello y un poco de pecho.
-2. **Cabeza y pelo** — encima. Tapa la parte de arriba del cuello.
+La marca de emoción no es adorno: a 120 px en un chat, **lo que se lee es
+la marca**, no la cara. Por eso la llevan todos los sets de referencia.
 
-Se pueden dibujar por separado sin que se descuadren porque la cabeza
-solapa siempre el borde de arriba de la ropa, y porque el proceso vuelve
-a alinear cada pieza midiendo dónde está la coronilla y qué ancho tiene
-la cabeza. Ese código ya existe: es el mismo que alineó las láminas de
-Ryu, Kenta, Lara y Reiko.
+### Jugador — 27 piezas, en dos capas
 
-## El color lo pongo yo
+Aquí sí hay que cambiar de ropa, así que va partido:
 
-La piel y el color del pelo **no se encargan**. Se generan en el proceso
-a partir de una pieza pintada en un color de referencia.
+**Cabezas (12)** — `chibi-cabeza-<lectura>-<peinado>.png`
 
-Esto es lo delicado del encargo y ya nos ha mordido una vez hoy: girarle
-el tono a una pieza falla cuando está muy apagada, o cuando dos cosas de
-la imagen comparten tono y la máscara no sabe cuál es cuál. Por eso el
-encargo pide **el pelo en un azul violáceo medio**: es lo más lejos
-posible de la piel en la rueda del color, así que separar pelo de cara
-es trivial y ninguno de los dos fallos puede darse.
+Lecturas: `fem`, `masc`, `neutro`. Peinados: `corto`, `medio`, `largo`,
+`recogido`.
 
-Es feo de mirar suelto. Da igual: nunca se verá así, el código siempre le
-pone un color encima.
+Cortadas **recto por debajo de la barbilla**, sin cuello ni hombros.
 
-**Antes de encargar las 27, encarga UNA** (la primera de la lista) y
-mándamela. Compruebo que el recoloreado funciona de verdad y solo
-entonces sigues. Si falla, hemos perdido 20 créditos en vez de 600.
+**Hombros y ropa (15)** — `chibi-ropa-<lectura>-<conjunto>.png`
 
-## El pedido
+Conjuntos: `basico` (gratis), `sudadera`, `cuello-alto`, `chaqueta`,
+`camisa`. Los cuatro últimos se compran con gemas.
 
-### Cabezas — 12 piezas
+Sin cabeza, sin cara, sin pelo: solo la ropa del cuello para abajo.
 
-`chibi-cabeza-<lectura>-<peinado>.png`
+> "Lectura" no es identidad. En el código `look` y `pronouns` son campos
+> distintos y no se hablan: el jugador elige el cuerpo que quiera con los
+> pronombres que quiera.
 
-|  | corto | medio | largo | recogido |
-|---|---|---|---|---|
-| **fem** | ✓ | ✓ | ✓ | ✓ |
-| **masc** | ✓ | ✓ | ✓ | ✓ |
-| **neutro** | ✓ | ✓ | ✓ | ✓ |
+### La cuenta
 
-    chibi-cabeza-fem-corto.png       chibi-cabeza-masc-corto.png
-    chibi-cabeza-fem-medio.png       chibi-cabeza-masc-medio.png
-    chibi-cabeza-fem-largo.png       chibi-cabeza-masc-largo.png
-    chibi-cabeza-fem-recogido.png    chibi-cabeza-masc-recogido.png
+    24 stickers + 27 piezas del jugador = 51 ≈ 1.020 créditos
 
-    chibi-cabeza-neutro-corto.png    chibi-cabeza-neutro-largo.png
-    chibi-cabeza-neutro-medio.png    chibi-cabeza-neutro-recogido.png
+De 10.047 disponibles.
 
-> "Lectura" no es identidad. El jugador elige el cuerpo que quiera y los
-> pronombres que quiera, por separado: en el código `look` y `pronouns`
-> son campos distintos y no se hablan.
+## Reglas que valen para las 51
 
-### Hombros y ropa — 15 piezas
-
-`chibi-ropa-<lectura>-<conjunto>.png`
-
-Conjuntos: `basico` (el que viene de serie), `sudadera`, `cuello-alto`,
-`chaqueta`, `camisa`.
-
-    chibi-ropa-fem-basico.png        chibi-ropa-masc-basico.png
-    chibi-ropa-fem-sudadera.png      chibi-ropa-masc-sudadera.png
-    chibi-ropa-fem-cuello-alto.png   chibi-ropa-masc-cuello-alto.png
-    chibi-ropa-fem-chaqueta.png      chibi-ropa-masc-chaqueta.png
-    chibi-ropa-fem-camisa.png        chibi-ropa-masc-camisa.png
-
-    chibi-ropa-neutro-basico.png     chibi-ropa-neutro-chaqueta.png
-    chibi-ropa-neutro-sudadera.png   chibi-ropa-neutro-camisa.png
-    chibi-ropa-neutro-cuello-alto.png
-
-`basico` viene gratis. Los otros cuatro se compran con gemas.
-
-## Encuadre, igual en las 27
-
-- Cuadrado, 2K.
-- Centrado. Nada tocando los bordes.
-- **Cabezas**: la coronilla al 12% desde arriba, la cabeza ocupando un
-  62% del ancho, y la pieza cortada por debajo de la barbilla.
-- **Ropa**: el cuello arrancando a media altura, hombros y pecho, cortado
-  al 92%.
-- Fondo croma verde plano `#00B140`. Si alguna pieza sale verde, esa se
-  pide sobre azul `#0047FF` — el recorte mide cuánto tira a verde cada
+- Cuadrado (stickers) o 3:4 (piezas del jugador), 2K.
+- Centrado, con aire, nada tocando los bordes.
+- Croma **verde plano `#00B140`**. Si una pieza sale verde, esa se pide
+  sobre **azul `#0047FF`**: el recorte mide cuánto tira a verde cada
   píxel y se comería una pieza verde sobre verde.
-- **Sin marco dorado.** Las láminas de las apps lo llevan; estas no,
-  porque van dentro de un aro que ya pone la interfaz.
-- Sin texto, sin sombra proyectada, sin degradado en el fondo.
+- **Ojos en negro neutro**, sin azul ni violeta. Si llevan azul, giran
+  cuando recoloreo el pelo y salen verde oliva. Probado.
+- Sin texto, sin sombra proyectada, sin degradado de fondo.
+- **Stickers**: la línea blanca de recorte sí, queda bien y sobrevive al
+  croma. **Piezas del jugador**: sin línea blanca, que se van a componer
+  una encima de otra.
 
-## Lo que hago yo cuando lleguen
+## El color lo pone el código
 
-1. Recorto el croma y alineo por coronilla y ancho, como con los cuatro
-   personajes.
-2. Genero los tonos de piel y los colores de pelo desde la pieza de
-   referencia.
-3. Monto las dos capas y sustituyo el `playerFace()` dibujado a código.
-4. Engancho los cuatro conjuntos a la tienda.
+En las piezas del jugador, la piel y el pelo **no se encargan**: se
+generan. Por eso el pelo se pide en **azul violáceo medio (#6E6FA8)**, lo
+más lejos posible de la piel en la rueda del color: separar pelo de cara
+pasa a ser trivial. Medido sobre la pieza de prueba, el pelo ocupa el 42%
+y la piel el 28%, sin solaparse.
+
+Se ve raro suelto. Nunca se verá así.

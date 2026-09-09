@@ -1,50 +1,109 @@
-# Prompts del chibi
+# Prompts de los chibis
 
-Modelo: **nano-banana-2**, modo **image2image**, 1:1, 2K.
-Referencia visual: la misma lámina de cielo nocturno que usamos para los
-iconos de las apps (`IMG_9103`), para que salgan del mismo mundo.
+Modelo **nano-banana-2**, modo **image2image**.
+
+Referencias subidas a OpenArt que usan estos prompts:
+
+| Archivo | Para qué |
+|---|---|
+| `IMG_9137`, `IMG_9138` | hojas de stickers — el estilo |
+| `IMG_9046`–`IMG_9049` | Reiko, Ryu, Lara, Kenta — la identidad |
+
+    IMG_9046 → Reiko      IMG_9048 → Lara
+    IMG_9047 → Ryu        IMG_9049 → Kenta
 
 Cambia solo lo que va **[entre corchetes]**.
 
 ---
 
-## 1 · Cabezas
+## 1 · Stickers del reparto
 
-> A single chibi character head for a romance visual novel profile
-> picture, hand-painted in the same soft, muted, slightly grainy style as
-> the reference image. Head and hair only, cut just below the chin. Large
-> round head, small delicate features, big soft eyes, gentle friendly
-> expression, mouth closed with a small calm smile. Facing the viewer,
-> very slight three-quarter turn.
->
-> **[LECTURA]**
->
-> Hair: **[PEINADO]**.
->
-> CRITICAL COLOUR INSTRUCTION. The hair must be painted a MEDIUM COOL
-> BLUE-VIOLET, around #6E6FA8 — clearly cool and clearly coloured, not
-> grey, not pastel, not washed out. Do NOT paint the hair brown, blonde,
-> black or any warm colour. The skin must stay a plain WARM MID TONE,
-> around #E8B892, with no blue or violet light bouncing onto the face
-> from the hair. Keep hair and skin as far apart in colour as possible:
-> a later step recolours them separately and it needs them clearly
-> distinct.
->
-> Centred on the canvas. The top of the head sits about 12% down from the
-> top edge; the head is about 62% of the canvas width. Nothing touches
-> the edges. No frame, no border, no gold outline, no drop shadow.
->
-> Place it on a completely flat solid chroma green background (pure
-> #00B140): no shadow, no gradient, no pattern. Absolutely no text, no
-> letters, no numbers.
+Referencias: **la del personaje primero**, luego `IMG_9137` y `IMG_9138`.
+Cuadrado, 2K.
 
-**[LECTURA]** — una de:
+> Draw a CHIBI STICKER of the character shown in the FIRST reference
+> image, in the sticker style of the second and third reference sheets.
+>
+> IDENTITY comes from the FIRST reference and must be unmistakable: the
+> same person, the same hairstyle, the same hair colour, the same
+> clothing, the same colour palette. Someone who knows this character
+> must recognise him at a glance. Do NOT invent a different person and do
+> NOT change his hair colour or his outfit.
+>
+> FORMAT comes from the SECOND and THIRD references: a single chibi
+> sticker, bust and upper body only, cropped at about the waist, with the
+> hands visible and doing something. Flat cel-shaded colour, clean dark
+> linework, big head, small body, simple expressive face. Do not copy any
+> character from those sheets, only the sticker format and drawing style.
+> Do not draw a sheet or a grid: ONE sticker only.
+>
+> EMOTION: **[EMOCIÓN]**
+>
+> EYES: very dark NEUTRAL near-black, no blue and no violet in them.
+>
+> One sticker, centred, generous empty margin all around, nothing
+> touching the edges. No speech bubble, no frame, no coloured background
+> panel. Place it on a completely flat solid chroma green background
+> (pure #00B140): no gradient, no pattern, no scenery. Absolutely no
+> text, no letters, no numbers, no watermark.
 
-- `A soft feminine read: rounder jaw, softer cheeks, longer lashes.`
-- `A masculine read: slightly squarer jaw, flatter brow, shorter lashes.`
-- `An androgynous read: balanced jaw, neither soft nor square, features that read as neither clearly feminine nor clearly masculine.`
+**[EMOCIÓN]** — una de:
 
-**[PEINADO]** — uno de:
+- `he is calm and composed. Arms relaxed, neutral friendly expression, mouth closed. No emotion mark.`
+- `he is happy. A small genuine smile, eyes softened, one hand raised in a small wave. Add a floating heart or a music note near his head.`
+- `he is flustered and shy. Looking away, one hand half covering his mouth, strong blush across the cheeks. Add a sweat drop near his temple.`
+- `he is ANNOYED and trying not to show it. Arms crossed, brow lowered, mouth a flat line, eyes half lidded looking away. Add the classic manga anger mark, the red four-lobed cross, floating near his head.`
+- `he is sad. Head tilted down, eyes lowered, mouth small and downturned, hands together in front. Add a single tear at the corner of one eye.`
+- `he is startled. Eyes wide open, eyebrows up, mouth small and open, hands raised slightly. Add a large question mark or surprise lines near his head.`
+
+> Cambia `he` por `she` o `they` según el personaje.
+
+---
+
+## 2 · Cabezas del jugador
+
+Referencias: `IMG_9137` y `IMG_9138`. Cuadrado, 2K.
+
+> Draw ONE chibi character HEAD in the sticker style of the reference
+> sheets: flat cel-shaded colour, clean dark linework, big round chibi
+> head, large simple expressive eyes, small simple mouth, soft blush. Do
+> not copy any character from the sheets, only the drawing style. ONE
+> head alone, no grid, no sheet, no other figures.
+>
+> HEAD AND HAIR ONLY. Cut cleanly straight across just below the chin. NO
+> neck below that, NO shoulders, NO body, NO clothing of any kind. This
+> is a separate layer that will be placed on top of a shoulders drawing,
+> so nothing may hang below the chin line.
+>
+> The character: **[LECTURA]** Hair: **[PEINADO]**. Facing the viewer
+> straight on, perfectly centred and symmetrical. Calm expression, mouth
+> closed, faint friendly smile. No emotion mark, no props, no hands.
+>
+> CRITICAL COLOUR INSTRUCTION: the hair must be a MEDIUM COOL BLUE-VIOLET,
+> around #6E6FA8, clearly cool and clearly coloured, not grey, not
+> pastel. Do NOT make the hair brown, blonde, black or white. The skin
+> must be a plain WARM MID TONE around #E8B892 with no blue light on it.
+> Hair and skin must stay far apart in colour: a later step recolours
+> them separately and needs them clearly distinct.
+>
+> EYES: very dark NEUTRAL near-black, with NO blue and NO violet in them
+> at all, so they do not shift when the hair is recoloured.
+>
+> IMPORTANT: NO white sticker outline, NO die-cut border around the
+> silhouette. The edge must be the plain dark linework only, because this
+> piece gets composed with another one.
+>
+> Centred, generous empty margin all around, nothing touching the edges.
+> No frame, no shadow. Flat solid chroma green background (pure #00B140),
+> no gradient, no pattern. No text, no letters, no numbers, no watermark.
+
+**[LECTURA]**
+
+- `a young adult with a soft feminine read: rounder jaw, softer cheeks, longer lashes.`
+- `a young adult with a masculine read: slightly squarer jaw, flatter brow, shorter lashes.`
+- `an androgynous young adult, features that read as neither clearly feminine nor clearly masculine.`
+
+**[PEINADO]**
 
 - `short and a little messy, cropped above the ears`
 - `medium length, falling to the jaw, tucked behind one ear`
@@ -53,36 +112,36 @@ Cambia solo lo que va **[entre corchetes]**.
 
 ---
 
-## 2 · Hombros y ropa
+## 3 · Hombros y ropa del jugador
 
-> The shoulders and upper chest of a chibi character for a romance visual
-> novel profile picture, hand-painted in the same soft, muted, slightly
-> grainy style as the reference image. NO HEAD, NO FACE, NO HAIR, NO NECK
-> ABOVE THE COLLARBONE — this is only the clothing on the shoulders and
-> chest, the head is drawn separately and will sit on top.
->
-> **[LECTURA]**
->
-> Wearing: **[CONJUNTO]**.
->
-> Muted, dusty, desaturated colours, like a faded pastel or a colour seen
-> at dusk. Never bright, never vivid.
->
-> Centred on the canvas, shoulders filling most of the width, cut off at
-> about 92% down. Nothing touches the side edges. No frame, no border, no
-> gold outline, no drop shadow.
->
-> Place it on a completely flat solid chroma green background (pure
-> #00B140): no shadow, no gradient, no pattern. Absolutely no text, no
-> letters, no numbers.
+Referencias: `IMG_9137` y `IMG_9138`. 3:4, 2K.
 
-**[LECTURA]** — una de:
+> The shoulders and upper chest of a chibi character, in the flat
+> cel-shaded sticker style of the reference sheets: clean dark linework,
+> simple shapes, one shadow tone. Do not copy any character from the
+> sheets, only the drawing style.
+>
+> NO HEAD, NO FACE, NO HAIR, NOTHING ABOVE THE COLLARBONE. This is only
+> the clothing on the shoulders and chest: the head is drawn separately
+> and will be placed on top of this piece.
+>
+> **[HOMBROS]** Wearing: **[CONJUNTO]**.
+>
+> Muted, dusty, desaturated colours, like a colour seen at dusk. Never
+> bright, never vivid.
+>
+> Centred, shoulders filling most of the width, cut off at about 92%
+> down. Nothing touching the side edges. No white sticker outline, no
+> frame, no shadow. Flat solid chroma green background (pure #00B140), no
+> gradient, no pattern. No text, no letters, no numbers.
+
+**[HOMBROS]**
 
 - `Narrower, softer shoulders.`
 - `Broader, squarer shoulders.`
 - `Shoulders of average width, neither narrow nor broad.`
 
-**[CONJUNTO]** — uno de:
+**[CONJUNTO]**
 
 - `a plain soft crew-neck top in warm oatmeal`
 - `a hoodie in dusty rose, hood down, drawstrings visible`
@@ -92,9 +151,15 @@ Cambia solo lo que va **[entre corchetes]**.
 
 ---
 
-## Empieza por una
+## Lo que ya se probó y falló
 
-Lanza **solo `chibi-cabeza-neutro-medio.png`** y mándamela. Compruebo que
-el recoloreado de pelo y piel funciona antes de que gastes en las otras
-26. Si algo falla, cambiamos el prompt con 20 créditos perdidos en vez de
-600.
+No merece la pena reintentarlo:
+
+- **Cuerpo entero.** Dos tandas, las dos malas. Salen adultos en
+  miniatura, y al pedir cuerpo redondo salen achaparrados y pierden la
+  cara del personaje.
+- **La palabra "chibi" sola.** No basta, y además pedir "cabeza grande,
+  rasgos pequeños, ojos grandes" describe una cara de bebé.
+- **Ojos azulados.** Giran al recolorear el pelo y salen verde oliva.
+- **Pieza verde sobre croma verde.** Se descarta a sí misma: 0% del
+  cuerpo opaco. Esas van sobre azul `#0047FF`.
