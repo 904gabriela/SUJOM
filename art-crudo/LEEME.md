@@ -38,5 +38,5 @@ la escena. Van directas, con este nombre exacto:
 
 En OpenArt, por si te lías al identificarlas:
 
-    IMG_9046 → Reiko      IMG_9048 → Ryu
-    IMG_9047 → Lara       IMG_9049 → Kenta
+    IMG_9046 → Reiko      IMG_9048 → Lara
+    IMG_9047 → Ryu        IMG_9049 → Kenta
