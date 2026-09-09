@@ -212,6 +212,7 @@ export function home() {
       title: greeting() + ', ' + (S.player.name || 'tú'),
       sub: unread ? `${unread} sin leer` : 'Todo al día',
       actions: [
+        { type: 'gems' },
         { type: 'clock' },
         { ico: 'bell', label: 'Notificaciones', n: S.notifLog.filter((x) => !x.seen).length || 0, on: () => go('notifications') }
       ]

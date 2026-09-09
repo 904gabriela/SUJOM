@@ -1191,3 +1191,82 @@ input,textarea,select{font:inherit;color:inherit}
   animation:camScan 4.5s linear infinite;
 }
 @keyframes camScan{from{top:-22%}to{top:100%}}
+
+/* =========================================================
+   17. TIENDA
+   ---------------------------------------------------------
+   Sin sobres sorpresa y sin cuentas atrás: se ve el precio
+   antes de comprar y no hay nada que caduque.
+   ========================================================= */
+.gemchip{
+  display:flex;align-items:center;gap:5px;padding:5px 11px;border-radius:99px;
+  background:var(--card-2);border:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;color:var(--ink-2);
+}
+.gemchip span{color:var(--oro,var(--pink));font-size:11px}
+.gemchip b{font-weight:800;color:var(--ink)}
+.gemchip:hover{border-color:var(--oro,var(--pink))}
+
+.tienda{padding:16px 18px 30px}
+.cartera{
+  display:flex;align-items:baseline;gap:9px;padding:16px 18px;border-radius:20px;
+  background:linear-gradient(135deg,var(--card-2),var(--card));
+  border:1px solid var(--line-soft);
+}
+.cartera .gema{color:var(--oro,var(--pink));font-size:19px}
+.cartera .saldo{font-size:30px;font-weight:800;color:var(--ink);font-family:var(--f-mono)}
+.cartera-t{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+.tienda-nota{
+  margin:11px 2px 0;font-size:12px;line-height:1.6;color:var(--ink-3);
+}
+.tienda-h{
+  margin:26px 0 2px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:800;color:var(--ink-2);
+}
+.tienda-sub{margin:0 0 12px;font-size:11.5px;color:var(--ink-4)}
+.tienda-aviso{
+  margin:12px 2px 0;font-size:11.5px;line-height:1.55;color:var(--ink-4);font-style:italic;
+}
+
+.regalos{display:flex;flex-direction:column;gap:9px}
+.regalo{
+  display:flex;align-items:center;gap:13px;padding:13px 15px;border-radius:18px;
+  background:var(--card);border:1px solid var(--line-soft);
+}
+.regalo-ic{font-size:24px;flex:0 0 auto;line-height:1}
+.regalo-m{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.regalo-n{font-size:13.5px;font-weight:700;color:var(--ink)}
+.regalo-d{font-size:11.5px;line-height:1.45;color:var(--ink-3)}
+.regalo-p{font-size:10.5px;color:var(--ink-4);font-style:italic}
+.regalo-r{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.regalo-t{font-size:10px;color:var(--ok);font-family:var(--f-mono)}
+
+.paquetes{display:flex;flex-direction:column;gap:9px}
+.paquete{
+  display:flex;align-items:center;gap:11px;padding:13px 16px;border-radius:16px;
+  background:var(--card);border:1px dashed var(--line);opacity:.62;
+}
+.paquete-g{font-size:15px;font-weight:800;color:var(--oro,var(--pink));font-family:var(--f-mono)}
+.paquete-x{
+  font-size:10px;padding:2px 7px;border-radius:99px;
+  background:rgba(255,255,255,.08);color:var(--ink-3);
+}
+.paquete-p{margin-left:auto;font-size:13px;color:var(--ink-2);font-weight:700}
+
+/* Elegir qué regalar, dentro del chat */
+.regalar h3{
+  margin:0 0 14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:800;color:var(--ink-2);
+}
+.regalar-l{display:flex;flex-direction:column;gap:8px}
+.regalar-i{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:15px;
+  background:var(--card-2);border:1px solid var(--line-soft);text-align:left;
+  transition:.16s var(--ease);
+}
+.regalar-i:hover{border-color:var(--oro,var(--pink));transform:translateY(-2px)}
+.regalar-ic{font-size:21px;line-height:1;flex:0 0 auto}
+.regalar-n{flex:1;min-width:0;font-size:13.5px;font-weight:700;color:var(--ink)}
+.regalar-x{font-family:var(--f-mono);font-size:11px;color:var(--ink-4)}
+.composer .gift:disabled{opacity:.3;pointer-events:none}

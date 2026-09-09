@@ -80,7 +80,18 @@ function freshState() {
     glitch: 0,
     focusRoute: null,      // personaje cuya ruta se está siguiendo
     secretUnlocked: false,
-    stats: { choices: 0, sessions: 0 }
+    stats: { choices: 0, sessions: 0 },
+
+    /* --- cartera ---
+       Las gemas se ganan jugando, nunca por dejar pasar la noche: aquí no
+       hay nada que caduque ni que te pierdas por cerrar la app. Ver
+       data/tienda.js. */
+    gems: 0,
+    earned: [],            // ids de recompensas ya cobradas, para no repetirlas
+    owned: [],             // ids de lo comprado que se queda (ropa, extras)
+    inventory: {},         // id de regalo -> cuántos tienes sin dar
+    given: {},             // personaje -> ids de regalos que ya le diste
+    ledger: []             // últimos movimientos, para poder mirarlos
   };
 }
 

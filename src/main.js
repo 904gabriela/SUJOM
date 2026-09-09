@@ -24,6 +24,9 @@ import {
   notifications, endingView, endingsList, settingsView
 } from './ui/apps.js';
 
+import { shop } from './ui/tienda.js';
+import { arranca as arrancaTienda } from './engine/tienda.js';
+
 import { CHARS } from '../data/characters.js';
 import { arrivalLine, PHANTOM } from '../data/notifications.js';
 
@@ -68,6 +71,10 @@ register('notifications', notifications);
 register('ending', endingView);
 register('endings', endingsList);
 register('settings', settingsView);
+register('shop', shop);
+
+// La economía se cuelga del bus: paga por lo que haces, nunca por volver.
+arrancaTienda();
 
 /* ---------------------------------------------------------
    3. Arranque

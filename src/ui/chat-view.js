@@ -16,7 +16,9 @@ import { CHARS, CAST, charName } from '../../data/characters.js';
 import { CALLS } from '../../data/calls.js';
 import { ChatRunner } from '../engine/chat.js';
 import * as story from '../engine/story.js';
-import { go, back, h, esc, shake, flash, scrollBottom, toast, deviceEl } from './shell.js';
+import { go, back, h, esc, shake, flash, scrollBottom, toast, deviceEl, modal, closeModal } from './shell.js';
+import { regala, tengo, yaRegalado } from '../engine/tienda.js';
+import { REGALOS } from '../../data/tienda.js';
 import { sfx, duckMusic } from '../engine/audio.js';
 import { moodOf } from './hub.js';
 
@@ -112,15 +114,61 @@ export function chatView({ id }) {
   const foot = node.querySelector('#foot');
   const scroll = () => requestAnimationFrame(() => scrollBottom(true));
 
+  /* Regalar: solo en un chat a solas, porque un regalo es para alguien.
+     Abre lo que tengas comprado y sin dar a esta persona. */
+  function abreRegalos() {
+    const cid = session.char;
+    const mios = Object.keys(S.inventory || {})
+      .filter((gid) => REGALOS[gid] && !yaRegalado(cid, gid));
+
+    if (!mios.length) {
+      toast({
+        title: 'No tienes nada que darle',
+        body: 'Los regalos se compran en la tienda, con gemas.',
+        onClick: () => go('shop')
+      });
+      return;
+    }
+
+    const caja = h(`<div class="regalar"><h3>Para ${esc(c?.name || 'alguien')}</h3><div class="regalar-l"></div></div>`);
+    const lista = caja.querySelector('.regalar-l');
+    mios.forEach((gid) => {
+      const g = REGALOS[gid];
+      const b = h(`
+        <button class="regalar-i">
+          <span class="regalar-ic">${g.icono}</span>
+          <span class="regalar-n">${esc(g.nombre)}</span>
+          <span class="regalar-x">×${tengo(gid)}</span>
+        </button>`);
+      b.addEventListener('click', () => {
+        const r = regala(cid, gid);
+        closeModal();
+        if (!r) return;
+        sfx.open();
+        toast({
+          char: cid,
+          title: r.acierta ? `A ${c.name} le ha gustado` : `${c.name} lo agradece`,
+          body: r.acierta
+            ? g.nombre
+            : `${g.nombre}. No era muy para ${charName(cid)}, pero se lo queda.`
+        });
+      });
+      lista.appendChild(b);
+    });
+    modal(caja);
+  }
+
   /* --- barra de escritura inerte: en ASSIST se elige, no se teclea --- */
   function composer() {
     foot.innerHTML = '';
     foot.appendChild(h(`
       <div class="composer">
-        <span class="gift">${icon('gift')}</span>
+        <button class="gift" ${session.char ? '' : 'disabled'} aria-label="Regalar">${icon('gift')}</button>
         <span class="fake">Elige una respuesta…</span>
         <span class="send">${icon('send')}</span>
       </div>`));
+    const boton = foot.querySelector('.gift');
+    if (session.char) boton.addEventListener('click', () => { sfx.tap(); abreRegalos(); });
   }
 
   function showChoices(list, pick) {

@@ -163,6 +163,10 @@ function chrome(c) {
       el.right.appendChild(clockChip());
       return;
     }
+    if (a.type === 'gems') {
+      el.right.appendChild(gemChip());
+      return;
+    }
     const b = h(`<button class="ab-icon" aria-label="${a.label}">${icon(a.ico)}${a.n ? `<span class="n">${a.n}</span>` : ''}</button>`);
     b.addEventListener('click', () => { sfx.tap(); a.on(); });
     el.right.appendChild(b);
@@ -174,6 +178,14 @@ function defaultActions() {
     { ico: 'bell', label: 'Notificaciones', n: 0, on: () => go('notifications') },
     { ico: 'gear', label: 'Ajustes', on: () => go('settings') }
   ];
+}
+
+/* El saldo abre la tienda. Así la tienda no necesita hueco propio en la
+   órbita del inicio, que está pintada a mano y cerrada en nueve piezas. */
+function gemChip() {
+  const node = h(`<button class="gemchip" aria-label="Gemas"><span>◆</span><b>${S.gems || 0}</b></button>`);
+  node.addEventListener('click', () => { sfx.tap(); go('shop'); });
+  return node;
 }
 
 function clockChip() {
