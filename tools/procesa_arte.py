@@ -36,8 +36,10 @@ ALIAS_ENTRADA = {
     'sorpresa': 'shocked',
 }
 
-LADO_BUSTO = 1024
+LADO_BUSTO = 768
 LADO_AVATAR = 256
+LADO_RETRATO = 900          # el cuerpo entero de la ficha
+ANCHO_LLAMADA = 1100        # la videollamada llena el hueco del video
 
 
 # ------------------------------------------------------------------ croma
@@ -164,6 +166,27 @@ def fuentes(pj):
     return hallado
 
 
+def videollamadas(pj, salida):
+    """Las dos caras de la llamada: no llevan croma ni alineado.
+
+    Salen en JPEG porque son escenas completas, sin transparencia: en PNG
+    pesaban 6-8 MB cada una y son mas de la mitad del peso del juego.
+    """
+    hechas = 0
+    for humor in ('relief', 'scared'):
+        src = os.path.join(CRUDO, f'{pj}-real-{humor}.png')
+        if not os.path.exists(src):
+            continue
+        im = Image.open(src).convert('RGB')
+        if im.width > ANCHO_LLAMADA:
+            alto = round(im.height * ANCHO_LLAMADA / im.width)
+            im = im.resize((ANCHO_LLAMADA, alto), Image.LANCZOS)
+        im.save(os.path.join(salida, f'real-{humor}.jpg'),
+                'JPEG', quality=86, optimize=True, progressive=True)
+        hechas += 1
+    return hechas
+
+
 def main():
     if not os.path.isdir(CRUDO):
         sys.exit(f'no existe {CRUDO}: crea la carpeta y mete el arte crudo')
@@ -194,9 +217,16 @@ def main():
             print(f'  {pj}/avatar.png')
 
         if 'retrato' in src:
-            quita_fondo(src['retrato']).save(
-                os.path.join(salida, 'portrait.png'))
+            ret = quita_fondo(src['retrato'])
+            if ret.height > LADO_RETRATO:
+                ancho = round(ret.width * LADO_RETRATO / ret.height)
+                ret = ret.resize((ancho, LADO_RETRATO), Image.LANCZOS)
+            ret.save(os.path.join(salida, 'portrait.png'))
             print(f'  {pj}/portrait.png')
+
+        n = videollamadas(pj, salida)
+        if n:
+            print(f'  {pj}/real-*.jpg ({n})')
 
     print(f'\n{total} gestos procesados')
 

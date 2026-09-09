@@ -40,8 +40,8 @@ export const CHARS = {
       avatar:   'assets/characters/ryu/avatar.png',
       portrait: 'assets/characters/ryu/portrait.png',
       real: {
-        relief: 'assets/characters/ryu/real-relief.png',
-        scared: 'assets/characters/ryu/real-scared.png'
+        relief: 'assets/characters/ryu/real-relief.jpg',
+        scared: 'assets/characters/ryu/real-scared.jpg'
       },
       expressions: {
         neutral:     'assets/characters/ryu/neutral.png',
@@ -104,8 +104,8 @@ export const CHARS = {
       avatar:   'assets/characters/kenta/avatar.png',
       portrait: 'assets/characters/kenta/portrait.png',
       real: {
-        relief: 'assets/characters/kenta/real-relief.png',
-        scared: 'assets/characters/kenta/real-scared.png'
+        relief: 'assets/characters/kenta/real-relief.jpg',
+        scared: 'assets/characters/kenta/real-scared.jpg'
       },
       expressions: {
         neutral:     'assets/characters/kenta/neutral.png',
@@ -168,8 +168,8 @@ export const CHARS = {
       avatar:   'assets/characters/lara/avatar.png',
       portrait: 'assets/characters/lara/portrait.png',
       real: {
-        relief: 'assets/characters/lara/real-relief.png',
-        scared: 'assets/characters/lara/real-scared.png'
+        relief: 'assets/characters/lara/real-relief.jpg',
+        scared: 'assets/characters/lara/real-scared.jpg'
       },
       expressions: {
         neutral:     'assets/characters/lara/neutral.png',
@@ -230,8 +230,8 @@ export const CHARS = {
       avatar:   'assets/characters/reiko/avatar.png',
       portrait: 'assets/characters/reiko/portrait.png',
       real: {
-        relief: 'assets/characters/reiko/real-relief.png',
-        scared: 'assets/characters/reiko/real-scared.png'
+        relief: 'assets/characters/reiko/real-relief.jpg',
+        scared: 'assets/characters/reiko/real-scared.jpg'
       },
       expressions: {
         neutral:     'assets/characters/reiko/neutral.png',
