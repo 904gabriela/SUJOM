@@ -1,0 +1,70 @@
+/* =========================================================
+   piel-noche.css — La piel de noche.
+   ---------------------------------------------------------
+   Va DESPUES de main.css y solo redefine variables, nunca
+   reglas. Cambiar de piel es cambiar este archivo por otro:
+   el juego no se entera.
+
+   El fondo es una lamina pintada, no un degradado. El resto
+   de tonos salen de ella: el centro del papel es (15,18,23),
+   un negro azulado, asi que las superficies dejan el morado
+   y se van a pizarra fria para no pelearse con el cielo.
+   ========================================================= */
+
+:root{
+  /* --- superficies, sacadas del propio fondo --- */
+  --bg-deep:#07090c;
+  --bg:#0f1217;
+  --bg-soft:#141822;
+  --card:#181d28;
+  --card-2:#1f2632;
+  --raise:#2a3341;
+
+  --line:#2f3a49;
+  --line-soft:#212a36;
+
+  /* --- texto: el papel es mas oscuro, el texto puede bajar --- */
+  --ink:#f4eee8;
+  --ink-2:#cfc4bb;
+  --ink-3:#93887f;
+  --ink-4:#6a6259;
+
+  /* --- marca: el rosa se queda, y entra el oro del borde --- */
+  --oro:#e8bc94;
+  --oro-soft:#f3d7bb;
+  --oro-deep:#a97b57;
+}
+
+/* La lamina cubre el aparato entero.
+
+   Va estirada al 100% en los dos ejes, NO en `cover`: la lamina es mas
+   ancha que la pantalla y `cover` recortaba los lados, que es justo donde
+   estan las esquinas doradas. Un campo de estrellas aguanta un estirado
+   del 20% sin que se note; perder el adorno se notaba mucho. */
+.device{
+  background:
+    linear-gradient(180deg, rgba(10,12,16,.30), rgba(10,12,16,.50)),
+    url('../assets/ui/fondo-noche.jpg') center/100% 100% no-repeat,
+    var(--bg);
+  box-shadow:
+    0 0 0 1px rgba(232,188,148,.18),
+    0 0 0 10px #06080a,
+    0 0 0 11px rgba(255,255,255,.05),
+    0 40px 110px rgba(0,0,0,.85),
+    0 0 100px rgba(232,188,148,.06);
+}
+
+
+/* Cabecera y barra inferior: bastante translucidas. No es solo por ver
+   el cielo: la lamina lleva el marco dorado pegado a los cuatro bordes, y
+   con barras opacas las dos esquinas de arriba y las dos de abajo -las
+   mas trabajadas- quedaban enterradas. El desenfoque de detras basta para
+   que el texto siga leyendose encima. */
+.appbar{
+  background:linear-gradient(180deg,rgba(16,20,28,.62),rgba(10,13,18,.30));
+  border-bottom:1px solid rgba(232,188,148,.14);
+}
+.tabbar{
+  background:linear-gradient(180deg,rgba(12,15,21,.36),rgba(7,9,12,.80));
+  border-top:1px solid rgba(232,188,148,.14);
+}
