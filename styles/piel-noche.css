@@ -37,14 +37,14 @@
 
 /* La lamina cubre el aparato entero.
 
-   Va estirada al 100% en los dos ejes, NO en `cover`: la lamina es mas
-   ancha que la pantalla y `cover` recortaba los lados, que es justo donde
-   estan las esquinas doradas. Un campo de estrellas aguanta un estirado
-   del 20% sin que se note; perder el adorno se notaba mucho. */
+   Va en `cover`, que recorta los lados y con ellos el marco dorado. Es
+   deliberado: el marco era lo que hacia que la pantalla pareciera una
+   postal en vez de una app. Sin el queda solo el cielo, que es lo que
+   tiene que estar detras de una conversacion. */
 .device{
   background:
     linear-gradient(180deg, rgba(10,12,16,.30), rgba(10,12,16,.50)),
-    url('../assets/ui/fondo-noche.jpg') center/100% 100% no-repeat,
+    url('../assets/ui/fondo-noche.jpg') center/cover no-repeat,
     var(--bg);
   box-shadow:
     0 0 0 1px rgba(232,188,148,.18),
@@ -55,16 +55,14 @@
 }
 
 
-/* Cabecera y barra inferior: bastante translucidas. No es solo por ver
-   el cielo: la lamina lleva el marco dorado pegado a los cuatro bordes, y
-   con barras opacas las dos esquinas de arriba y las dos de abajo -las
-   mas trabajadas- quedaban enterradas. El desenfoque de detras basta para
-   que el texto siga leyendose encima. */
+/* Cabecera y barra inferior: translucidas lo justo para que el cielo siga
+   corriendo por debajo sin cortarse en dos franjas opacas, pero no mas:
+   el texto de encima manda. */
 .appbar{
-  background:linear-gradient(180deg,rgba(16,20,28,.62),rgba(10,13,18,.30));
+  background:linear-gradient(180deg,rgba(16,20,28,.88),rgba(10,13,18,.68));
   border-bottom:1px solid rgba(232,188,148,.14);
 }
 .tabbar{
-  background:linear-gradient(180deg,rgba(12,15,21,.36),rgba(7,9,12,.80));
+  background:linear-gradient(180deg,rgba(12,15,21,.74),rgba(7,9,12,.95));
   border-top:1px solid rgba(232,188,148,.14);
 }
