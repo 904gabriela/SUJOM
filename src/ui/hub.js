@@ -54,9 +54,9 @@ export function home() {
   const node = h(`
     <div class="home">
       <div class="home-brand">
-        <div class="wm">ASSIST</div>
-        <div class="wm-sub">Connected Hearts</div>
-        <div class="mini-heart">${pixelHeart(34)}</div>
+        <span class="mini-heart">${pixelHeart(18)}</span>
+        <span class="wm">ASSIST</span>
+        <span class="wm-sub">Connected Hearts</span>
       </div>
       <div id="notice"></div>
       <div class="strip" id="strip"></div>
@@ -74,16 +74,17 @@ export function home() {
     const n = pending.length;
     const card = h(`
       <div class="notice">
-        <div class="notice-h">
-          <span>✦</span><span>Aviso</span>
-          <button class="x" data-x aria-label="Descartar">✕</button>
-        </div>
-        <div class="notice-b">
-          ${n > 1
-            ? `Tienes <b>${n} conversaciones</b> sin abrir.<br>La última es de <b>${esc(who)}</b>.`
-            : `Tienes <b>un mensaje nuevo</b> de <b>${esc(who)}</b>.`}
-        </div>
-        <button class="notice-go" data-go>Abrir · ${esc(next.title)}</button>
+        <button class="notice-open" data-go>
+          <span class="notice-ic">✦</span>
+          <span class="notice-t">
+            <span class="l1">${n > 1
+              ? `<b>${n} conversaciones</b> sin abrir · la última, de <b>${esc(who)}</b>`
+              : `Nuevo mensaje de <b>${esc(who)}</b>`}</span>
+            <span class="l2">${esc(next.title)}</span>
+          </span>
+          <span class="notice-arrow">›</span>
+        </button>
+        <button class="x" data-x aria-label="Descartar">✕</button>
       </div>`);
     card.querySelector('[data-go]').addEventListener('click', () => { sfx.open(); go('chat', { id: next.id }); });
     card.querySelector('[data-x]').addEventListener('click', () => { sfx.tap(); card.remove(); });
