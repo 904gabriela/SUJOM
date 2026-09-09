@@ -60,6 +60,8 @@ GIRO = {
 # resto rompe la familia. Se deja quieto todo lo que sea claro y calido,
 # que es justo el marco y el brillo del icono.
 TONO_MARCO, ANCHO_MARCO, LUZ_MARCO = 38.0, 34.0, 0.72
+# Por debajo de esta saturacion el tono ya no se ve y girarlo no cambia nada.
+SAT_MINIMA = 0.10
 
 
 def rebaja_color(rgba, factor):
@@ -97,11 +99,17 @@ def _hsv_rgb(hsv):
     return salida
 
 
-def gira_tono(rgba, grados):
+def gira_tono(rgba, grados, nombre=''):
     """Gira el tono de la pieza dejando quieto el marco dorado.
 
     El peso cae a cero segun un pixel se acerca al dorado (tono 38, claro):
     asi el cuerpo de la tarjeta cambia de color y el marco no.
+
+    Avisa si la pieza esta demasiado apagada para que girarla signifique
+    algo: el tono de un gris no se ve, asi que el giro no la mueve. La
+    tentacion entonces es subirle la saturacion para que el giro luzca,
+    y eso no funciona: amplificar un casi-gris saca neon. Llamadas, a S 4,
+    salio con el telefono en amarillo fosforito. Una pieza asi se repinta.
     """
     a = np.asarray(rgba).astype(np.float32)
     hsv = _rgb_hsv(a[..., :3] / 255.0)
@@ -110,6 +118,14 @@ def gira_tono(rgba, grados):
     d = np.minimum(d, 360 - d)
     es_marco = np.clip(1 - d / ANCHO_MARCO, 0, 1) * np.clip(
         (hsv[..., 2] - LUZ_MARCO) / (1 - LUZ_MARCO), 0, 1)
+
+    cuerpo = (np.asarray(rgba)[..., 3] > 128) & (es_marco < 0.5)
+    if cuerpo.any():
+        sat = float(np.median(hsv[..., 1][cuerpo]))
+        if sat < SAT_MINIMA:
+            print(f'    AVISO: {nombre or "la pieza"} esta a S {sat:.0%}, '
+                  f'demasiado apagada para que el giro se note. Repintala.')
+
     hsv[..., 0] = (hsv[..., 0] + (grados / 360.0) * (1 - es_marco)) % 1.0
     a[..., :3] = _hsv_rgb(hsv) * 255.0
     return Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGBA')
@@ -146,7 +162,7 @@ def main():
         if nombre in AJUSTES:
             pieza = rebaja_color(pieza, AJUSTES[nombre])
         if nombre in GIRO:
-            pieza = gira_tono(pieza, GIRO[nombre])
+            pieza = gira_tono(pieza, GIRO[nombre], nombre)
         pieza.resize((LADO, LADO), Image.LANCZOS).save(
             os.path.join(DESTINO, f'{nombre}.png'))
         notas = []
