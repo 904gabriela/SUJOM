@@ -120,27 +120,38 @@ export function home() {
   const sysNew = story.unreadCount('system');
   const dmNew = Object.values(perChar).reduce((a, b) => a + b, 0) + story.unreadCount('group');
 
+  // `arte` apunta a la lámina pintada; si falta el archivo se cae al icono
+  // generado, así que la rejilla nunca se queda con un hueco.
   const tiles = [
-    { label: 'Mensajes', ico: 'chat', tint: '#ff4d94', n: dmNew, to: 'inbox' },
-    { label: 'Contactos', ico: 'people', tint: '#a78bfa', to: 'contacts' },
-    { label: 'Álbum', ico: 'gallery', tint: '#ff8a5c', to: 'album' },
-    { label: 'Red', ico: 'globe', tint: '#7fd8e8', to: 'browser', locked: !S.pages.length },
-    { label: 'Notas', ico: 'notes', tint: '#ffd166', to: 'notes', locked: !S.notes.length },
-    { label: 'Archivos', ico: 'files', tint: '#7fd88f', to: 'files', locked: !FILES.some((f) => meets(f.requires)) },
-    { label: 'Llamadas', ico: 'phone', tint: '#5fd8ff', to: 'calls' },
-    { label: 'Finales', ico: 'end', tint: '#ff87bd', to: 'endings', locked: !Object.keys(S.endings).length },
-    { label: 'Ajustes', ico: 'gear', tint: '#9c82b8', to: 'settings' }
+    { label: 'Mensajes', ico: 'chat', arte: 'mensajes', tint: '#ff4d94', n: dmNew, to: 'inbox' },
+    { label: 'Contactos', ico: 'people', arte: 'contactos', tint: '#a78bfa', to: 'contacts' },
+    { label: 'Álbum', ico: 'gallery', arte: 'album', tint: '#ff8a5c', to: 'album' },
+    { label: 'Red', ico: 'globe', arte: 'red', tint: '#7fd8e8', to: 'browser', locked: !S.pages.length },
+    { label: 'Notas', ico: 'notes', arte: 'notas', tint: '#ffd166', to: 'notes', locked: !S.notes.length },
+    { label: 'Archivos', ico: 'files', arte: 'archivos', tint: '#7fd88f', to: 'files', locked: !FILES.some((f) => meets(f.requires)) },
+    { label: 'Llamadas', ico: 'phone', arte: 'llamadas', tint: '#5fd8ff', to: 'calls' },
+    { label: 'Finales', ico: 'end', arte: 'finales', tint: '#ff87bd', to: 'endings', locked: !Object.keys(S.endings).length },
+    { label: 'Ajustes', ico: 'gear', arte: 'ajustes', tint: '#9c82b8', to: 'settings' }
   ];
   if (sysNew) tiles.splice(6, 0, { label: 'Sistema', ico: 'core', tint: '#5fd8ff', n: sysNew, to: 'system' });
 
   tiles.forEach((t) => {
     const tile = h(`
-      <button class="tile ${t.locked ? 'locked' : ''}" style="--tint:${t.tint}">
+      <button class="tile ${t.locked ? 'locked' : ''} ${t.arte ? 'pintada' : ''}" style="--tint:${t.tint}">
         ${t.n ? `<span class="n">${t.n}</span>` : ''}
         ${t.locked ? '<span class="lockic">🔒</span>' : ''}
-        <span class="glyph">${icon(t.ico)}</span>
+        <span class="glyph">${t.arte
+          ? `<img class="lamina" src="assets/ui/${t.arte}.png" alt="">`
+          : icon(t.ico)}</span>
         <span class="lbl">${t.label}</span>
       </button>`);
+    const lamina = tile.querySelector('.lamina');
+    if (lamina) {
+      lamina.addEventListener('error', () => {
+        tile.classList.remove('pintada');
+        tile.querySelector('.glyph').innerHTML = icon(t.ico);
+      });
+    }
     if (!t.locked) tile.addEventListener('click', () => { sfx.open(); go(t.to); });
     grid.appendChild(tile);
   });
