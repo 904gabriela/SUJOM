@@ -7,3 +7,6 @@ art-crudo/*
 !art-crudo/LEEME.md
 __pycache__/
 *.pyc
+
+# páginas de prueba locales
+_maquetas.html

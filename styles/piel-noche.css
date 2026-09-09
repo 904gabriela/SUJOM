@@ -33,6 +33,15 @@
   --oro:#e8bc94;
   --oro-soft:#f3d7bb;
   --oro-deep:#a97b57;
+
+  /* --- arena: el tono de la lamina de Archivos, #a89f8b ---
+     Es el unico color calido de las nueve que no tira a rosa, y el mas
+     apagado de todos (S 14%). Sirve de neutro de la piel: lo que tiene
+     que verse pero no llamar (separadores, texto de apoyo, bordes de
+     lo que esta en reposo). */
+  --arena:#a89f8b;
+  --arena-soft:#c4bcab;
+  --arena-deep:#6e685a;
 }
 
 /* La lamina cubre el aparato entero.

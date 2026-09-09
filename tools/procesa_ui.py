@@ -24,6 +24,21 @@ CRUDO = os.path.join(RAIZ, 'art-crudo')
 DESTINO = os.path.join(RAIZ, 'assets', 'ui')
 LADO = 256
 
+# Cuanto se rebaja el color de una pieza, 1.0 = tal cual salio del pincel.
+# Llamadas y album volvieron con el doble de saturacion que las demas
+# (77% y 54% frente al 7-38% del resto) y se comian la rejilla. Se ajustan
+# aqui y no en el archivo de origen, para que el arte crudo siga intacto.
+AJUSTES = {'llamadas': 0.52, 'album': 0.74}
+
+
+def rebaja_color(rgba, factor):
+    """Acerca los colores a su gris sin tocar el brillo ni el alfa."""
+    a = np.asarray(rgba).astype(np.float32)
+    rgb = a[..., :3]
+    gris = rgb @ np.array([0.299, 0.587, 0.114], np.float32)
+    a[..., :3] = gris[..., None] + (rgb - gris[..., None]) * factor
+    return Image.fromarray(a.clip(0, 255).astype(np.uint8), 'RGBA')
+
 
 def recorta_ajustado(rgba, margen=0.03):
     """Recorta al contenido y lo centra en un cuadrado, con un pelo de aire.
@@ -53,9 +68,12 @@ def main():
             continue
         nombre = os.path.splitext(f)[0][3:]
         pieza = recorta_ajustado(quita_fondo(os.path.join(CRUDO, f)))
+        if nombre in AJUSTES:
+            pieza = rebaja_color(pieza, AJUSTES[nombre])
         pieza.resize((LADO, LADO), Image.LANCZOS).save(
             os.path.join(DESTINO, f'{nombre}.png'))
-        print(f'  ui/{nombre}.png')
+        print(f'  ui/{nombre}.png' + (
+            f'  (color al {AJUSTES[nombre]:.0%})' if nombre in AJUSTES else ''))
         n += 1
     print(f'\n{n} piezas de interfaz')
 
