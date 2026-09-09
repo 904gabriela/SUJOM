@@ -107,6 +107,27 @@
 }
 .msg-av, .row-av{ border-color:rgba(232,188,148,.30); }
 
+/* --- las pantallas de lista --- */
+
+/* El cielo es el fondo del inicio y ahí es el protagonista. Detrás de una
+   lista de archivos o de notas es otra cosa: se cuela entre las filas y el
+   texto queda sobre estrellas. Aquí lleva un velo. Se quedan fuera las
+   pantallas donde el cielo sí es la escena: el inicio, el chat (que ya
+   tiene el suyo en .stream), la llamada, el final y la foto ampliada.
+
+   Ojo al escribirlo: la cadena de :not() va toda en una línea. Partirla
+   mete un espacio, y un espacio en CSS es "descendiente de": el velo
+   acababa pintando el hijo y se cortaba donde acababa la lista. */
+#screen:not([data-pantalla="home"]):not([data-pantalla="chat"]):not([data-pantalla="call"]):not([data-pantalla="ending"]):not([data-pantalla="photo"]){
+  background:linear-gradient(180deg, rgba(8,10,14,.74), rgba(8,10,14,.86));
+}
+
+/* El cian es la voz de ASSIST, la máquina. Gastarlo en el icono de un
+   documento cualquiera le quitaba el significado, y encima era lo más
+   ruidoso de la pantalla. Los documentos pasan al arena; el cian se
+   queda para lo que de verdad habla la máquina. */
+.file-ic.doc{ color:var(--arena-soft); }
+
 /* El aviso llevaba el magenta y el morado escritos a mano, así que era lo
    último que quedaba entero de la piel vieja. Pasa al rosa de la lámina
    de Mensajes, que es de donde viene el aviso, con el filo de oro de las

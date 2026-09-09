@@ -102,6 +102,9 @@ export function go(name, params = {}, opts = {}) {
 
   el.screen.innerHTML = '';
   el.screen.scrollTop = 0;
+  // La piel necesita saber en qué pantalla está: el cielo pintado es el
+  // fondo del inicio, pero detrás de una lista se cuela entre las filas.
+  el.screen.dataset.pantalla = name;
 
   const out = factory(params) || {};
   const node = out.node || out;
