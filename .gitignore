@@ -3,4 +3,5 @@ node_modules/
 *.log
 
 # arte crudo de OpenArt: entra aqui, sale procesado a assets/
-art-crudo/
+art-crudo/*
+!art-crudo/LEEME.md
