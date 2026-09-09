@@ -622,10 +622,14 @@ input,textarea,select{font:inherit;color:inherit}
 }
 .msg.me.same .bubble{border-radius:20px 6px 6px 20px}
 
-.bubble[data-c="ryu"]{border-color:rgba(127,216,232,.3);background:linear-gradient(150deg,rgba(127,216,232,.12),var(--card-2))}
-.bubble[data-c="kenta"]{border-color:rgba(255,138,92,.3);background:linear-gradient(150deg,rgba(255,138,92,.12),var(--card-2))}
-.bubble[data-c="lara"]{border-color:rgba(255,209,102,.3);background:linear-gradient(150deg,rgba(255,209,102,.12),var(--card-2))}
-.bubble[data-c="reiko"]{border-color:rgba(201,169,255,.32);background:linear-gradient(150deg,rgba(201,169,255,.12),var(--card-2))}
+/* El tinte del personaje va SOBRE una capa opaca, no degradando hacia
+   ella. Antes iba de un color translúcido a var(--card-2): eso dejaba
+   translúcida la mitad de arriba de la burbuja, y con un fondo pintado
+   detrás se leían las estrellas a través del texto. */
+.bubble[data-c="ryu"]{border-color:rgba(127,216,232,.3);background:linear-gradient(150deg,rgba(127,216,232,.14),rgba(127,216,232,0)),var(--card-2)}
+.bubble[data-c="kenta"]{border-color:rgba(255,138,92,.3);background:linear-gradient(150deg,rgba(255,138,92,.14),rgba(255,138,92,0)),var(--card-2)}
+.bubble[data-c="lara"]{border-color:rgba(255,209,102,.3);background:linear-gradient(150deg,rgba(255,209,102,.14),rgba(255,209,102,0)),var(--card-2)}
+.bubble[data-c="reiko"]{border-color:rgba(201,169,255,.32);background:linear-gradient(150deg,rgba(201,169,255,.14),rgba(201,169,255,0)),var(--card-2)}
 
 .meta{
   font-size:9.5px;color:var(--ink-4);font-family:var(--f-mono);

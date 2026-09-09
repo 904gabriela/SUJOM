@@ -42,6 +42,66 @@
   --arena:#a89f8b;
   --arena-soft:#c4bcab;
   --arena-deep:#6e685a;
+
+  /* --- el rosa baja de tono ---
+     El #ff4d94 de fábrica venía de la piel morada y es lo último que
+     quedaba de ella: al lado de las láminas pintadas, que están entre
+     S 9 y S 52, un magenta a S 100 no parece un acento, parece un error.
+     Este rosa sale del cuerpo de la lámina de Mensajes, subido lo justo
+     para que un globo de "sin leer" siga saltando a la vista. */
+  --pink:#d4708c;
+  --pink-soft:#eaa8b6;
+  --pink-deep:#9c4a63;
+  --heart:#e0819a;
+  --glow-pink:0 0 24px rgba(212,112,140,.34);
+
+  /* El lila se lleva al violeta de la lámina de Ajustes. */
+  --lav:#9b8fc4;
+  --lav-soft:#c5bade;
+
+  /* La crema, a la del arte: cálida, no rosada. */
+  --cream:#f6ece2;
+}
+
+/* --- el chat --- */
+
+/* El cielo corre por debajo de toda la app, y en una conversación eso
+   son veinte minutos de leer texto sobre estrellas. Aquí se le pone un
+   velo: el cielo sigue estando, pero deja de competir con lo que se lee. */
+.stream{
+  background:linear-gradient(180deg, rgba(8,10,14,.52), rgba(8,10,14,.70));
+}
+
+/* Estas tres traían el magenta escrito a mano, así que no lo arreglaba
+   cambiar la variable. */
+.composer .send{ box-shadow:0 4px 14px rgba(212,112,140,.32); }
+.choice:hover{
+  background:linear-gradient(135deg, rgba(212,112,140,.22), var(--card-2));
+  box-shadow:0 6px 18px rgba(212,112,140,.18);
+}
+.daybreak{
+  background:rgba(212,112,140,.12);
+  border-color:rgba(212,112,140,.28);
+}
+
+/* --- los aros de los avatares --- */
+
+/* En reposo el aro era una línea gris que no se veía. Ahora es el oro
+   del marco de las láminas, que es el mismo lenguaje. Y como el aro de
+   color se reserva para quien te ha escrito, el oro pasa a significar
+   algo: "aquí no hay nada nuevo". */
+.strip-ring.quiet{
+  background:conic-gradient(from 210deg, var(--oro-deep), var(--oro), var(--oro-deep));
+}
+.msg-av, .row-av{ border-color:rgba(232,188,148,.30); }
+
+/* El aviso llevaba el magenta y el morado escritos a mano, así que era lo
+   último que quedaba entero de la piel vieja. Pasa al rosa de la lámina
+   de Mensajes, que es de donde viene el aviso, con el filo de oro de las
+   demás piezas. */
+.notice{
+  background:linear-gradient(135deg, rgba(212,112,140,.20), rgba(155,143,196,.12));
+  border-color:rgba(232,188,148,.30);
 }
 
 /* La lamina cubre el aparato entero.
