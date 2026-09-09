@@ -95,7 +95,13 @@ def quita_fondo(ruta, dentro=52, fuera=115):
 # --------------------------------------------------------------- alineado
 
 def mide_cabeza(rgba):
-    """(centro x, coronilla y, ancho) medidos sobre el tercio superior."""
+    """(centro x, coronilla y, ancho) medidos sobre el tercio superior.
+
+    El ancho es el percentil 75 de las filas, no el maximo: el lazo de Lara
+    es un pico estrecho que con el maximo la hacia medir un 68% del lienzo
+    frente al 50% de Reiko, y salia encogida al alinear. Con el percentil
+    las cuatro caen en una franja de seis puntos.
+    """
     alfa = np.asarray(rgba)[..., 3] > 128
     filas = np.where(alfa.any(1))[0]
     if len(filas) == 0:
@@ -103,9 +109,12 @@ def mide_cabeza(rgba):
     arriba, abajo = filas[0], filas[-1]
     zona = alfa[arriba:arriba + max(1, int((abajo - arriba) * 0.38))]
     anchos = zona.sum(1)
-    i = int(np.argmax(anchos))
+    ancho = float(np.percentile(anchos[anchos > 0], 75))
+
+    # el centro se toma de una fila de ese ancho, no de la mas ancha
+    i = int(np.argmin(np.abs(anchos.astype(float) - ancho)))
     cols = np.where(zona[i])[0]
-    return (cols[0] + cols[-1]) / 2, float(arriba), float(anchos[i])
+    return (cols[0] + cols[-1]) / 2, float(arriba), ancho
 
 
 def alinea(rgba, lado=LADO_BUSTO, ancho_cabeza=0.46, coronilla=0.10):
