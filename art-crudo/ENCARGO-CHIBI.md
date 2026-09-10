@@ -197,6 +197,49 @@ sentimiento.
 > silueta rota: la mano tapándose los ojos, o girada de espaldas. Y su
 > sorpresa lleva una exclamación grande, no elegante.
 
+### Los memes — segundo pack, aparte de los 24
+
+Los 24 stickers son **registro emocional**: sirven para contestar. Estos
+son **gags**, y el chiste es de cada uno: Kenta señalándote, Lara
+levantando a Sándwich, Ryu enseñándote el móvil sin decir nada, Reiko
+aplaudiendo despacio.
+
+#### La receta, y no se toca
+
+Costó cinco tandas encontrarla porque **cada cambio de referencia
+cambiaba el estilo entero**. Está fijada así:
+
+    referencias, EN ESTE ORDEN:
+      1. la del personaje  (identidad)
+      2. IMG_9204          (estilo)
+      3. IMG_9205          (estilo)
+    modelo: nano-banana-2, 1:1, 2K
+
+Y el bloque de texto va **idéntico palabra por palabra** en las 16
+piezas: sólo cambian la identidad y el gag. La consistencia sale de que
+el bloque no se mueva, no de la suerte.
+
+Cuatro cosas que el bloque tiene que decir, y las cuatro se pagaron caras:
+
+- **Recorte a la cintura.** Sin él salen muñequitos enteros con piernas
+  y zapatos, que parecen merchandising y no stickers.
+- **Sin línea blanca de recorte.** En estos no se quiere; en los 24 sí.
+- **Figura pequeña y suelta**, no apretada ni muy dibujada.
+- **Nada de pómulos, mandíbula, dientes, lengua ni nudillos.** La boca
+  abierta es una forma plana y la mano es una manopla. Si no se prohíbe,
+  el modelo dibuja una viñeta de manga muy digna que no hace gracia.
+
+> **Aviso sobre las hojas de estilo.** `IMG_9204` y `9205` son fan art de
+> un personaje conocido de pelo rubio de punta. El prompt lleva una
+> advertencia explícita de no copiarlo —ojos rojos, chaleco con la X,
+> guanteletes— porque **Kenta también es rubio de punta**. Con las
+> referencias correctas no ha contaminado, pero la advertencia se queda.
+
+> **Y un error de método, para no repetirlo.** Se probó la consistencia
+> midiendo que las cuatro piezas se parecieran **entre sí**, y pasaron
+> —en el estilo equivocado. Parecerse entre ellas y parecerse a la
+> referencia son dos cosas distintas, y la prueba sólo medía la primera.
+
 #### El resto
 
     <pj>-neutral    sin marca
