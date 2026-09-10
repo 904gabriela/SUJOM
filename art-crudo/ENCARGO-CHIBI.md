@@ -128,7 +128,37 @@ Cinco que no se mueven y uno que sí. El sexto funciona porque es el
 único que rompe la regla, así que si algún día se ablandan los otros
 cinco, ése deja de tener gracia.
 
-Para el resto del reparto, las seis de siempre:
+#### Kenta: volumen, con un silencio
+
+Al revés que Ryu. A él hay que prohibirle contenerse, no expresarse.
+
+    neutro     brazos cruzados, una ceja arriba. Sin marca: lo dice la postura.
+    contento   no sonríe, se regodea. Dientes y el pulgar señalándose.
+    timido     rojo entero y NEGÁNDOLO A GRITOS. No avergonzado: negándolo.
+    enfadado   el más alto del set. Berrido, puños arriba, la cruz roja.
+    triste     no llora: se enfurruña. Nubarrón. Quiere que le preguntes.
+    sorpresa   se echa atrás, manos por delante, interrogación y exclamación.
+
+Salió a la primera, doce de doce. Su único problema es de tamaño chico:
+**el tímido y el enfadado se confunden a 120 px**, porque los dos son
+cara roja con la cruz roja. Se arregla dándole otra marca al tímido.
+
+#### Lara: exceso, sin excepción
+
+Ryu tiene un sticker donde sí se mueve y Kenta uno donde sí se calla.
+Ella no baja de volumen en ninguno, y ese es el chiste.
+
+    neutro     selfie. Uve con los dedos, sonrisa de cámara.
+    contento   máximo. Ojos cerrados de felicidad, corazones de sobra.
+    timido     tapándose la cara PERO ESPIANDO entre los dedos. Encantada.
+    enfadado   pataleta. Mofletes hinchados, puñitos. Nadie se asusta.
+    triste     llanto de dibujo animado. Dos chorros y berrido.
+    sorpresa   no se asusta, se ilumina. Y se inclina HACIA ti, no atrás.
+
+Las dos últimas líneas son las que la separan de Kenta: la misma
+emoción con el gesto contrario. Él retrocede, ella se acerca.
+
+#### El resto
 
     <pj>-neutral    sin marca
     <pj>-contento   corazón o nota
