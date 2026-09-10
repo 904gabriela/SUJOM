@@ -1,5 +1,15 @@
 # Encargo: los chibis
 
+> **El encargo son 24 stickers. Nada más.**
+>
+> El chibi es sólo para los stickers del reparto. Las 27 piezas del
+> jugador —doce cabezas y quince de ropa, en dos capas— quedan fuera, y
+> con ellas el vestidor y la ropa comprable con gemas.
+>
+> Lo que se probó para esas piezas está más abajo y funciona: la
+> composición de cabeza sobre ropa quedó demostrada. Se conserva por si
+> vuelve, no porque esté pedido.
+
 > Esta hoja se reescribió entera después de probarla. La primera versión
 > pedía cabeza y hombros pintados al estilo del reparto, y estaba mal en
 > casi todo. Lo que hay aquí es lo que funcionó, con las pruebas.
@@ -127,9 +137,10 @@ Sin cabeza, sin cara, sin pelo: solo la ropa del cuello para abajo.
 
 ### La cuenta
 
-    24 stickers + 27 piezas del jugador = 51 ≈ 1.020 créditos
+    24 stickers ≈ 480 créditos
 
-De 10.047 disponibles.
+Las 27 piezas del jugador ya no van. Hechos: los seis stickers de Ryu
+están a medias y hay dos cabezas por lectura que ya no hacen falta.
 
 ## Reglas que valen para las 51
 
