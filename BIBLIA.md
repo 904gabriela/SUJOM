@@ -91,6 +91,25 @@ Dos cosas más, pequeñas y sueltas:
 
 ## Decisiones de producción
 
-- **El chibi es sólo para los stickers.** El apartado de crear tu propio
-  personaje queda fuera: no hay cabezas ni ropa del jugador que
-  encargar, ni vestidor, ni ropa que comprar con gemas.
+- **El chibi es sólo para los stickers.** No se encarga arte chibi del
+  jugador: ni cabezas, ni ropa, ni vestidor, ni ropa comprable con
+  gemas.
+- **El creador de personaje se queda** tal como está: nombre,
+  pronombres, ocho colores de pelo, seis de piel y cuatro peinados,
+  todo dibujado por código. No cuesta arte. El nombre y los pronombres
+  son obligatorios de todos modos: el guion los usa en 93 sitios.
+- **Las referencias de las hojas no son el diseño.** En la hoja de
+  Kenta la imagen de referencia tiene el pelo rojo y el arte pintado lo
+  tiene rubio. Manda el arte.
+
+## Hecho ya
+
+- Edades al día en la ficha y en los tres sitios donde se dicen en voz
+  alta: Ryu 26, Kenta 23, Lara 18, Reiko 25.
+- Colores de respaldo muestreados del arte pintado, no inventados.
+  Lara era rubia de ojos verdes en el código y es rosa.
+- El perro es Sándwich.
+
+De ahí salió un efecto que no estaba previsto: **la pequeña del grupo
+ahora es Lara, no Kenta.** Reiko le soltaba al jugador "ignora al menor
+de edad", y ese pique se ha quedado sin edad a la que agarrarse.

@@ -325,7 +325,7 @@ export const KENTA = [
     { wait: 2000 },
     { s: 'kenta', t: 'y luego apareció una mujer con una tarjeta' },
     { s: 'kenta', t: 'y me dijo: "en ASSIST no le pedimos a nadie que sea otra persona"' },
-    { s: 'kenta', t: 'y yo llevaba dieciocho años esperando que alguien me dijera exactamente esa frase' },
+    { s: 'kenta', t: 'y yo llevaba veintitrés años esperando que alguien me dijera exactamente esa frase' },
     { s: 'kenta', t: 'así que firmé sin leer nada' },
     { s: 'kenta', t: 'nada. ni una línea.', expr: 'sad' },
     {
@@ -429,7 +429,7 @@ export const KENTA = [
           { wait: 2800 },
           { s: 'kenta', t: 'vale' },
           { s: 'kenta', t: 'me acabo de tapar la cara con un cojín, para tu información', expr: 'embarrassed' },
-          { s: 'kenta', t: 'tengo dieciocho años y me acabo de tapar la cara con un cojín' },
+          { s: 'kenta', t: 'tengo veintitrés años y me acabo de tapar la cara con un cojín' },
           { s: 'kenta', t: 'esto es culpa tuya' },
           { flag: 'kenta_route' }
         ]},

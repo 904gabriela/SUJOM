@@ -49,13 +49,13 @@ export const COMMON = [
         ]}
       ]
     },
-    { s: 'lara', t: 'yo soy Lara. veintiuno. tengo un perro que se llama Sándwich y es lo mejor que le ha pasado a este planeta', expr: 'happy' },
+    { s: 'lara', t: 'yo soy Lara. dieciocho. tengo un perro que se llama Sándwich y es lo mejor que le ha pasado a este planeta', expr: 'happy' },
     { s: 'lara', photo: 'lara_momo' },
     { s: 'kenta', t: 'no han pasado ni dos minutos y ya ha sacado al perro' },
     { s: 'lara', t: 'SIEMPRE saco al perro. es mi personalidad.' },
-    { s: 'kenta', t: 'kenta. dieciocho. no me hables por las mañanas.' },
+    { s: 'kenta', t: 'kenta. veintitrés. no me hables por las mañanas.' },
     { s: 'reiko', t: 'Reiko. Veinticinco.', expr: 'neutral' },
-    { s: 'reiko', t: 'Bienvenid{a}. Ignora al menor de edad las tres primeras semanas, después ya se puede convivir con él.' },
+    { s: 'reiko', t: 'Bienvenid{a}. Ignora a Kenta las tres primeras semanas, después ya se puede convivir con él.' },
     { s: 'kenta', t: 'REIKO' },
     { s: 'reiko', t: '¿Sí?', expr: 'smug' },
     { s: 'kenta', t: 'nada. da igual.' },

@@ -25,7 +25,7 @@ export const CHARS = {
   ryu: {
     id: 'ryu',
     name: 'Ryu',
-    age: 20,
+    age: 26,
     occupation: 'Trabajos temporales',
     handle: '@ryu',
     accent: '#7fd8e8',
@@ -34,7 +34,7 @@ export const CHARS = {
     bio: 'No habla mucho de su pasado. Pero cuando confía en ti, se abre.',
 
     /* --- arte --- */
-    hair: '#1c1a26', hairStyle: 'ryu', eyes: '#8fc7d4', skin: '#f2d3b6',
+    hair: '#353537', hairStyle: 'ryu', eyes: '#8fc7d4', skin: '#f2d3b6',
     clothes: '#232a38', acc: 'cross', blush: '#e8798f',
     art: {
       avatar:   'assets/characters/ryu/avatar.png',
@@ -90,7 +90,7 @@ export const CHARS = {
   kenta: {
     id: 'kenta',
     name: 'Kenta',
-    age: 18,
+    age: 23,
     occupation: 'Vive solo. No pregunta de qué.',
     handle: '@kntx',
     accent: '#ff8a5c',
@@ -98,7 +98,7 @@ export const CHARS = {
     tagline: 'Te va a picar. Aguanta.',
     bio: 'Grosero, intenso y con una lengua rapidísima. Te va a gustar cómo te provoca.',
 
-    hair: '#e9e4ef', hairStyle: 'kenta', streak: '#ffb37a', eyes: '#ff9a5e', skin: '#f4cfae',
+    hair: '#e1ba97', hairStyle: 'kenta', streak: '#c99a6a', eyes: '#a9762f', skin: '#f4cfae',
     clothes: '#2b2233', acc: 'choker', blush: '#ff7a5e',
     art: {
       avatar:   'assets/characters/kenta/avatar.png',
@@ -154,7 +154,7 @@ export const CHARS = {
   lara: {
     id: 'lara',
     name: 'Lara',
-    age: 21,
+    age: 18,
     occupation: 'Entre trabajos. Otra vez.',
     handle: '@laralala',
     accent: '#ffd166',
@@ -162,7 +162,7 @@ export const CHARS = {
     tagline: 'Te va a mandar demasiadas fotos del perro.',
     bio: 'Luminosa y con demasiada energía. Hace que cualquier día sea mejor.',
 
-    hair: '#f2dca4', hairStyle: 'lara', eyes: '#7fd88f', skin: '#f8dcc6',
+    hair: '#f5b8bd', hairStyle: 'lara', eyes: '#e8557f', skin: '#f8dcc6',
     clothes: '#2a2233', acc: 'bow', blush: '#ff6f9e',
     art: {
       avatar:   'assets/characters/lara/avatar.png',
@@ -224,7 +224,7 @@ export const CHARS = {
     tagline: 'Sabe exactamente lo que hace. Casi siempre.',
     bio: 'Elegante, brillante y con una seguridad que da un poco de envidia.',
 
-    hair: '#ece8f5', hairStyle: 'reiko', eyes: '#c7a4ff', skin: '#f3d8c8',
+    hair: '#e3d7d7', hairStyle: 'reiko', eyes: '#ddd8e0', skin: '#f3d8c8',
     clothes: '#241d3d', acc: 'earrings', blush: '#d986b4',
     art: {
       avatar:   'assets/characters/reiko/avatar.png',
