@@ -2,21 +2,21 @@
 
     python3 tools/criba_chibi.py <carpeta o png...>
 
-Comprueba una sola cosa, y es a proposito.
+Comprueba cuatro cosas, y las cuatro estan aqui porque fallaron de verdad:
+el encuadre, el marco, el tono de piel contra el arte pintado, y la
+dispersion de piel dentro del conjunto.
 
-La version anterior media cuatro: la piel, el pelo, la linea blanca del
-borde y una banda de brillo. Todos aquellos umbrales salian de las piezas
-del jugador —cabezas sueltas sobre croma, con el pelo pedido en azul
-violaceo— y ninguno sobrevive al cambio a stickers del reparto:
+Hubo una version anterior que tambien media cuatro y no valia ninguna:
+sus umbrales salian de las piezas del jugador —cabezas sueltas sobre
+croma, con el pelo pedido en azul violaceo— y no sobrevivieron al cambio
+a stickers del reparto. Buscaba el pelo por un color que solo tenia el
+jugador, daba por mala la linea blanca de recorte que en un sticker se
+quiere, y media la piel con un umbral de cabezas sueltas, donde la cara
+ocupa el doble que en un busto vestido. Tumbo ocho piezas buenas seguidas.
 
-  - el pelo se buscaba por color, y cada personaje tiene el suyo;
-  - la linea blanca se daba por mala, y en un sticker se quiere;
-  - la piel ocupaba mucho en una cabeza suelta y poco en un busto vestido;
-  - el brillo medido en la mitad superior de un busto incluye la cara y el
-    filo blanco, asi que daba entre 11% y 25% en piezas perfectas.
-
-Puestos a elegir entre un filtro que mide cuatro cosas mal y uno que mide
-una bien, quedan las que si han fallado de verdad y si separan.
+De ahi la regla que gobierna este archivo: **un umbral solo entra cuando
+hay un fallo real detras y un hueco medido que lo separe.** Cada
+constante lleva escrito de donde sale.
 """
 
 import sys
@@ -45,6 +45,10 @@ ANCHO_MARCO = 12
 # tanda de Ryu: las buenas van de 153 a 174 de luz y la clara dio 224,
 # con el arte pintado en 168.
 LUZ_PIEL = 34
+# Y ademas las piezas de un mismo personaje tienen que parecerse ENTRE SI.
+# Medido sobre la tanda de memes: Reiko 10 de dispersion, Lara 18, Kenta 33
+# y Ryu 70, que es el que canta. Por encima de 25 se nota al verlos juntos.
+DISPERSION_MAXIMA = 25
 
 
 def _piel(a, op):
@@ -127,6 +131,7 @@ def main(argv):
         print(f'piel de {personaje} en el arte pintado: {ref:.0f} de luz\n')
 
     fallos = 0
+    luces = []
     print(f'{"pieza":30} {"alto/ancho":>10} {"marco":>7} {"piel":>6}  veredicto')
     for r in rutas:
         pasa, figura, limpio, luz, motivos = revisa(r, ref)
@@ -135,7 +140,27 @@ def main(argv):
         for x in motivos:
             print(f'{"":40} -> {x}')
         fallos += not pasa
+        if luz:
+            luces.append((os.path.basename(r), luz))
     print(f'\n{len(rutas) - fallos} de {len(rutas)} pasan')
+
+    # Una pieza puede estar cerca de la referencia y aun asi lejos de sus
+    # hermanas. En la tanda de memes, tres piezas de Ryu dieron 144, 149 y
+    # 214: las tres pasaron una por una contra un arte pintado en 173, y
+    # entre ellas habia 70 niveles. Un sticker no se ve solo, se ve en la
+    # misma conversacion que los demas, asi que el conjunto tambien cuenta.
+    if len(luces) > 2:
+        v = [l for _, l in luces]
+        disp = max(v) - min(v)
+        print(f'\ndispersion de piel en el conjunto: {disp:.0f} '
+              f'(de {min(v):.0f} a {max(v):.0f})')
+        if disp > DISPERSION_MAXIMA:
+            med = float(np.median(v))
+            print(f'  demasiada. Estas se salen de la mediana ({med:.0f}):')
+            for n, l in luces:
+                if abs(l - med) > DISPERSION_MAXIMA / 2:
+                    print(f'    {n[:44]:44} {l:.0f}')
+            fallos += 1
     return 1 if fallos else 0
 
 
