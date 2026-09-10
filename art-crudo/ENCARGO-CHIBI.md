@@ -158,6 +158,34 @@ Ella no baja de volumen en ninguno, y ese es el chiste.
 Las dos últimas líneas son las que la separan de Kenta: la misma
 emoción con el gesto contrario. Él retrocede, ella se acerca.
 
+#### Reiko: control
+
+Callada como Ryu y por el motivo contrario. **Él no expresa; ella elige
+qué enseñar.** La regla que los separa, y que va en todos sus prompts:
+*ella siempre te mira, él nunca.*
+
+    neutro     una mirada larga. Barbilla baja, ojos levantados hacia ti.
+    contento   la sonrisa se le extiende despacio. Cabeza en la mano.
+    timido     el único donde se le cae el control. Rubor contenido.
+    enfadado   frío. Mirada plana, brazos cruzados. SIN gritos ni cruz roja.
+    triste     sonríe y la sonrisa no le llega a los ojos. Está actuando.
+    sorpresa   las cejas suben un dedo y ya. No retrocede.
+
+Dos prohibiciones sostienen el set: en el enfado, nada de ruido —ese
+sitio ya lo ocupa Kenta y si ella grita se convierte en él con otro
+pelo—; y en la sorpresa, nada de echarse atrás. Kenta retrocede, Lara se
+inclina hacia delante, Reiko no se mueve.
+
+Su tristeza es la única de las cuatro que es una actuación y no un
+sentimiento.
+
+> **Lo que se paga por ese registro:** a 120 px su triste y su sorpresa
+> se confunden con el neutro. Lo que las distingue —la mirada perdida,
+> la boca en O— es demasiado fino para ese tamaño. Su enfadado sí se lee,
+> y por eso se lee: la banda oscura sobre los ojos es una forma, no un
+> gesto. Si hay que arreglarlo, es por ahí: dar a esos dos algo gráfico,
+> no más expresión.
+
 #### El resto
 
     <pj>-neutral    sin marca
