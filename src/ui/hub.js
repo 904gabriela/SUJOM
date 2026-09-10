@@ -11,7 +11,7 @@
 
 import { S, bondLevel, bondPct, fill, setFlag, flag } from '../engine/state.js';
 import { pixelHeart, icon } from '../engine/art.js';
-import { avatar, portrait, playerFace } from '../engine/portraits.js';
+import { avatar, cara, portrait, playerFace } from '../engine/portraits.js';
 import { CHARS, CAST, stageText, profileBits } from '../../data/characters.js';
 import { PHOTOS } from '../../data/photos.js';
 import { FILES } from '../../data/files.js';
@@ -193,7 +193,7 @@ export function home() {
     const lvl = bondLevel(id);
     bonds.appendChild(h(`
       <div class="bond" style="--accent:${c.accent}">
-        <span class="bond-face">${avatar(id, 'happy')}</span>
+        <span class="bond-face">${cara(id, 'happy')}</span>
         <span class="bond-mid">
           <span class="bond-name">${c.name}</span>
           <span class="bond-track"><span class="bond-fill" style="width:${bondPct(id)}%"></span></span>

@@ -12,7 +12,7 @@ import {
   markInspected, unlockPage, clearNotifs
 } from '../engine/state.js';
 import { photo as photoArt, icon, camera } from '../engine/art.js';
-import { avatar, playerFace, PLAYER_HAIR, PLAYER_SKIN, PLAYER_STYLE } from '../engine/portraits.js';
+import { avatar, cara, playerFace, PLAYER_HAIR, PLAYER_SKIN, PLAYER_STYLE } from '../engine/portraits.js';
 import { CHARS, CAST } from '../../data/characters.js';
 import { PHOTOS } from '../../data/photos.js';
 import { NOTES } from '../../data/notes.js';
@@ -529,7 +529,7 @@ export function endingView({ id }) {
   const node = h(`
     <div class="ending" style="--accent:${c ? c.accent : 'var(--pink)'}">
       <div class="ending-kind ${e.kind}">${label} · ${e.num}</div>
-      ${c ? `<div class="ending-face">${avatar(e.char, e.kind === 'good' ? 'happy' : e.kind === 'bad' ? 'sad' : 'neutral')}</div>` : ''}
+      ${c ? `<div class="ending-face">${cara(e.char, e.kind === 'good' ? 'happy' : e.kind === 'bad' ? 'sad' : 'neutral')}</div>` : ''}
       <div class="ending-title">${esc(e.title)}</div>
       <div class="ending-text">${fill(e.text)}</div>
       <div class="ending-epi">${fill(e.epilogue)}</div>
@@ -572,7 +572,7 @@ export function endingsList() {
     const card = h(`
       <button class="end-card ${has ? 'got' : ''}">
         <span style="width:46px;height:46px;border-radius:50%;overflow:hidden;flex:0 0 auto;background:var(--card-2);${c ? `border:2px solid ${c.accent}` : ''}">
-          ${has && c ? avatar(e.char, e.kind === 'good' ? 'happy' : 'sad') : '<span style="display:grid;place-items:center;height:100%;color:var(--ink-4)">?</span>'}
+          ${has && c ? cara(e.char, e.kind === 'good' ? 'happy' : 'sad') : '<span style="display:grid;place-items:center;height:100%;color:var(--ink-4)">?</span>'}
         </span>
         <span style="flex:1;min-width:0">
           <span class="num">${e.num} · ${c ? c.name : 'ASSIST'}</span>

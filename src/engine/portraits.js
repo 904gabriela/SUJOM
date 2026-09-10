@@ -72,6 +72,24 @@ export function avatar(charId, expr = 'neutral') {
   const c = CHARS[charId];
   if (!c) return '';
   const art = c.art || {};
+  // La foto de perfil NO cambia con la emocion, aunque el motor sepa cual es.
+  // Nadie se cambia el avatar segun como se sienta: se elige una foto y ahi
+  // se queda. Lo que cambia es el sticker que manda. Antes esto miraba
+  // `expressions[expr]` primero y el avatar parpadeaba a cada mensaje.
+  const url = art.avatar;
+  const svg = chibi(c, 'neutral', { glitch: glitchLevel() });
+  return probe(url) && url ? imgTag(url, c.name, svg) : svg;
+}
+
+/* ---------------------------------------------------------
+   Cara cuadrada CON expresión — finales, tarjeta de vínculo.
+   No es una foto de perfil: es una ilustración, y ahí sí se
+   quiere que la cara vaya con el momento.
+   --------------------------------------------------------- */
+export function cara(charId, expr = 'neutral') {
+  const c = CHARS[charId];
+  if (!c) return '';
+  const art = c.art || {};
   const url = art.expressions?.[expr] || art.avatar;
   const svg = chibi(c, expr, { glitch: glitchLevel() });
   return probe(url) && url ? imgTag(url, c.name, svg) : svg;
