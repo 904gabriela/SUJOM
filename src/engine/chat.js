@@ -24,10 +24,25 @@ import * as story from './story.js';
 /* Velocidad de lectura */
 const SPEED = { slow: 1.5, normal: 1, fast: 0.55, instant: 0 };
 
-/* Las seis que hay dibujadas de cada uno del reparto, en assets/stickers/.
-   Un `sticker` con uno de estos nombres sale como imagen; cualquier otra
-   cosa sale tal cual, que es como siguen funcionando los emoji sueltos. */
-const EMOCIONES = new Set(['neutral', 'contento', 'timido', 'enfadado', 'triste', 'sorpresa']);
+/* Lo que hay dibujado de cada uno del reparto, en assets/stickers/. Un
+   `sticker` con uno de estos nombres sale como imagen; cualquier otra cosa
+   sale tal cual, que es como siguen funcionando los emoji sueltos.
+
+   Son dos registros distintos y conviene no mezclarlos al escribir el
+   guion. Las seis primeras son emociones: sirven para CONTESTAR, y las
+   tiene igual todo el reparto. Las otras son gags propios de cada uno,
+   para cuando el personaje quiere hacer una gracia y no responder. */
+const EMOCIONES = ['neutral', 'contento', 'timido', 'enfadado', 'triste', 'sorpresa'];
+const MEMES = {
+  ryu:   ['movil', 'fuera', 'pulgar', 'dormido'],
+  kenta: ['senala', 'tira', 'suelo', 'ramen'],
+  lara:  ['sandwich', 'graba', 'corazon', 'desmayo'],
+  reiko: ['aplauso', 'bebe', 'jade', 'unas']
+};
+const DIBUJADOS = new Set([
+  ...EMOCIONES,
+  ...Object.values(MEMES).flat()
+]);
 
 function speedMul() { return SPEED[settings.textSpeed] ?? 1; }
 
@@ -218,7 +233,7 @@ export class ChatRunner {
     // Un sticker puede ser dos cosas: un emoji suelto, como toda la vida, o
     // una de las seis emociones dibujadas del personaje. Se distinguen solas:
     // las dibujadas se nombran, los emoji no.
-    const dibujado = EMOCIONES.has(node.sticker);
+    const dibujado = DIBUJADOS.has(node.sticker);
     const cuerpo = dibujado
       ? `<img class="sticker-img" src="assets/stickers/${cid}-${node.sticker}.png"
               alt="" loading="lazy" onerror="this.remove()">`
