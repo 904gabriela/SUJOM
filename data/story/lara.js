@@ -32,7 +32,7 @@ export const LARA = [
           { s: 'lara', t: 'RESPUESTA CORRECTA', expr: 'happy' },
           { s: 'lara', t: 'ya somos amigas. no hay marcha atrás. lo siento mucho.' },
           { s: 'lara', photo: 'lara_momo' },
-          { s: 'lara', t: 'este es momo. siete años. una oreja rota. mejor persona que yo.' },
+          { s: 'lara', t: 'este es sándwich. siete años. una oreja rota. mejor persona que yo.' },
           { bit: [['lara', 'fact_momo']] }
         ]},
         { t: 'Gato.', echo: 'Gato.',
@@ -41,7 +41,7 @@ export const LARA = [
           { s: 'lara', t: 'vale respeto tu decisión aunque sea incorrecta' },
           { s: 'lara', t: 'kenta también dice gato. y mira cómo le va.' },
           { s: 'lara', photo: 'lara_momo' },
-          { s: 'lara', t: 'te presento a momo igualmente. te va a convertir.' },
+          { s: 'lara', t: 'te presento a sándwich igualmente. te va a convertir.' },
           { bit: [['lara', 'fact_momo']] }
         ]},
         { t: 'Los dos.', echo: 'Los dos.',
@@ -49,7 +49,7 @@ export const LARA = [
           { s: 'lara', t: 'diplomática' },
           { s: 'lara', t: 'me gusta. reiko va a estar encantada.' },
           { s: 'lara', photo: 'lara_momo' },
-          { s: 'lara', t: 'este es momo. es la mitad perro que te corresponde.' },
+          { s: 'lara', t: 'este es sándwich. es la mitad perro que te corresponde.' },
           { bit: [['lara', 'fact_momo']] }
         ]}
       ]
@@ -144,7 +144,7 @@ export const LARA = [
           { s: 'lara', t: 'a ver' },
           { s: 'lara', t: 'no me digas esas cosas tan de repente que me pongo tonta', expr: 'embarrassed' },
           { s: 'lara', t: 'me he puesto roja. estoy sola en mi cuarto y me he puesto roja.' },
-          { s: 'lara', t: 'MOMO SE ESTÁ RIENDO DE MÍ' },
+          { s: 'lara', t: 'SÁNDWICH SE ESTÁ RIENDO DE MÍ' },
           { flag: 'lara_blushed' }
         ]},
         { t: '¿Adónde vas?', echo: '¿Adónde vas?',
@@ -172,7 +172,7 @@ export const LARA = [
     { wait: 1600 },
     { s: 'lara', t: 'perdón. qué bajón he metido de golpe.' },
     { s: 'lara', t: 'BORRA ESO' },
-    { s: 'lara', t: 'mira, momo con una calceta:' },
+    { s: 'lara', t: 'mira, sándwich con una calceta:' },
     { s: 'lara', sticker: '🧦' },
     {
       choice: [
@@ -433,7 +433,7 @@ export const LARA = [
           { s: 'lara', t: 'jajajaja' },
           { s: 'lara', t: 'estoy bailando' },
           { s: 'lara', t: 'estoy bailando sola en mi cocina con el móvil en la mano como una loca' },
-          { s: 'lara', t: 'y momo me está mirando como si me hubiera vuelto loca' },
+          { s: 'lara', t: 'y sándwich me está mirando como si me hubiera vuelto loca' },
           { s: 'lara', t: 'y no me había reído así en semanas', expr: 'happy' }
         ]},
         { t: 'Puede que ya no necesites otra banda sonora.', echo: 'Puede que ya no necesites otra banda sonora.',
@@ -498,7 +498,7 @@ export const LARA = [
       ]
     },
     { wait: 1600 },
-    { s: 'lara', t: 'te mando una foto de momo para bajar la intensidad' },
+    { s: 'lara', t: 'te mando una foto de sándwich para bajar la intensidad' },
     { s: 'lara', photo: 'lara_momo2', corruptNow: true },
     { wait: 2000 },
     { s: 'lara', t: 'anda' },
@@ -519,14 +519,14 @@ export const LARA = [
 {
   id: 'lara06',
   channel: 'dm', char: 'lara',
-  title: 'Momo',
+  title: 'Sándwich',
   day: 17, time: '12:30',
   phase: 4, mood: 'unease',
   requires: { done: ['lara05', 'g06'], flags: ['lara_route'], stat: { lara: { trust: 24 } } },
-  preview: 'lara: no encuentro a momo',
+  preview: 'lara: no encuentro a sándwich',
   script: [
     { s: 'lara', t: '{name}' },
-    { s: 'lara', t: 'no encuentro a momo', expr: 'worried' },
+    { s: 'lara', t: 'no encuentro a sándwich', expr: 'worried' },
     { s: 'lara', t: 'llevo toda la mañana buscándolo' },
     { s: 'lara', t: 'he mirado en toda la casa dos veces' },
     { s: 'lara', t: 'y la puerta está cerrada' },
@@ -539,15 +539,15 @@ export const LARA = [
           { s: 'lara', t: 'no tiene cama' },
           { wait: 2000 },
           { s: 'lara', t: 'espera' },
-          { s: 'lara', t: 'momo no tiene cama' },
+          { s: 'lara', t: 'sándwich no tiene cama' },
           { s: 'lara', t: 'ni comedero' },
           { s: 'lara', t: 'ni correa' },
-          { s: 'lara', t: 'no hay NADA de momo en esta casa', expr: 'shocked' },
+          { s: 'lara', t: 'no hay NADA de sándwich en esta casa', expr: 'shocked' },
           { s: 'lara', t: 'tengo un perro desde hace siete años y no hay nada suyo en mi casa' },
           { flag: 'lara_no_traces' },
           { fx: { lara: { awakening: 12 } } }
         ]},
-        { t: 'Lara, mira las fotos de Momo que me has mandado.', echo: 'Lara, mira las fotos de Momo que me has mandado.',
+        { t: 'Lara, mira las fotos de Sándwich que me has mandado.', echo: 'Lara, mira las fotos de Sándwich que me has mandado.',
           fx: { lara: { awareness: 10 } }, then: [
           { wait: 2600 },
           { s: 'lara', t: 'son cuatro' },
@@ -567,7 +567,7 @@ export const LARA = [
     { s: 'lara', t: 'vale' },
     { s: 'lara', t: 'vale voy a preguntarte una cosa y quiero que me digas la verdad' },
     { s: 'lara', t: 'aunque sea horrible' },
-    { s: 'lara', t: 'yo te he hablado de momo, ¿no?' },
+    { s: 'lara', t: 'yo te he hablado de sándwich, ¿no?' },
     { s: 'lara', t: 'te he hablado de él. existe. lo he tenido.' },
     {
       choice: [
@@ -861,8 +861,8 @@ export const LARA = [
           { s: 'lara', t: 'perdón me río porque si no lloro' },
           { s: 'lara', t: 'vale' },
           { s: 'lara', t: 'voy contigo', expr: 'vulnerable' },
-          { s: 'lara', t: 'y llevo a momo' },
-          { s: 'lara', t: 'porque momo existe. lo hemos decidido. existe.' },
+          { s: 'lara', t: 'y llevo a sándwich' },
+          { s: 'lara', t: 'porque sándwich existe. lo hemos decidido. existe.' },
           { flag: 'lara_has_home' }
         ]},
         { t: 'Buscaremos uno. Juntas.', echo: 'Buscaremos uno. Juntas.',
@@ -1010,7 +1010,7 @@ export const LARA = [
             { wait: 2600 },
             { s: 'lara', t: '¡¡buenos días!!', expr: 'happy' },
             { s: 'lara', t: 'he dormido genial' },
-            { s: 'lara', t: 'mira, momo:' },
+            { s: 'lara', t: 'mira, sándwich:' },
             { s: 'lara', photo: 'lara_momo' },
             { wait: 2400 },
             { me: 'Lara. El contrato. La puerta.' },

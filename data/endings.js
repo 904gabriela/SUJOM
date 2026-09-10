@@ -188,7 +188,7 @@ Hay algo en él que no se deja arreglar del todo, y eso es lo más parecido a la
     title: 'La banda sonora de fuera',
     text: `Lara sale por la puerta de incendios y lo primero que hace, antes que llamar a nadie, antes que pedir ayuda, es sentarse en el bordillo con un perro que le falta media oreja y llorar hasta que no puede respirar.
 
-Nadie ha podido explicar todavía cómo llegó Momo hasta allí. Sus padres juran que se escapó hace un año.
+Nadie ha podido explicar todavía cómo llegó Sándwich hasta allí. Sus padres juran que se escapó hace un año.
 
 Lara no ha pedido explicaciones. Le parece que preguntar sería estropearlo.`,
     epilogue: `NUEVE MESES DESPUÉS
@@ -201,7 +201,7 @@ Y se levantó y se fue, y por primera vez en su vida no se sintió culpable de i
 
 Vive en un piso con la cocina grande. Es el único requisito que puso.
 
-Te manda entre once y catorce fotos de Momo al día. Ninguna repetida. Las ha comprobado. Las comprueba todas, una por una, y no piensa dejar de hacerlo nunca.
+Te manda entre once y catorce fotos de Sándwich al día. Ninguna repetida. Las ha comprobado. Las comprueba todas, una por una, y no piensa dejar de hacerlo nunca.
 
 Y cada tarde, a las cinco, cuando la luz entra de lado:
 
@@ -226,7 +226,7 @@ Lara vuelve al chat a los dos días, con quince emojis y tres exclamaciones.
 
 Está bien. Está estupendamente. Está más contenta que nunca.
 
-Te manda una foto de Momo.
+Te manda una foto de Sándwich.
 
 Y otra.
 
@@ -424,7 +424,7 @@ Los ciclos 1, 2 y 3 nunca aparecieron.
 
 Doce personas. Tres variables externas que un día abrieron una aplicación y se encontraron la sala común vacía.
 
-Reiko dedica los martes a buscarlos. Kenta la acompaña y protesta todo el rato. Lara lleva a Momo. Ryu conduce.
+Reiko dedica los martes a buscarlos. Kenta la acompaña y protesta todo el rato. Lara lleva a Sándwich. Ryu conduce.
 
 —
 

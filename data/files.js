@@ -99,8 +99,8 @@ ESTADO: adherencia alta
     kind: 'doc', size: '12 KB', date: 'D12',
     requires: { glitch: 1 },
     body: `archivo,origen,hash,duplicado
-lara_momo.img,SIM/EXT-03,8f2a…,no
-lara_momo2.img,SIM/EXT-03,8f2a…,SÍ
+lara_sandwich.img,SIM/EXT-03,8f2a…,no
+lara_sandwich2.img,SIM/EXT-03,8f2a…,SÍ
 ryu_fw.img,SIM/EXT-04,11c9…,no
 ryu_window.img,SIM/EXT-04,4d70…,no
 ryu_window.img,SIM/EXT-04,4d70…,SÍ

@@ -632,7 +632,7 @@ export const REIKO = [
     { s: 'reiko', t: 'Lo he cronometrado. A Lara la corrigen una vez al día. A mí, cinco.' },
     { s: 'reiko', t: 'Y cada corrección me deja peor.' },
     { s: 'reiko', t: 'Se me olvidan cosas nuevas. Cosas de esta semana.' },
-    { s: 'reiko', t: 'Ayer no me acordaba de cómo se llamaba Momo.', expr: 'worried' },
+    { s: 'reiko', t: 'Ayer no me acordaba de cómo se llamaba Sándwich.', expr: 'worried' },
     { wait: 2000 },
     { s: 'reiko', t: '{name}, te tengo que pedir algo horrible.' },
     { s: 'reiko', t: 'Si llega un momento en que ya no sé quién eres' },

@@ -28,10 +28,10 @@ export const NOTES = {
     body: 'Se fue de casa a los diecisiete. No dice por qué exactamente, sólo repite que "no aguantaba".\n\nCuando le pregunté si echaba algo de menos, tardó nueve minutos en contestar "el arroz de mi madre" y luego borró el mensaje.'
   },
   n_lara_momo: {
-    title: 'Momo',
+    title: 'Sándwich',
     kind: 'info',
     date: 'D2',
-    body: 'El perro de Lara. Siete años. Una oreja rota desde que era cachorro.\n\nLara dice que Momo es "la única persona de su casa que nunca le ha mentido".\n\nMe pareció una forma rara de decirlo.'
+    body: 'El perro de Lara. Siete años. Una oreja rota desde que era cachorro.\n\nLara dice que Sándwich es "la única persona de su casa que nunca le ha mentido".\n\nMe pareció una forma rara de decirlo.'
   },
   n_reiko_company: {
     title: 'La empresa de Reiko',

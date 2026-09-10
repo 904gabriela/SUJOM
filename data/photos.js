@@ -100,13 +100,13 @@ export const PHOTOS = {
   /* ---------------- LARA ---------------- */
   lara_momo: {
     of: 'lara', scene: 'dog',
-    title: 'MOMO',
+    title: 'SÁNDWICH',
     caption: '¡¡se ha sentado solo!! nadie se lo ha pedido!!',
     exif: { fecha: '12/07 · 17:20', lugar: 'Parque Higashi', disp: 'ASSIST Cam', tam: '2.2 MB' }
   },
   lara_momo2: {
     of: 'lara', scene: 'dog',
-    title: 'Momo otra vez',
+    title: 'Sándwich otra vez',
     caption: 'perdón. otra. la última. mentira.',
     exif: { fecha: '16/07 · 18:02', lugar: 'Parque Higashi', disp: 'ASSIST Cam', tam: '2.0 MB' },
     anomaly: 'dup',

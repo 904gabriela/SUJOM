@@ -109,11 +109,11 @@ export const CALLS = {
       { at: 300, t: 'hola 😊' },
       { at: 1800, t: 'perdona. me sale la sonrisa. no puedo quitármela.', glitch: true },
       { at: 4400, t: 'están aquí. ya están aquí, están al lado.' },
-      { at: 6800, t: 'escúchame rápido: yo no me lo inventé. momo existe.' },
+      { at: 6800, t: 'escúchame rápido: yo no me lo inventé. sándwich existe.' },
       { at: 9600, t: 'y tú tampoco te lo has inventado. esto era de verdad.', glitch: true },
       { at: 12600, t: 'acuérdate de mí enfadada. no de mí conte—', glitch: true }
     ],
-    after: 'La llamada se ha cortado.\n\nEn tu galería, todas las fotos de Momo son ahora la misma foto.',
+    after: 'La llamada se ha cortado.\n\nEn tu galería, todas las fotos de Sándwich son ahora la misma foto.',
     sounds: ['machine', 'alarm']
   },
 

@@ -196,18 +196,18 @@ export const CHARS = {
       'Ya no finge estar bien cuando no lo está.'
     ],
 
-    likes: ['Su perro, Momo', 'Bailar en la cocina'],
+    likes: ['Su perro, Sándwich', 'Bailar en la cocina'],
     dislikes: ['El silencio', 'Comer sola'],
     bits: [
       { id: 'like_dance', type: 'like', text: 'Bailar en la cocina' },
       { id: 'like_sun', type: 'like', text: 'Las cinco de la tarde en verano' },
       { id: 'dis_alone', type: 'dislike', text: 'Comer sola' },
-      { id: 'fact_momo', type: 'fact', text: 'Momo tiene siete años y una oreja rota.' },
+      { id: 'fact_momo', type: 'fact', text: 'Sándwich tiene siete años y una oreja rota.' },
       { id: 'fact_money', type: 'fact', text: 'Sus padres llevaban dos años sin dormir por las deudas.' },
       { id: 'fact_signed', type: 'fact', text: 'No firmó nada. Firmaron por ella.' },
       { id: 'fact_smile', type: 'fact', text: 'Se ríe más fuerte cuando algo le duele.' },
       { id: 'fact_chose', type: 'fact', text: 'Sabe exactamente cuánto valía. Vio la cifra.' },
-      { id: 'wrong_momo', type: 'fact', text: 'Momo tiene siete años y una oreja rota.', wrong: true, replaces: 'fact_momo' }
+      { id: 'wrong_momo', type: 'fact', text: 'Sándwich tiene siete años y una oreja rota.', wrong: true, replaces: 'fact_momo' }
     ],
     hidden: { subject: 'C-03', admitted: '21/06/2024' }
   },

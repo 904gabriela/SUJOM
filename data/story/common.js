@@ -49,7 +49,7 @@ export const COMMON = [
         ]}
       ]
     },
-    { s: 'lara', t: 'yo soy Lara. veintiuno. tengo un perro que se llama Momo y es lo mejor que le ha pasado a este planeta', expr: 'happy' },
+    { s: 'lara', t: 'yo soy Lara. veintiuno. tengo un perro que se llama Sándwich y es lo mejor que le ha pasado a este planeta', expr: 'happy' },
     { s: 'lara', photo: 'lara_momo' },
     { s: 'kenta', t: 'no han pasado ni dos minutos y ya ha sacado al perro' },
     { s: 'lara', t: 'SIEMPRE saco al perro. es mi personalidad.' },
@@ -208,7 +208,7 @@ export const COMMON = [
     { s: 'kenta', t: 'son las tres de la mañana' },
     { s: 'lara', t: 'POR ESO ES UNA EMERGENCIA' },
     { s: 'reiko', t: 'Levántate y compruébalo.' },
-    { s: 'lara', t: 'no puedo. momo está durmiendo encima de mi pierna.' },
+    { s: 'lara', t: 'no puedo. sándwich está durmiendo encima de mi pierna.' },
     { s: 'lara', photo: 'lara_momo2' },
     { s: 'reiko', t: 'Entonces no es una emergencia. Es una elección.', expr: 'smug' },
     { s: 'lara', t: '…me has pillado' },
@@ -465,7 +465,7 @@ export const COMMON = [
     },
     { s: 'lara', t: 'ay' },
     { s: 'lara', t: 'chicos' },
-    { s: 'lara', t: 'os voy a mandar una foto de momo y se nos pasa a todos' },
+    { s: 'lara', t: 'os voy a mandar una foto de sándwich y se nos pasa a todos' },
     { s: 'lara', photo: 'lara_momo' },
     { s: 'kenta', t: 'esa foto ya la has mandado' },
     { s: 'lara', t: 'que no' },

@@ -65,7 +65,7 @@ export const REGALOS = {
     fx: { affinity: 6, trust: 3 }
   },
   pelota: {
-    nombre: 'Pelota para Momo',
+    nombre: 'Pelota para Sándwich',
     icono: '🎾',
     precio: 35,
     desc: 'Chirría. Lara va a odiarte y a quererte a partes iguales.',

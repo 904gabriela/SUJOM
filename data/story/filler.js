@@ -152,7 +152,7 @@ export const FILLER = [
         { t: 'Empieza tú.', echo: 'Empieza tú.',
           fx: { lara: { affinity: 3 } }, then: [
           { s: 'lara', t: 'UNO: el sol de las cinco' },
-          { s: 'lara', t: 'DOS: momo ha estornudado y se ha asustado de sí mismo' },
+          { s: 'lara', t: 'DOS: sándwich ha estornudado y se ha asustado de sí mismo' },
           { s: 'lara', t: 'TRES: tú', expr: 'happy' },
           { s: 'lara', t: 'no te lo tomes a mal. la tres es siempre alguien.' },
           { s: 'lara', t: 'hoy has sido tú. ya está. sigo.' }
@@ -166,7 +166,7 @@ export const FILLER = [
           { s: 'lara', t: 'y si tampoco hay una, me lo dices y ya está.' },
           { s: 'lara', t: 'no hace falta que estés bien para hablar conmigo.', expr: 'vulnerable' }
         ]},
-        { t: 'Tú, Momo y el sol de las cinco.', echo: 'Tú, Momo y el sol de las cinco.',
+        { t: 'Tú, Sándwich y el sol de las cinco.', echo: 'Tú, Sándwich y el sol de las cinco.',
           fx: { lara: { affinity: 2 } }, then: [
           { s: 'lara', t: 'AY' },
           { s: 'lara', t: 'me has copiado la lista y me ha hecho una ilusión tremenda' },
