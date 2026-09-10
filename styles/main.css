@@ -664,6 +664,9 @@ input,textarea,select{font:inherit;color:inherit}
 .photo-msg svg,.photo-msg img{width:100%;border-radius:16px;display:block}
 .photo-msg .cap{font-size:11.5px;color:var(--ink-3);padding:7px 7px 3px;font-style:italic;line-height:1.45}
 .sticker{font-size:54px;line-height:1;animation:stickIn .4s var(--ease-bounce)}
+/* Los dibujados van bastante más grandes que un emoji: la marca de emoción es
+   lo que se lee, y a 54px se pierde. 140 es lo que usa Mystic Messenger. */
+.sticker-img{display:block;width:auto;height:140px;max-width:100%}
 @keyframes stickIn{from{transform:scale(.3) rotate(-14deg);opacity:0}to{transform:none;opacity:1}}
 
 /* Escribiendo */

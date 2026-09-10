@@ -24,6 +24,11 @@ import * as story from './story.js';
 /* Velocidad de lectura */
 const SPEED = { slow: 1.5, normal: 1, fast: 0.55, instant: 0 };
 
+/* Las seis que hay dibujadas de cada uno del reparto, en assets/stickers/.
+   Un `sticker` con uno de estos nombres sale como imagen; cualquier otra
+   cosa sale tal cual, que es como siguen funcionando los emoji sueltos. */
+const EMOCIONES = new Set(['neutral', 'contento', 'timido', 'enfadado', 'triste', 'sorpresa']);
+
 function speedMul() { return SPEED[settings.textSpeed] ?? 1; }
 
 /** Retardo antes de un mensaje: proporcional a lo que "cuesta escribirlo". */
@@ -210,10 +215,18 @@ export class ChatRunner {
     const cid = node.s;
     const same = this.lastSpeaker === cid;
     if (!this.replay) await wait(typeTime('', 420));
+    // Un sticker puede ser dos cosas: un emoji suelto, como toda la vida, o
+    // una de las seis emociones dibujadas del personaje. Se distinguen solas:
+    // las dibujadas se nombran, los emoji no.
+    const dibujado = EMOCIONES.has(node.sticker);
+    const cuerpo = dibujado
+      ? `<img class="sticker-img" src="assets/stickers/${cid}-${node.sticker}.png"
+              alt="" loading="lazy" onerror="this.remove()">`
+      : node.sticker;
     this.add(this.el(`
       <div class="msg ${cid === '__me' ? 'me' : ''} ${same ? 'same' : ''}">
         ${cid === '__me' ? '' : `<div class="msg-av ${same ? 'hidden' : ''}">${same ? '' : this.avatar(cid, node.expr)}</div>`}
-        <div class="msg-col"><div class="sticker">${node.sticker}</div></div>
+        <div class="msg-col"><div class="sticker">${cuerpo}</div></div>
       </div>`));
     sfx.tap();
     this.lastSpeaker = cid;
