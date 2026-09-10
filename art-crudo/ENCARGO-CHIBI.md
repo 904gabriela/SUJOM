@@ -179,12 +179,23 @@ inclina hacia delante, Reiko no se mueve.
 Su tristeza es la única de las cuatro que es una actuación y no un
 sentimiento.
 
-> **Lo que se paga por ese registro:** a 120 px su triste y su sorpresa
-> se confunden con el neutro. Lo que las distingue —la mirada perdida,
-> la boca en O— es demasiado fino para ese tamaño. Su enfadado sí se lee,
-> y por eso se lee: la banda oscura sobre los ojos es una forma, no un
-> gesto. Si hay que arreglarlo, es por ahí: dar a esos dos algo gráfico,
-> no más expresión.
+> **El error que costó dos piezas.** Su tristeza se pidió como "sonríe y
+> la sonrisa no le llega a los ojos". Eso es una idea de novela, no de
+> dibujo: la diferencia entre una sonrisa de verdad y una fingida vive
+> en detalles diminutos alrededor de los ojos, y un chibi tiene cinco
+> rasgos en total. Salió una mujer simpática. Repetir el prompt daba lo
+> mismo, porque el fallo no era la generación.
+>
+> Y su sorpresa se quedó sin la exclamación que se pidió "pequeña y
+> elegante". Sin marca y con un registro tan contenido, no le quedaba
+> nada con que leerse.
+>
+> **La regla que sale de ahí, y vale para los cuatro:** en un personaje
+> contenido, lo que se lee es **la silueta y la marca**, nunca el
+> matiz de la cara. Su enfadado funciona por eso — la banda oscura sobre
+> los ojos es una forma, no un gesto. Así que su tristeza pasa a ser una
+> silueta rota: la mano tapándose los ojos, o girada de espaldas. Y su
+> sorpresa lleva una exclamación grande, no elegante.
 
 #### El resto
 
