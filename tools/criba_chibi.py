@@ -16,7 +16,7 @@ violaceo— y ninguno sobrevive al cambio a stickers del reparto:
     filo blanco, asi que daba entre 11% y 25% en piezas perfectas.
 
 Puestos a elegir entre un filtro que mide cuatro cosas mal y uno que mide
-una bien, queda la que si ha fallado de verdad —dos veces— y si separa.
+una bien, quedan las que si han fallado de verdad y si separan.
 """
 
 import sys
@@ -33,16 +33,33 @@ from procesa_arte import quita_fondo                       # noqa: E402
 # 1,26 a 1,61 y los dos cuerpos enteros dan 1,83 los dos. El corte va en
 # el hueco, que es ancho.
 FIGURA_MAXIMA = 1.70
+# El marco de la imagen tiene que ser croma y nada mas. Cuando el modelo se
+# inventa un panel blanco al lado, o escribe el nombre del personaje —los
+# dos han pasado—, el marco deja de ser verde. Medido: las piezas limpias
+# dan 100% clavado y la que traia el nombre escrito dio 67%.
+MARCO_LIMPIO = 0.97
+ANCHO_MARCO = 12
 
 
 def revisa(ruta):
+    from PIL import Image
     a = np.asarray(quita_fondo(ruta))[..., 3] > 128
     ys, xs = np.where(a)
     figura = (ys.max() - ys.min() + 1) / (xs.max() - xs.min() + 1)
+
+    crudo = np.asarray(Image.open(ruta).convert('RGB')).astype(np.float32)
+    croma = crudo[..., 1] - np.maximum(crudo[..., 0], crudo[..., 2]) > 40
+    marco = np.zeros(croma.shape, bool)
+    marco[:ANCHO_MARCO] = marco[-ANCHO_MARCO:] = True
+    marco[:, :ANCHO_MARCO] = marco[:, -ANCHO_MARCO:] = True
+    limpio = float(croma[marco].mean())
+
     motivos = []
     if figura > FIGURA_MAXIMA:
         motivos.append('salio de cuerpo entero, se pidio busto')
-    return not motivos, figura, motivos
+    if limpio < MARCO_LIMPIO:
+        motivos.append('el marco no es croma: hay texto, un panel o una escena')
+    return not motivos, figura, limpio, motivos
 
 
 def main(argv):
@@ -54,10 +71,11 @@ def main(argv):
         return 1
 
     fallos = 0
-    print(f'{"pieza":40} {"alto/ancho":>10}  veredicto')
+    print(f'{"pieza":34} {"alto/ancho":>10} {"marco":>7}  veredicto')
     for r in rutas:
-        pasa, figura, motivos = revisa(r)
-        print(f'{os.path.basename(r)[:40]:40} {figura:10.2f}  {"pasa" if pasa else "NO"}')
+        pasa, figura, limpio, motivos = revisa(r)
+        print(f'{os.path.basename(r)[:34]:34} {figura:10.2f} {limpio:7.0%}  '
+              f'{"pasa" if pasa else "NO"}')
         for x in motivos:
             print(f'{"":40} -> {x}')
         fallos += not pasa
