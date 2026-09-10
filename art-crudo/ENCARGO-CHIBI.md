@@ -97,8 +97,38 @@ sudadera, cuello alto, chaqueta, pendientes, gafas.
 Los personajes no cambian de ropa, así que van enteros: cara, manos y
 marca de emoción en el mismo dibujo.
 
-Seis estados por personaje, que son **los que el motor ya maneja** y las
-mismas seis expresiones que ya pintaste:
+> **Cada personaje tiene su propio registro. No comparten set.**
+>
+> El primer intento pidió las mismas seis emociones genéricas para
+> todos y salió un chico expresivo cualquiera, no Ryu. Ocho piezas bien
+> hechas y sólo una servía.
+>
+> El reparto se reparte así: **Kenta es volumen** (grita, señala, tira
+> algo), **Lara es exceso** (selfie, corazones, brillos, Sándwich metido
+> en el plano), y los otros dos son callados por motivos contrarios —
+> **Ryu no expresa, Reiko elige qué enseñar**. Eso último importa: si
+> los dos callados fueran callados igual, se parecerían.
+
+#### Ryu: la cara no se mueve
+
+En un personaje estoico la gracia es que la cara **no cambia** y la
+marca hace todo el trabajo. Una vena de enfado sobre una cara plana es
+más graciosa que una cara enfadada. El prompt tiene que prohibirlo
+explícitamente —nada de sonrisa grande, boca abierta, ojos redondos ni
+lágrimas— porque si no el modelo lo dibuja expresivo por defecto.
+
+    ...        cara plana, un bocadillo con tres puntos. El más usado.
+    contento   la boca sube un milímetro. Un corazón al lado, ajeno.
+    timido     igual de plano, girado, y el rubor enorme.
+    enfadado   cara plana, la vena roja. YA HECHO y ya estaba en su tono.
+    triste     no llora: se sube el cuello de la chaqueta. Una gota.
+    sorpresa   el único donde la cara SÍ se mueve.
+
+Cinco que no se mueven y uno que sí. El sexto funciona porque es el
+único que rompe la regla, así que si algún día se ablandan los otros
+cinco, ése deja de tener gracia.
+
+Para el resto del reparto, las seis de siempre:
 
     <pj>-neutral    sin marca
     <pj>-contento   corazón o nota
