@@ -62,6 +62,11 @@ Las hojas de diseño mandan. Están en `art-crudo/` y son de septiembre de
 | **Ryu** | 26 | Serio, actitud de líder aunque nadie le haga caso | Su familia murió y crió a su hermano pequeño. Vendió droga, robó, fue sicario. No habla de él ni de su vida. |
 | **Kenta Hayashi** | 23 | Alto, reactivo, pasional, se cree mejor que el resto | Padres alcohólicos y agresivos. Dejó el instituto y entró en una pandilla con su mejor amigo. El amigo murió parando una pelea. Desde entonces va solo. |
 | **Lara** (no es su nombre real) | 18 | Influencer de moda, extroverta, enamoradiza, soñadora | Padres juntos, tres hermanos mayores. Un perro, Sándwich. Pelo y ojos rosas. |
+
+> **Sándwich** es un **mini toy blanco de pelo rizado** — bichón o caniche
+> toy, cabeza redonda y esponjosa, ojos oscuros y redondos, patas cortas.
+> No es un terrier de pelo duro: se pidió así una vez y estaba mal. Siete
+> años y una oreja rota.
 | **Reiko Kimura** | 25 | Bailarina. Segura de sí misma, le gusta intimidar a los hombres | Su padre las abandonó al saber del embarazo. Su madre lo dio todo por ella y hace un año enfermó de leucemia. Reiko dejó el baile y sirve en bares y discotecas para pagarle la quimio. Una gata siamesa, Jade. Pelo gris claro, ojos casi blancos. |
 
 ## Lo que el repo contradice ahora mismo
