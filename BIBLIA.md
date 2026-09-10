@@ -94,6 +94,23 @@ Dos cosas más, pequeñas y sueltas:
 - **No hay ningún C-01.** Los sujetos van del C-02 al C-05. O es a
   propósito y significa algo, o es un hueco.
 
+## Todo está pintado, también las fotos
+
+En SUJOM no hay ninguna imagen fotográfica. Los retratos, las
+videollamadas, las fotos de perfil y las del álbum son todas **anime
+pintado**, semirrealista. Una fotografía dentro de este mundo es una
+imagen pintada que se comporta como una foto: encuadre de móvil,
+profundidad de campo, grano. Pero pintada.
+
+Es fácil olvidarlo al pedir arte, porque al modelo le pides "una foto de
+un perro" y te da una foto de un perro. Pasó con el avatar de Lara: salió
+un bichón fotorrealista, con pelo real y desenfoque de lente real, y al
+lado de los otros tres avatares pintados cantaba muchísimo.
+
+**La forma de evitarlo es pasar el arte pintado de un personaje como
+referencia de estilo**, aunque en la imagen no salga nadie. Así lo pinta
+la misma mano que al reparto.
+
 ## Decisiones de producción
 
 - **El chibi es sólo para los stickers.** No se encarga arte chibi del
