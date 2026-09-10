@@ -50,6 +50,13 @@ def _color_fondo(a):
     return np.median(borde, axis=0)
 
 
+# Que se considera una mota y no una marca de emocion. Medido sobre la
+# tanda de Ryu: la exclamacion mas pequena ocupa el 1,5% de la figura y la
+# mota de croma mas grande que hay que tirar no llega al 0,1%.
+MOTA_MINIMA = 400          # px absolutos
+MOTA_RELATIVA = 0.004      # o esta parte de la figura, lo que sea mayor
+
+
 def quita_fondo(ruta, dentro=52, fuera=115):
     """Deja alfa de verdad. Vale para croma verde y para blanco liso."""
     im = Image.open(ruta).convert('RGB')
@@ -70,9 +77,16 @@ def quita_fondo(ruta, dentro=52, fuera=115):
 
     solido = alfa > 0.5
     et, k = ndimage.label(solido)
-    if k > 1:                       # fuera motas sueltas
+    if k > 1:
+        # Fuera las motas sueltas, pero SOLO las motas. Antes esto se
+        # quedaba con la mancha mayor y borraba todo lo demas, y resulta
+        # que la marca de emocion tambien es una mancha suelta: no toca al
+        # personaje. Se comia el bocadillo de "...", el corazon y la
+        # exclamacion, que a 120 px son justo lo que se lee.
         tam = np.bincount(et.ravel()); tam[0] = 0
-        alfa[(et != tam.argmax()) & (et != 0)] = 0
+        minimo = max(MOTA_MINIMA, tam.max() * MOTA_RELATIVA)
+        for i in np.where((tam > 0) & (tam < minimo))[0]:
+            alfa[et == i] = 0
 
     if not verdoso:
         # Solo en el recorte sobre blanco: ahi hay huecos reales que cerrar.
