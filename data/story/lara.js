@@ -798,7 +798,7 @@ export const LARA = [
         onSolve: [
           { sys: 'ACCESO CONCEDIDO · SECTOR C · REGISTRO DE SUJETOS', kind: 'core' },
           { wait: 1600 },
-          { sys: 'C-03 · 21 a. · ingreso 21/06/2024 · sillón 3 · estable', kind: 'alert' },
+          { sys: 'C-03 · 17 a. · ingreso 21/06/2024 · sillón 3 · estable', kind: 'alert' },
           { sys: 'observación: contraprestación abonada al núcleo familiar. Sin reclamaciones.', kind: 'alert' },
           { wait: 2400 },
           { s: 'lara', t: '¿qué pone?' },

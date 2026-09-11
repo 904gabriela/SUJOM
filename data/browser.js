@@ -287,7 +287,7 @@ export const PAGES = {
       <p><b>SECTOR C — REGISTRO DE SUJETOS · CICLO 4</b></p>
       <p>C-02 · 18 a. · ingreso 03/02/2024 · sillón 2 · estable<br>
       &nbsp;&nbsp;<span style="color:#5fe3ff">observación: rechaza la sedación con más frecuencia que la media.</span></p>
-      <p>C-03 · 21 a. · ingreso 21/06/2024 · sillón 3 · estable<br>
+      <p>C-03 · 17 a. · ingreso 21/06/2024 · sillón 3 · estable<br>
       &nbsp;&nbsp;<span style="color:#5fe3ff">observación: contraprestación abonada al núcleo familiar. Sin reclamaciones.</span></p>
       <p>C-04 · 20 a. · ingreso 14/11/2023 · sillón 4 · estable<br>
       &nbsp;&nbsp;<span style="color:#5fe3ff">observación: cobertura médica de familiar directo activa y liquidada. El sujeto no conserva memoria de la solicitud.</span></p>

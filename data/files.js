@@ -301,7 +301,7 @@ Ciclo 4 en curso.`
 
 SILLÓN 1 · C-05 · 25 a. · ingreso 09/09/2024 · INESTABLE
 SILLÓN 2 · C-02 · 18 a. · ingreso 03/02/2024 · estable
-SILLÓN 3 · C-03 · 21 a. · ingreso 21/06/2024 · estable
+SILLÓN 3 · C-03 · 17 a. · ingreso 21/06/2024 · estable
 SILLÓN 4 · C-04 · 20 a. · ingreso 14/11/2023 · estable
 
 EXTERNO · C-1 · sin sillón asignado

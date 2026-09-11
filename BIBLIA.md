@@ -91,6 +91,25 @@ Dos cosas más, pequeñas y sueltas:
 - **Las fechas de ingreso no dan cinco años.** Están todas entre
   noviembre de 2023 y septiembre de 2024, diez meses. Si alguien lleva
   cinco años, alguna fecha tiene que irse a 2020.
+
+  El registro interno guarda la edad de cada uno **al entrar**, y
+  restando salen los años que llevan dentro:
+
+  | | Sujeto | Ingreso | Edad al entrar | Edad ahora | Lleva |
+  |---|---|---|---|---|---|
+  | Ryu | C-04 | 14/11/2023 | 20 | 26 | 6 años |
+  | Kenta | C-02 | 03/02/2024 | 18 | 23 | 5 años |
+  | Lara | C-03 | 21/06/2024 | 17 | 18 | 1 año |
+  | Reiko | C-05 | 09/09/2024 | 25 | 25 | recién llegada |
+
+  Las cuentas de la derecha son las buenas: son las que dice la
+  historia. Las fechas de la izquierda no las sostienen, porque entre
+  todas hay diez meses. **Se arreglan moviendo las fechas, no las
+  edades.**
+
+  Y para poder moverlas falta un número que no está escrito en ningún
+  sitio: **en qué año transcurre el juego.** Mientras eso no se
+  decida, cualquier fecha que se ponga es a ojo.
 - **No hay ningún C-01.** Los sujetos van del C-02 al C-05. O es a
   propósito y significa algo, o es un hueco.
 
@@ -131,6 +150,10 @@ la misma mano que al reparto.
 - Colores de respaldo muestreados del arte pintado, no inventados.
   Lara era rubia de ojos verdes en el código y es rosa.
 - El perro es Sándwich.
+- **Lara entró con 17.** El registro interno decía 21, que la hacía
+  más joven ahora que cuando entró. Con 17 encaja además con el
+  documento de su álbum: por eso hay una cesión de tutela y por eso
+  la firman sus padres y no ella.
 
 De ahí salió un efecto que no estaba previsto: **la pequeña del grupo
 ahora es Lara, no Kenta.** Reiko le soltaba al jugador "ignora al menor
