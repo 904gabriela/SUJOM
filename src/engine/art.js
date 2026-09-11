@@ -600,16 +600,60 @@ const SCENES = {
       <g stroke="#cdc4dd" stroke-width="1" opacity=".7"><path d="M62 82 L44 78"/><path d="M62 86 L44 88"/><path d="M98 82 L116 78"/><path d="M98 86 L116 88"/></g>
       <path d="M120 118 Q140 108 134 92" stroke="#5a5270" stroke-width="9" fill="none" stroke-linecap="round"/>`;
   },
-  paper(u) {
-    return `<rect width="160" height="160" fill="#5a5348"/>
-      <g transform="rotate(-3 80 80)">
-        <rect x="18" y="14" width="124" height="132" fill="#f4efe2" stroke="#d8d0bd"/>
-        <rect x="28" y="26" width="60" height="5" fill="#2a2a2a"/>
-        <rect x="28" y="38" width="40" height="3" fill="#8a8a8a"/>
-        <rect x="106" y="24" width="26" height="26" rx="2" fill="#e0d8c4"/>
-        <g stroke="#b8ae98" stroke-width="1"><path d="M28 56 L132 56"/></g>
-        ${[64, 74, 84, 94, 104, 114, 124].map((y, i) => `<rect x="28" y="${y}" width="${104 - (i % 3) * 22}" height="3" fill="#a8a08c"/>`).join('')}
-        <rect x="28" y="132" width="44" height="6" fill="#2a2a2a" opacity=".8"/>
+  // El papel se dibuja igual con texto y sin el: lo que cambia es si las
+  // lineas del cuerpo son palabras o son barras grises. Con `doc` van las
+  // palabras de verdad, a cuerpo 4, y eso hace dos cosas de una sola vez:
+  // en el visor grande se lee, y en la rejilla de 107 px se convierte por
+  // si solo en un bloque de texto ilegible, que es justo lo que parece un
+  // documento visto de lejos. No hace falta una version para cada tamaño.
+  paper(u, spec, def) {
+    const d = def && def.doc;
+    if (!d) {
+      return `<rect width="160" height="160" fill="#5a5348"/>
+        <g transform="rotate(-3 80 80)">
+          <rect x="18" y="14" width="124" height="132" fill="#f4efe2" stroke="#d8d0bd"/>
+          <rect x="28" y="26" width="60" height="5" fill="#2a2a2a"/>
+          <rect x="28" y="38" width="40" height="3" fill="#8a8a8a"/>
+          <rect x="106" y="24" width="26" height="26" rx="2" fill="#e0d8c4"/>
+          <g stroke="#b8ae98" stroke-width="1"><path d="M28 56 L132 56"/></g>
+          ${[64, 74, 84, 94, 104, 114, 124].map((y, i) => `<rect x="28" y="${y}" width="${104 - (i % 3) * 22}" height="3" fill="#a8a08c"/>`).join('')}
+          <rect x="28" y="132" width="44" height="6" fill="#2a2a2a" opacity=".8"/>
+        </g>`;
+    }
+
+    // Un documento fotografiado con el movil no se lee entero ni de golpe:
+    // se lee el titulo, se lee la linea que te hunde, y el resto es letra
+    // pequeña. Asi que la letra pequeña va a cuerpo 3.4 y las lineas
+    // marcadas `clave` a 5. Eso no es solo estetica: a cuerpo unico, o el
+    // texto no cabia a lo ancho del papel o no se leia en el visor.
+    const MONO = 'ui-monospace,SFMono-Regular,Menlo,monospace';
+    let y = 66;
+    const cuerpo = d.lineas.map(l => {
+      const clave = typeof l === 'object' && l.clave;
+      const t = typeof l === 'object' ? l.t : l;
+      y += clave ? 3 : 0;
+      const linea = clave
+        ? `<text x="20" y="${y}" font-family="${MONO}" font-size="5" font-weight="700" fill="#1f1d19" xml:space="preserve">${esc(t)}</text>`
+        : `<text x="20" y="${y}" font-family="${MONO}" font-size="3.4" fill="#3a362e" xml:space="preserve">${esc(t)}</text>`;
+      y += clave ? 10 : 6.4;
+      return linea;
+    }).join('');
+
+    return `<rect width="160" height="160" fill="#4a453c"/>
+      <defs><clipPath id="pp${u}"><rect x="10" y="8" width="140" height="144" rx="1"/></clipPath></defs>
+      <g transform="rotate(-1.6 80 80)">
+        <rect x="10" y="8" width="140" height="144" fill="#f4efe2" stroke="#d8d0bd"/>
+        <g clip-path="url(#pp${u})">
+          <text x="20" y="27" font-family="${MONO}" font-size="5.6" font-weight="700" fill="#1f1d19">${esc(d.titulo)}</text>
+          <text x="20" y="36" font-family="${MONO}" font-size="3.6" fill="#7a7364">${esc(d.ref)}</text>
+          <rect x="112" y="18" width="32" height="20" rx="1.5" fill="none" stroke="#c9bfa6" stroke-width=".7"/>
+          <text x="128" y="30" font-family="${MONO}" font-size="3" fill="#a89c82" text-anchor="middle">${esc(d.sello)}</text>
+          <path d="M20 45 L140 45" stroke="#b8ae98" stroke-width=".7"/>
+          ${cuerpo}
+          <path d="M20 134 L74 134" stroke="#8a8272" stroke-width=".6"/>
+          <text x="21" y="132" font-family="Segoe Script,Brush Script MT,cursive" font-size="7" fill="#2a2a2a">${esc(d.firma)}</text>
+          <text x="20" y="145" font-family="${MONO}" font-size="3.4" fill="#8a8272">${esc(d.pie)}</text>
+        </g>
       </g>`;
   },
   gift(u) {
@@ -642,7 +686,7 @@ export function photo(def, opts = {}) {
       <stop offset="0%" stop-color="#ffb36e"/><stop offset="100%" stop-color="#ff7fb6"/>
     </linearGradient>
     <filter id="cr${u}"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="1" result="t"/>
-      <feDisplacementMap in="SourceGraphic" in2="t" scale="${corrupt ? 9 : 0}" xChannelSelector="R"/></filter>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="${corrupt ? (def.doc ? 2 : 9) : 0}" xChannelSelector="R"/></filter>
   </defs>`;
 
   // La anomalía: un detalle que no debería estar ahí.
@@ -678,7 +722,7 @@ export function photo(def, opts = {}) {
 
   return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(def.title || 'foto')}">
     ${defs}
-    <g filter="url(#cr${u})">${scene(u, def.spec)}${anomaly}</g>
+    <g filter="url(#cr${u})">${scene(u, def.spec, def)}${anomaly}</g>
     ${glitchBars}
     ${corrupt ? `<rect width="160" height="160" fill="#5fe3ff" opacity=".05"/>` : ''}
   </svg>`;

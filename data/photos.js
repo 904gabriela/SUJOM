@@ -94,7 +94,22 @@ export const PHOTOS = {
     title: 'Lo encontré en un cajón',
     caption: 'esto no es mío. no lo he escrito yo.',
     exif: { fecha: '—— ——', lugar: '—', disp: 'ASSIST/REG', tam: '2.9 MB', extra: 'FORM. INGRESO VOLUNTARIO · FIRMA: K—— (menor)' },
-    corruptDefault: true
+    corruptDefault: true,
+    doc: {
+      sello: 'ASSIST · REGISTRO',
+      titulo: 'INGRESO VOLUNTARIO',
+      ref: 'EXP. C-02 · 03/02/2024',
+      lineas: [
+        'El abajo firmante declara incorporarse',
+        'al equipo de afiliados por voluntad',
+        'propia y sin coacción de ninguna clase.',
+        'Cede el uso de su registro de actividad',
+        'durante la vigencia del acuerdo.',
+        { t: 'VIGENCIA: INDEFINIDA', clave: true }
+      ],
+      firma: 'K———— H————',
+      pie: 'FORMULARIO: menor · REGISTRO: 18 años'
+    }
   },
 
   /* ---------------- LARA ---------------- */
@@ -143,7 +158,21 @@ export const PHOTOS = {
     title: 'Lo que firmaron',
     caption: '',
     exif: { fecha: '21/06/2024', lugar: '—', disp: 'ASSIST/LEGAL', tam: '4.1 MB', extra: 'CESIÓN DE TUTELA TEMPORAL · CONTRAPRESTACIÓN: 41.000.000' },
-    corruptDefault: true
+    corruptDefault: true,
+    doc: {
+      sello: 'ASSIST · LEGAL',
+      titulo: 'CESIÓN DE TUTELA',
+      ref: 'EXP. C-03 · 21/06/2024',
+      lineas: [
+        'Los tutores legales ceden a ASSIST la',
+        'representación de la interesada a todos',
+        'los efectos derivados del programa.',
+        { t: 'No precisa ser informada.', clave: true },
+        { t: 'CONTRAPRESTACIÓN: 41.000.000', clave: true }
+      ],
+      firma: 'los dos tutores',
+      pie: 'LA INTERESADA NO FIGURA COMO FIRMANTE'
+    }
   },
 
   /* ---------------- REIKO ---------------- */
@@ -173,7 +202,21 @@ export const PHOTOS = {
     title: 'El contrato',
     caption: 'Lo leí dos veces. Dos.',
     exif: { fecha: '09/09/2024', lugar: '—', disp: 'ASSIST/LEGAL', tam: '5.5 MB', extra: 'CLÁUSULA 14.2: CESIÓN DE REGISTRO NEUROCOGNITIVO' },
-    corruptDefault: true
+    corruptDefault: true,
+    doc: {
+      sello: 'ASSIST · LEGAL',
+      titulo: 'CONTRATO DE AFILIACIÓN',
+      ref: 'EXP. C-05 · 09/09/2024',
+      lineas: [
+        '14.1  Pago único de la cantidad acordada.',
+        '14.2  El afiliado cede a ASSIST su',
+        '      registro neurocognitivo íntegro.',
+        { t: 'Sin límite y sin revocación.', clave: true },
+        '14.3  14.1 y 14.2 son indivisibles.'
+      ],
+      firma: 'R———— K————',
+      pie: 'LEÍDO Y ACEPTADO'
+    }
   },
   reiko_door: {
     of: 'reiko', scene: 'door',
