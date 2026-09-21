@@ -178,6 +178,26 @@ lado de los otros tres avatares pintados cantaba muchísimo.
 referencia de estilo**, aunque en la imagen no salga nadie. Así lo pinta
 la misma mano que al reparto.
 
+### Y tampoco realista «bonito»
+
+No basta con que no sea una fotografía. **El álbum va en el mismo
+registro que el reparto**, cel shading, y no en fondo de anime
+realista tipo Shinkai —reflejos, profundidad de campo, mucho detalle—,
+por muy bien que quede suelto.
+
+Dos motivos, y el segundo es el que manda:
+
+1. **El álbum está dentro del juego.** Es la galería del móvil de un
+   personaje, no una ilustración de portada. Si de repente las fotos
+   son realistas, sacan al jugador del juego.
+2. **Las fotos no son decoración, son pruebas.** Todo el mecanismo
+   consiste en que el jugador note que algo está mal: la luna que no
+   se ha movido, los dos edificios con las mismas ventanas. Si las
+   fotos están pintadas por otra mano que los personajes, esa rareza
+   se la atribuye al estilo y no al mundo. Piensa «estas se ven
+   distintas» en vez de «aquí pasa algo». **La anomalía se pierde
+   dentro de la diferencia de registro.**
+
 ## Decisiones de producción
 
 - **El chibi es sólo para los stickers.** No se encarga arte chibi del

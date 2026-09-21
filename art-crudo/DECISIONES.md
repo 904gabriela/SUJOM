@@ -85,20 +85,35 @@ había entendido en la primera. No repetirlo.
 
 ## Sin resolver, y son decisiones suyas
 
-**El registro del álbum.** La primera tanda de fotos (`ryu_ramen`) ha
-salido en **fondo de anime pintado realista**, tipo Shinkai: reflejos,
-profundidad de campo, mucho detalle. El reparto está en **cel shading**.
-Las dos cosas son bonitas y a 107 px se leen bien, pero son **dos manos
-distintas**. Hay que decidir si el álbum va en ese registro a propósito
-—una foto se parece más a una foto que a un dibujo, así que tiene
-sentido— o si se acerca al del reparto.
-
 **`sys_chairs`** — «OCUPACIÓN: 4/4 · PROTOCOLO: LAZO DORADO». Cuatro
 sillones con los cuatro dentro. Es la foto que lo cuenta todo, y no
 está decidido si se les ve la cara.
 
 **En qué año transcurre el juego.** Bloquea el arreglo de las fechas de
 ingreso, que no dan los años que la historia dice. Ver `BIBLIA.md`.
+
+---
+
+## El registro del álbum: cel shading, DECIDIDO
+
+Las dos escenas de prueba salieron en **fondo de anime realista** tipo
+Shinkai. Quedaban bien sueltas y aun así están mal.
+
+> *«La idea del juego es que el álbum de fotos siga siendo un juego.
+> Si de repente ponemos imágenes realistas ya te saca del juego.»*
+> — Gabriela
+
+**El álbum va en el mismo registro que el reparto.** El motivo largo
+está en `BIBLIA.md`, y el que de verdad pesa es éste: las fotos no son
+decoración, son pruebas. Si están pintadas por otra mano que los
+personajes, el jugador atribuye la rareza al estilo y no al mundo —
+piensa «estas se ven distintas» en vez de «aquí pasa algo», y la
+anomalía se pierde dentro de la diferencia de registro.
+
+Para el prompt: pedir **cel shading plano, línea visible, poco
+detalle**, y decir explícitamente que **no** es un fondo realista ni
+cinematográfico. Y la referencia de estilo del personaje sigue yendo
+siempre, aunque no salga nadie.
 
 ---
 
