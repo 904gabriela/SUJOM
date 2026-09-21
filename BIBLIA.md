@@ -113,6 +113,54 @@ Dos cosas más, pequeñas y sueltas:
 - **No hay ningún C-01.** Los sujetos van del C-02 al C-05. O es a
   propósito y significa algo, o es un hueco.
 
+## El arte final lo dibujan personas
+
+**Nada de lo que hay generado en `assets/` es arte final.** Los
+retratos, los stickers, las fotos de perfil y lo que venga del álbum
+son **bocetos para poder ver cómo queda el juego montado**. El arte de
+los personajes lo van a dibujar artistas de verdad.
+
+Eso cambia tres cosas, y conviene tenerlas claras antes de seguir
+pidiendo imágenes:
+
+- **El listón es «se entiende la idea», no «está terminado».** En
+  cuanto una imagen sirve para decidir si la idea funciona, ya ha
+  hecho su trabajo. Insistir para que salga perfecta es tiempo y
+  créditos tirados: esa pieza se va a volver a dibujar igualmente.
+- **Lo que hay que dejar bien escrito es el encargo, no la imagen.**
+  Los tamaños, los encuadres, cuántas piezas, qué tiene que leerse a
+  qué tamaño, el registro de cada personaje. Eso es lo que se le pasa
+  a alguien. Los `ENCARGO-*.md` de `art-crudo/` son eso y por eso
+  existen.
+- **Los bocetos valen como referencia visual**, que es justo para lo
+  que se hicieron. Enseñan el encuadre y el tono mejor que un párrafo.
+
+### Lo que no es de los artistas
+
+Hay cosas que parecen arte y no lo son, y esas sí están terminadas
+porque las hace el código:
+
+- **El texto de los documentos del álbum.** Se dibuja desde
+  `data/photos.js`. El artista pinta el papel; las palabras las pone
+  el código, y por eso se pueden corregir sin volver a encargar nada.
+- **Dos de las anomalías**, `dup` y `nosun`. No son objetos que se
+  puedan pintar: una copia un trozo de la imagen y lo pega en otro
+  sitio, la otra oscurece la luna. Se hacen sobre el arte que llegue,
+  sea de quien sea.
+- **El creador de personaje.** Los ocho colores de pelo, los seis de
+  piel y los cuatro peinados están dibujados por código a propósito,
+  para no encargar arte de algo que el jugador combina.
+- **Toda la interfaz.**
+
+### Dónde se enchufa el arte que llegue
+
+La estructura ya está hecha y el arte entra sustituyendo ficheros, sin
+tocar código:
+
+    assets/characters/<id>/   retratos por emoción + avatar.png
+    assets/stickers/          <id>-<nombre>.png
+    assets/ui/
+
 ## Todo está pintado, también las fotos
 
 En SUJOM no hay ninguna imagen fotográfica. Los retratos, las

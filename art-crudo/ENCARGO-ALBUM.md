@@ -4,6 +4,11 @@
 están dibujadas por código, como SVG, en `src/engine/art.js`. Esto es
 el plan para sustituirlas por arte pintado.
 
+> **Esto es un encargo, no un guion para un generador.** El arte final
+> lo dibujan personas (ver `BIBLIA.md`). Lo que se genere aquí son
+> bocetos para ver cómo queda montado y para enseñar el encuadre; en
+> cuanto se entiende la idea, ya han hecho su trabajo.
+
 > Regla que manda sobre todo lo demás, de `BIBLIA.md`: **aquí no hay
 > ninguna imagen fotográfica.** Una foto en este mundo es una imagen
 > pintada que se comporta como una foto —encuadre de móvil,
