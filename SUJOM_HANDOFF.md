@@ -1,0 +1,267 @@
+# SUJOM — Traspaso
+
+Para un agente nuevo que tiene el repositorio pero no la conversación.
+Todo lo que hay aquí está comprobado contra el código, no supuesto.
+
+Rama de trabajo: `claude/sujom-otome-game-uxw5ev`.
+Último commit al escribir esto: `b482243`.
+
+> Antes de nada: **`BIBLIA.md` manda.** Cuando el guion y ese documento
+> no coincidan, el que está mal es el guion. Este traspaso describe el
+> estado técnico; la biblia describe el mundo.
+
+---
+
+# 1. PRODUCT GOAL
+
+**ASSIST: Connected Hearts** es un juego otome que finge ser una app de
+mensajería. Te descargas la app, creas tu perfil, conoces a cuatro
+personajes, te escriben y te caen bien. Y luego una foto se repite, una
+fecha no cuadra y alguien no se acuerda de algo que te contó.
+
+Lo que en realidad es: ASSIST observa a alguien en redes, espera a
+saber por dónde entra, le anuncia SUJOM de forma dirigida para que
+descargarlo parezca idea suya, y acaba conectando su conciencia a una
+máquina. Los cuatro personajes ya están dentro. Ellos creen que están
+chateando.
+
+**Filosofía central:**
+
+> **Simple en la superficie porque la inteligencia complicada está
+> debajo.**
+
+En la práctica eso quiere decir: la pantalla es una app de chat
+corriente y agradable. Todo lo raro se cuenta con detalles que el
+jugador tiene que notar solo — una luna que no se ha movido, dos
+edificios con las mismas ventanas encendidas, un contrato que dice más
+de lo que parece. Nunca se explica. El romance va primero; el misterio
+sale de dentro del romance.
+
+---
+
+# 2. CURRENT ARCHITECTURE
+
+Esto es lo que hay de verdad hoy. No hay nada planificado descrito como
+si existiera.
+
+## No hay build
+
+**No hay `package.json`, ni npm, ni bundler, ni framework.** Son
+módulos ES servidos tal cual. Se arranca así:
+
+    python3 -m http.server 8000
+    # http://localhost:8000
+
+`node_modules/` aparece sólo en el directorio temporal de trabajo, no
+en el repositorio.
+
+## Reparto de responsabilidades
+
+    index.html          Arranque. Carga main.css + piel-noche.css.
+    src/main.js         Bootstrap.
+    src/ui/             Pantallas: shell, hub, chat-view, apps,
+                        onboarding, tienda, album-util.
+    src/engine/         Lógica: story, chat, state, conditions,
+                        portraits, art, audio, tienda.
+    data/               Contenido. Sin lógica.
+    data/story/         Las rutas: ryu, kenta, lara, reiko,
+                        common, secret, filler.
+    tools/*.py          Python. Procesado de arte, no del juego.
+    styles/             main.css + piel-noche.css.
+
+Unas 10.500 líneas de JS. Lo más gordo son las cuatro rutas, ~1.000
+líneas cada una.
+
+## Las piezas que conviene entender antes de tocar nada
+
+**`src/engine/state.js`** — La partida vive en `localStorage`, clave
+`sujom.save.v1`, `SAVE_VERSION = 1`. Si la versión no cuadra, la
+partida se descarta. No hay servidor ni base de datos: **todo es
+cliente**.
+
+**`src/engine/portraits.js`** — Capa de resolución de arte, y es la
+pieza más importante del repositorio para no romper cosas. La interfaz
+**nunca** pide una imagen directamente: la pide aquí. Si el personaje
+declara un bloque `art` en `data/characters.js`, se usa el fichero; si
+falta o falla al cargar, el `<img onerror>` lo sustituye por el SVG
+generado por código. Consecuencia práctica: **el juego funciona con
+`assets/` vacío**, y se puede ir metiendo arte pieza a pieza sin tocar
+una línea de interfaz.
+
+**`src/engine/art.js`** — Dibuja por código, en SVG, los retratos, los
+chibis, las 16 escenas del álbum y las cámaras. Es el respaldo de todo
+lo anterior y también lo que se ve ahora mismo en el álbum.
+
+**`src/engine/story.js`** — Registro de sesiones, desbloqueos, reloj
+interno, fases y no-leídos. `audit()` y `stats()` existen y son útiles
+para inspeccionar.
+
+**`src/engine/conditions.js`** — `meets(req)` decide si algo está
+desbloqueado; `lockHint()` explica por qué no.
+
+## Pieles
+
+Hay **una sola**, `styles/piel-noche.css`, y va cargada
+incondicionalmente desde `index.html`. **No hay selector de pieles.**
+Si alguna nota vieja menciona «lila», «lavanda» o «noche cálida», son
+ideas, no código.
+
+---
+
+# 3. IMPORTANT ARCHITECTURAL DECISIONS
+
+Decisiones tomadas, con su motivo. **No deshacerlas sin hablarlo.**
+
+1. **El arte se pide siempre a `portraits.js`**, nunca directamente.
+   Es lo que permite mezclar arte real y respaldo generado.
+
+2. **Nada de lo que hay en `assets/` es arte final.** Son bocetos para
+   ver el juego montado. El arte de los personajes lo va a dibujar una
+   artista real, ya confirmada, y el objetivo es que con el tiempo todo
+   el arte sea de artistas. Consecuencia: **no merece la pena pulir una
+   imagen generada de personaje**; se va a redibujar. El encargo
+   (`art-crudo/ENCARGO-PERSONAJES.md`) sí merece cuidado, porque es lo
+   que se le pasa a una persona.
+
+3. **El chibi es sólo para los stickers.** No se encarga arte chibi del
+   jugador: ni cabezas, ni ropa, ni vestidor.
+
+4. **El creador de personaje se dibuja por código a propósito** —ocho
+   colores de pelo, seis de piel, cuatro peinados— para no encargar
+   arte de algo que el jugador combina.
+
+5. **El texto de los documentos del álbum lo pone el código**, desde
+   `data/photos.js`. El artista pinta el papel; las palabras las pone
+   el motor. Así se corrigen sin volver a encargar nada, y de rebote:
+   a 107 px el texto se convierte solo en un bloque ilegible, que es
+   justo lo que parece un documento visto de lejos.
+
+6. **Dos anomalías se hacen en código y no se pueden pintar:**
+   - `dup` — «dos edificios con las mismas ventanas, píxel por píxel».
+     A un pintor le sale *parecido*, y parecido es lo contrario de lo
+     que dice la nota. El código copia la región de verdad.
+   - `nosun` — la luna que lleva tres semanas sin moverse.
+
+   ⚠️ **Las dos llevan coordenadas en `data/photos.js`** (`luna:
+   [cx,cy,r]`, `dup: {de,a}`) **medidas sobre el SVG actual.** En
+   cuanto entre arte pintado hay que volver a medirlas o la luna
+   aparecerá pegada en un trozo de cielo vacío.
+
+7. **Lo que el jugador tiene que leer como prueba va fuera del filtro
+   de corrupción.** El glitch es ambiente; una prueba ilegible no
+   prueba nada. Esta regla apareció dos veces: con el texto de los
+   documentos y con las anomalías.
+
+8. **Un umbral sólo entra en `tools/criba_chibi.py` cuando hay un fallo
+   real detrás y un hueco medido que lo separe.** Una versión anterior
+   de ese filtro sacó los umbrales de piezas de otro tipo y tumbó ocho
+   piezas buenas seguidas. Cada constante lleva escrito de dónde sale.
+
+9. **Todo es cliente.** No hay servidor, ni base de datos, ni API, ni
+   cuentas. La única persistencia es `localStorage`. Si alguna vez hace
+   falta backend, es una decisión nueva y grande, no un detalle de
+   implementación.
+
+---
+
+# 4. CURRENT TESTS / REGRESSION SUITES
+
+**No hay ninguna. Esto está comprobado, no supuesto.**
+
+- No hay `package.json`, así que **no hay scripts de test**.
+- No hay ficheros `*.test.js`, `*.spec.js` ni carpeta de tests.
+- No hay runner, ni CI, ni linter configurado.
+
+**No hay recuentos que registrar porque no hay suites que los
+produzcan.** Si encuentras un número de tests en alguna nota, está
+inventado.
+
+## Cómo se ha verificado el trabajo hasta ahora
+
+Manualmente, y conviene seguir igual mientras no se decida otra cosa:
+
+1. **Comprobación de renderizado** — importar los módulos con `node` y
+   comprobar que todo devuelve SVG. Por ejemplo:
+
+       node -e "import('./data/photos.js').then(async m=>{
+         const {photo}=await import('./src/engine/art.js');
+         for(const id in m.PHOTOS) for(const c of [true,false])
+           if(!photo(m.PHOTOS[id],{corrupt:c}).startsWith('<svg')) throw new Error(id);
+         console.log('ok');
+       })"
+
+   Al escribir esto: **las 26 fotos renderizan limpias y corruptas.**
+
+2. **Captura con Playwright** desde el directorio temporal, montando
+   los módulos reales y el CSS real, para mirar el resultado a los
+   tamaños de verdad. Chromium está en `/opt/pw-browsers/chromium`.
+
+3. **El juego, en el navegador**, con `python3 -m http.server`.
+
+Montar una suite de verdad es una decisión que **no se ha tomado**.
+No la tomes tú sin preguntar.
+
+---
+
+# 5. NEXT TASK — VERY IMPORTANT
+
+> **No empieces rediseñando la arquitectura.** No hace falta, y las
+> decisiones de la sección 3 tienen motivo. El trabajo pendiente es de
+> contenido, no de estructura.
+
+## Lo inmediato: el álbum
+
+El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
+
+- Son **26 fotos** en `data/photos.js`, en 16 escenas.
+- Descontando el archivo vacío, la foto repetida a propósito y la
+  puerta que sale dos veces: **23 imágenes base + 6 gemelas
+  corruptas**.
+- **Hecho ya:** los tres documentos (texto por código) y las dos
+  anomalías de código.
+- **En vuelo:** dos escenas generadas y pendientes de que Gabriela las
+  vea — `ryu_ramen` (ramen de konbini a las tres) y `kenta_cat` (el
+  gato del callejón). Se lanzaron dos y no veintitrés a propósito:
+  primero se fija el tono, luego se produce en serie.
+- **Pendiente:** las 21 escenas restantes.
+
+Receta que funciona, de `ENCARGO-ALBUM.md`: pasar arte pintado de un
+personaje como referencia de estilo **aunque en la imagen no salga
+nadie** (si no, el modelo devuelve una foto de verdad y desentona con
+todo lo demás), y prohibir explícitamente texto, marca de agua, marco
+decorativo, borde blanco y efecto polaroid.
+
+## Lo aplazado a propósito
+
+**La historia y el trasfondo**, por decisión de Gabriela: *«Primero
+quiero salir de todo lo visual»*. `BIBLIA.md` lista lo que el guion
+contradice — la ruta de Kenta hay que rehacerla, la de Reiko es
+sustitución entera, Ryu y Lara necesitan cambio de piel. **No lo
+empieces sin que te lo pida.**
+
+## Un número que falta y bloquea las fechas
+
+`BIBLIA.md` lo explica: las edades de ingreso dan cinco y seis años
+dentro, pero todas las fechas caben en diez meses. Se arregla moviendo
+las fechas, y para moverlas hace falta saber **en qué año transcurre el
+juego**, que no está escrito en ningún sitio. Es una decisión de
+Gabriela.
+
+---
+
+# NEXT AGENT INSTRUCTIONS
+
+1. Read this file.
+2. Inspect the current repository.
+3. Verify material claims against code before modifying anything.
+4. Do not repeat already-completed audits unless evidence contradicts
+   the handoff.
+5. Continue from NEXT TASK.
+6. **Preserva la partida del jugador.** El único dato real que se
+   puede destruir es la partida en `localStorage`, clave
+   `sujom.save.v1`. Si cambias su forma, sube `SAVE_VERSION` y migra —
+   si no, la partida se descarta al cargar y el jugador pierde todo.
+7. **Haz commit antes de sobrescribir.** No hay base de datos ni
+   migraciones: aquí el trabajo se pierde sobrescribiendo ficheros.
+   Antes de tocar `assets/` o de reescribir contenido en `data/`,
+   asegura lo que hay.
