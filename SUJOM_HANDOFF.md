@@ -266,7 +266,10 @@ suya —el año del juego, si a los cuatro se les ve la cara en
 `LEEME.md`.
 
 📌 **`art-crudo/DECISIONES.md` es obligatorio antes de pedir una
-imagen.** Los encargos dicen *qué* pedir; ése dice *qué ha funcionado
+imagen.** Su sección «La palabra arrastra su equipaje» es la que más
+tiempo ahorra: las dos escenas de prueba del álbum se perdieron por
+eso, y las dos llevaban la prohibición escrita en mayúsculas en el
+mismo prompt. Los encargos dicen *qué* pedir; ése dice *qué ha funcionado
 y qué se ha rechazado, con el motivo*. Lleva lo que sólo existía en la
 conversación: los cuatro avatares y por qué cada uno es lo que es, los
 rechazos con lo que enseñó cada uno, la regla de cuándo parar de
@@ -290,8 +293,10 @@ El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
   `art-crudo/DECISIONES.md`, sección «Lo que no gana una prohibición»:
   hay que cambiar el sujeto, no reforzar la prohibición. **Empieza por
   aquí**, es el siguiente paso concreto.
-- **`kenta_cat` — generada, sin revisar.** Se lanzó y el resultado no
-  ha llegado todavía. Pídele a Gabriela el zip antes de relanzarla.
+- **`kenta_cat` — generada y RECHAZADA por encuadre.** El gato está
+  bien y el registro también; lo que falla es que dos versiones meten
+  una mano o un brazo en cuadro y dos traen borde de polaroid. Hay que
+  relanzarla, no repararla.
 - **Pendiente:** las 21 escenas restantes. No las lances de golpe.
 
 Receta que funciona, de `ENCARGO-ALBUM.md`: pasar arte pintado de un

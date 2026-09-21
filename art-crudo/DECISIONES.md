@@ -102,21 +102,59 @@ ingreso, que no dan los años que la historia dice. Ver `BIBLIA.md`.
 
 ---
 
-## Lo que no gana una prohibición
+## La palabra arrastra su equipaje
 
-Aprendido con `ryu_ramen`, y es el fallo más caro porque parece que se
-puede arreglar escribiendo más:
+**Es el patrón más útil que ha salido, y ha salido tres veces.** Cada
+vez que un encargo falló por meter algo prohibido, lo prohibido venía
+dentro de lo que se estaba pidiendo:
 
-Se prohibió explícitamente texto, marcas, logos, firma, borde blanco y
-efecto polaroid. **Las cuatro imágenes salieron con marcas** —Pepsi,
-Coca-Cola, «CUP NOODLES»—, una con firma y otra con borde blanco
-torcido.
+| Qué se pidió | Qué se coló |
+|---|---|
+| «Que **la sombra** haga la foto» | Un hombre entero de pie en la calle, con cara. |
+| «Un **konbini** de noche» | Pepsi, Coca-Cola, «CUP NOODLES». |
+| «Una **foto hecha con el móvil**» | El marco de polaroid, la inclinación, y la mano del que la hace. |
 
-No fue mala suerte. **Pedir un konbini es pedir marcas**: una tienda de
-conveniencia está hecha de envases con logotipos, así que el sujeto
-arrastra lo prohibido. Una prohibición no gana contra el sujeto.
+En los tres casos la prohibición estaba escrita, explícita y en
+mayúsculas, en el mismo prompt. No sirvió de nada.
 
-> **Cuando lo prohibido es parte de lo pedido, se cambia el sujeto, no
-> la prohibición.** En este caso: el cuenco llenando el encuadre y la
-> tienda sólo como luz y bokeh al fondo. La etiqueta no sale porque no
-> cabe.
+> **Una prohibición no gana contra el sujeto.** Si lo que no quieres
+> es parte de lo que has pedido, hay que cambiar lo que pides.
+
+Traducido a reglas concretas para el álbum:
+
+- **No digas que es una foto.** Describe el encuadre —a ras de suelo,
+  cerca, poca profundidad de campo, luz de la escena— y deja que la
+  sensación de foto salga de ahí. Decir «foto» invita al objeto foto:
+  marco blanco, inclinación, y el fotógrafo.
+- **No nombres sitios que están hechos de marcas.** «Konbini» trae
+  logotipos. Cambia el sujeto: el objeto en primer plano llenando el
+  encuadre y el sitio detrás, sólo como luz y desenfoque.
+- **No pidas una acción que necesita un cuerpo** si no quieres el
+  cuerpo.
+
+### Estado de las dos escenas de prueba
+
+- **`ryu_ramen`**: rechazada, las cuatro con marcas. Sin rehacer.
+- **`kenta_cat`**: el gato está **bien** —callejero, feo, mirada de
+  no me importas, nada de siamés ni de mono—, y el registro también.
+  Falla el encuadre: dos con mano o brazo en cuadro y dos con borde de
+  polaroid. Se intentó recortar la buena a mano y no salió; no se
+  insistió, porque es una imagen provisional. **Relanzar con las
+  reglas de arriba, no reparar.**
+
+---
+
+## Cuándo NO seguir reintentando
+
+Dos señales, las dos pagadas:
+
+1. **Cada tanda sale peor que la anterior.** Pasó con la sombra de
+   Ryu: tres tandas para una pieza que ya se había entendido en la
+   primera. Se abandonó y se cogió la alternativa.
+2. **El fallo es el mismo tres veces seguidas.** Entonces no es suerte,
+   es el prompt, y hay que cambiar el sujeto (ver arriba) en vez de
+   reforzar la prohibición.
+
+Y una cosa que **no** hay que hacer: reparar a mano una imagen
+generada. Es provisional y se va a redibujar. Se intentó con el gato y
+salió peor que el original.
