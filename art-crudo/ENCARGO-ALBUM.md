@@ -96,6 +96,15 @@ un detalle de la foto, parece un botón.
 | `dup` | **código** | Tiene que ser idéntico de verdad. |
 | `nosun` | **código** | No es un objeto: es que no se ha movido. |
 
+> **Cuidado al sustituir el arte de esas dos.** Las dos llevan
+> coordenadas en `data/photos.js` —`luna: [cx, cy, r]` en `ryu_window`
+> y `reiko_city`, y `dup: { de, a }` en `kenta_city`— y esas
+> coordenadas apuntan al dibujo que hay **ahora**, que es el SVG. En
+> cuanto entre una imagen pintada, la luna estará en otro sitio y los
+> edificios también. Hay que volver a medirlas sobre la imagen nueva,
+> o la luna aparecerá pegada en un trozo de cielo vacío. Ya pasó una
+> vez, por tener el número clavado en el código en vez de en el dato.
+
 ## Lo que hay que prohibir en cada encargo
 
 De los errores ya cometidos, por orden de cuántas veces han pasado:
