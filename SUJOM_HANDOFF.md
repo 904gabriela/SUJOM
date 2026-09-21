@@ -265,6 +265,14 @@ suya —el año del juego, si a los cuatro se les ve la cara en
 `ENCARGO-ALBUM.md`, `ENCARGO-CHIBI.md`, `PROMPTS-CHIBI.md` y
 `LEEME.md`.
 
+📌 **`art-crudo/DECISIONES.md` es obligatorio antes de pedir una
+imagen.** Los encargos dicen *qué* pedir; ése dice *qué ha funcionado
+y qué se ha rechazado, con el motivo*. Lleva lo que sólo existía en la
+conversación: los cuatro avatares y por qué cada uno es lo que es, los
+rechazos con lo que enseñó cada uno, la regla de cuándo parar de
+reintentar, y lo que sigue sin decidir. Sin él se repiten errores ya
+pagados.
+
 ## Lo inmediato: el álbum
 
 El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
@@ -275,11 +283,16 @@ El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
   corruptas**.
 - **Hecho ya:** los tres documentos (texto por código) y las dos
   anomalías de código.
-- **En vuelo:** dos escenas generadas y pendientes de que Gabriela las
-  vea — `ryu_ramen` (ramen de konbini a las tres) y `kenta_cat` (el
-  gato del callejón). Se lanzaron dos y no veintitrés a propósito:
-  primero se fija el tono, luego se produce en serie.
-- **Pendiente:** las 21 escenas restantes.
+- **`ryu_ramen` — generada y RECHAZADA.** Las cuatro versiones salieron
+  con marcas comerciales visibles (Pepsi, Coca-Cola, «CUP NOODLES»),
+  una con firma y otra con borde blanco torcido, **pese a estar todo
+  eso prohibido en el prompt**. El motivo y la salida están en
+  `art-crudo/DECISIONES.md`, sección «Lo que no gana una prohibición»:
+  hay que cambiar el sujeto, no reforzar la prohibición. **Empieza por
+  aquí**, es el siguiente paso concreto.
+- **`kenta_cat` — generada, sin revisar.** Se lanzó y el resultado no
+  ha llegado todavía. Pídele a Gabriela el zip antes de relanzarla.
+- **Pendiente:** las 21 escenas restantes. No las lances de golpe.
 
 Receta que funciona, de `ENCARGO-ALBUM.md`: pasar arte pintado de un
 personaje como referencia de estilo **aunque en la imagen no salga
