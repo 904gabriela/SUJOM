@@ -10,6 +10,12 @@ Rama de trabajo: `claude/sujom-otome-game-uxw5ev`.
 > no coincidan, el que está mal es el guion. Este traspaso describe el
 > estado técnico; la biblia describe el mundo.
 
+**El proyecto está en español**: el código, los comentarios, los
+nombres de fichero de los assets, los documentos y los mensajes de
+commit. Sigue igual. Los identificadores internos mezclan español e
+inglés por herencia (`happy`, `shocked` conviven con `contento`,
+`sorpresa`); no los unifiques, hay ficheros y guion atados a ellos.
+
 ---
 
 # 1. PRODUCT GOAL
@@ -98,6 +104,10 @@ para inspeccionar.
 
 **`src/engine/conditions.js`** — `meets(req)` decide si algo está
 desbloqueado; `lockHint()` explica por qué no.
+
+**`src/engine/chat.js`** — Además del chat, aquí vive **la lista de
+stickers**, en `EMOCIONES` y `MEMES`. No está en `data/`, que es donde
+la buscarías. Si añades un sticker, se declara ahí o no se dibuja.
 
 ## Pieles
 
@@ -208,6 +218,52 @@ No la tomes tú sin preguntar.
 > **No empieces rediseñando la arquitectura.** No hace falta, y las
 > decisiones de la sección 3 tienen motivo. El trabajo pendiente es de
 > contenido, no de estructura.
+
+## Cómo se genera el arte — léelo antes de pedir una imagen
+
+Esto no es opcional para la tarea siguiente, y tiene una limitación que
+sorprende:
+
+**No puedes ver las imágenes que generas.** El dominio
+`cdn.openart.ai` no es alcanzable desde la sesión (comprobado: la
+petición no llega). El bucle real es:
+
+1. Lanzas la generación con la herramienta MCP de OpenArt.
+2. **Gabriela** descarga el zip del resultado y te lo manda.
+3. Lo descomprimes y *entonces* puedes mirarlo.
+
+O sea que **cada tanda cuesta una vuelta de conversación**. No lances
+veintitrés imágenes de golpe: lanza dos o tres, fija el tono con su
+visto bueno, y luego produce en serie. Y no describas una imagen que no
+has visto como si la hubieras visto.
+
+**Lo que se usa:**
+
+- Modelo `byte-plus-seedream-4-5`, modo `image2image`, 1:1, 2K.
+- Referencias de estilo ya subidas a la cuenta — el mapa está en
+  `art-crudo/LEEME.md`:
+
+      IMG_9046 → Reiko      IMG_9048 → Lara
+      IMG_9047 → Ryu        IMG_9049 → Kenta
+
+  Se pasan **aunque en la imagen no salga nadie**. Es lo que evita que
+  el modelo devuelva una foto de verdad, que desentona con todo lo
+  demás (`BIBLIA.md`, «Todo está pintado, también las fotos»).
+
+- `tools/procesa_arte.py` quita el croma y recorta.
+  `tools/criba_chibi.py <personaje> <carpeta>` criba antes de mirar
+  pieza a pieza, y avisa si el tono de piel se dispersa dentro de un
+  conjunto.
+
+**El reparto de trabajo:** Gabriela pone y aprueba la dirección de
+arte; tú la conviertes en aplicación. Cuando algo es una decisión
+suya —el año del juego, si a los cuatro se les ve la cara en
+`sys_chairs`— se pregunta, no se elige.
+
+**Los encargos escritos** están en `art-crudo/`:
+`ENCARGO-PERSONAJES.md` (lo que se le pasa a la artista),
+`ENCARGO-ALBUM.md`, `ENCARGO-CHIBI.md`, `PROMPTS-CHIBI.md` y
+`LEEME.md`.
 
 ## Lo inmediato: el álbum
 
