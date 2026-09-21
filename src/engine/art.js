@@ -707,8 +707,40 @@ export function photo(def, opts = {}) {
         <circle cx="140" cy="92" r="10" fill="#05070a"/></g>`,
       band: `<rect x="30" y="118" width="46" height="12" rx="6" fill="#e8eef0" opacity=".95"/>
         <text x="53" y="127" font-family="monospace" font-size="7" fill="#2a3a44" text-anchor="middle">C-02</text>`,
-      nosun: `<circle cx="126" cy="26" r="13" fill="#05070a"/>`,
-      dup: `<g opacity=".4" transform="translate(6,-4)"><rect x="40" y="60" width="80" height="70" fill="none" stroke="#5fe3ff" stroke-dasharray="3 3"/></g>`
+
+      // La luna que lleva tres semanas sin moverse. No se puede contar
+      // pintando algo encima: lo unico que puede hacer la imagen es que la
+      // luna parezca pegada, plana y con el borde duro, como una calcomania.
+      // La posicion sale de `def.luna`, no de aqui. Antes estaba clavada en
+      // 126,26 y la luna de la ventana esta en otro sitio, asi que a esa foto
+      // le pintaba un borron negro en un trozo de cielo vacio.
+      nosun: (() => {
+        const [cx, cy, r] = def.luna || [];
+        if (!r) return '';
+        return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="#e8e2c8"/>
+          <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#7d7a66" stroke-width=".8"/>`;
+      })(),
+
+      // Dos sitios distintos de la foto con el mismo contenido exacto. Esto
+      // es lo unico que NO se puede pedir pintado: a un pintor le sale
+      // parecido, y parecido es justo lo contrario de lo que dice la nota.
+      // Aqui se copia la region de verdad, asi que es identica de verdad.
+      // Sin `def.dup` no se dibuja nada: lara_momo2 tambien es `dup`, pero
+      // ahi la copia es la foto entera y ya se ve sola.
+      dup: (() => {
+        const d = def.dup;
+        if (!d) return '';
+        const [sx, sy, w, h] = d.de, [ax, ay] = d.a;
+        // Se dibujan los DOS, el original y la copia, y los dos sin filtro.
+        // Si solo se redibuja la copia, su origen se queda temblando debajo
+        // del glitch y entonces ya no se parecen, que es lo contrario de lo
+        // que hace falta. Asi son el mismo trozo, con el mismo tamaño,
+        // pintado dos veces. No parecido: el mismo.
+        const bloque = (id, x, y) =>
+          `<clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}"/></clipPath>
+           <g clip-path="url(#${id})"><use href="#esc${u}" transform="translate(${x - sx},${y - sy})"/></g>`;
+        return bloque(`dpa${u}`, sx, sy) + bloque(`dpb${u}`, ax, ay);
+      })()
     };
     anomaly = A[def.anomaly] || '';
   }
@@ -722,7 +754,15 @@ export function photo(def, opts = {}) {
 
   return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(def.title || 'foto')}">
     ${defs}
-    <g filter="url(#cr${u})">${scene(u, def.spec, def)}${anomaly}</g>
+    <g filter="url(#cr${u})"><g id="esc${u}">${scene(u, def.spec, def)}</g></g>
+    ${/* La anomalia va FUERA del filtro. El glitch es ambiente; la anomalia
+          es la prueba, y una prueba que no se puede leer no prueba nada.
+          En `dup` ademas lo rompia del todo: el desplazamiento deforma
+          distinto cada zona, asi que el bloque copiado dejaba de ser
+          identico al original, que era justo lo que habia que demostrar.
+          De rebote queda mejor: el bloque pegado se ve nitido mientras todo
+          lo demas tiembla, y se nota que no pertenece a la foto. */ ''}
+    ${anomaly}
     ${glitchBars}
     ${corrupt ? `<rect width="160" height="160" fill="#5fe3ff" opacity=".05"/>` : ''}
   </svg>`;

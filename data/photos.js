@@ -24,6 +24,7 @@ export const PHOTOS = {
     caption: 'Esto es todo lo que se ve desde aquí. No es gran cosa.',
     exif: { fecha: '15/07 · 02:14', lugar: 'Distrito 6', disp: 'ASSIST Cam', tam: '1.4 MB' },
     anomaly: 'nosun',
+    luna: [112, 36, 8],
     corruptExif: { fecha: '15/07 · 02:14', lugar: 'Distrito 6', disp: 'ASSIST Cam', tam: '1.4 MB', extra: 'CAPA DE CIELO: PRESET_NOCHE_03 (bucle)' },
     corruptNote: 'La luna está en el mismo sitio que hace tres semanas. Exactamente el mismo.'
   },
@@ -71,6 +72,9 @@ export const PHOTOS = {
     caption: 'no puedo dormir. la ciudad tampoco',
     exif: { fecha: '17/07 · 03:11', lugar: 'Azotea', disp: 'ASSIST Cam', tam: '2.4 MB' },
     anomaly: 'dup',
+    // El segundo edificio por la izquierda, copiado literalmente sobre el
+    // quinto. No parecido: el mismo. Es lo que dice la nota.
+    dup: { de: [37, 56, 17, 50], a: [121, 84] },
     corruptExif: { fecha: '17/07 · 03:11', lugar: 'Azotea', disp: 'ASSIST Cam', tam: '2.4 MB', extra: 'BLOQUE 4 = BLOQUE 7 (copia exacta)' },
     corruptNote: 'Dos edificios distintos tienen las mismas ventanas encendidas. Píxel por píxel.'
   },
@@ -194,6 +198,7 @@ export const PHOTOS = {
     caption: 'Antes esto me parecía una promesa.',
     exif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB' },
     anomaly: 'nosun',
+    luna: [126, 26, 12],
     corruptExif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB', extra: 'HORIZONTE: MALLA CERRADA — SIN EXTERIOR' },
     corruptNote: 'La ciudad se acaba. Detrás de la última torre no hay nada dibujado.'
   },
