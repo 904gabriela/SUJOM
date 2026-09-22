@@ -312,17 +312,19 @@ El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
   corruptas**.
 - **Hecho ya:** los tres documentos (texto por código) y las dos
   anomalías de código.
-- **`ryu_ramen` — generada y RECHAZADA.** Las cuatro versiones salieron
-  con marcas comerciales visibles (Pepsi, Coca-Cola, «CUP NOODLES»),
-  una con firma y otra con borde blanco torcido, **pese a estar todo
-  eso prohibido en el prompt**. El motivo y la salida están en
-  `art-crudo/DECISIONES.md`, sección «Lo que no gana una prohibición»:
-  hay que cambiar el sujeto, no reforzar la prohibición. **Empieza por
-  aquí**, es el siguiente paso concreto.
-- **`kenta_cat` — generada y RECHAZADA por encuadre.** El gato está
-  bien y el registro también; lo que falla es que dos versiones meten
-  una mano o un brazo en cuadro y dos traen borde de polaroid. Hay que
-  relanzarla, no repararla.
+- **`ryu_ramen` — APROBADA.** Estuvo rechazada dos veces: primero por
+  marcas comerciales (Pepsi, Coca-Cola, «CUP NOODLES») y después
+  porque, ya sin marcas, la escena no decía «tienda» ni «barato». Se
+  resolvió repartiendo el trabajo: el envase dice que es barato, el
+  fluorescente dice que es una tienda, y los estantes no salen porque
+  la cámara mira a la ventana. Está contado entero en
+  `art-crudo/DECISIONES.md`, sección «Lo barato se cuenta con el
+  envase y la luz». El exif `lugar: 'Konbini Aoi'` sigue valiendo.
+- **`kenta_cat` — relanzada, pendiente del visto bueno.** El gato ya
+  estaba aprobado —callejero, feo, mirada de no me importas—; lo que
+  fallaba era el encuadre (mano o brazo en cuadro, borde de polaroid)
+  y el registro, que era el Shinkai ya descartado. Se relanza en cel
+  shading, sin nadie en cuadro y con encuadre cerrado.
 - **Pendiente:** las 21 escenas restantes. No las lances de golpe.
 
 Receta que funciona, de `ENCARGO-ALBUM.md`: pasar arte pintado de un
@@ -330,6 +332,14 @@ personaje como referencia de estilo **aunque en la imagen no salga
 nadie** (si no, el modelo devuelve una foto de verdad y desentona con
 todo lo demás), y prohibir explícitamente texto, marca de agua, marco
 decorativo, borde blanco y efecto polaroid.
+
+Y una limitación del bucle que cuesta una vuelta de conversación cada
+vez: **tú no ves lo que generas.** `cdn.openart.ai` no es alcanzable
+desde la sesión; Gabriela descarga el zip y lo manda. Lo que sí
+puedes hacer en cuanto lo tengas es mirarlo **a 107 px**, que es el
+tamaño que decide: redimensiona con Pillow y ponlas en fila para
+compararlas. Varias piezas se han elegido así, y una tanda entera se
+descartó por leerse bien a 2048 y quedarse en mancha a 107.
 
 ## Lo aplazado a propósito
 

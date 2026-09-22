@@ -124,6 +124,12 @@ De los errores ya cometidos, por orden de cuántas veces han pasado:
    vez en la tanda de sombras. El encuadre tiene que llegar al borde.
 4. **Ni caras cuando no se piden.** En una foto de un cuenco de ramen
    no tiene que aparecer nadie comiéndoselo.
+5. **Ni encuadres lejanos.** El modelo se aleja por defecto y la
+   imagen acaba pareciendo una sesión de fotos, no algo hecho con el
+   móvil de pasada. Hay que pedir **cerca, grande, llenando el
+   encuadre y con la cámara a la altura del objeto** desde la primera
+   línea del prompt. Y es el que más pesa a 107 px: lejos, el sujeto
+   se convierte en una mancha.
 
 ## Lo que todavía no está decidido
 

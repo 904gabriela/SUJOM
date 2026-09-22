@@ -149,13 +149,78 @@ Traducido a reglas concretas para el álbum:
 
 ### Estado de las dos escenas de prueba
 
-- **`ryu_ramen`**: rechazada, las cuatro con marcas. Sin rehacer.
+- **`ryu_ramen`**: **resuelta y aprobada.** Ver abajo, «Lo barato se
+  cuenta con el envase y la luz».
 - **`kenta_cat`**: el gato está **bien** —callejero, feo, mirada de
-  no me importas, nada de siamés ni de mono—, y el registro también.
-  Falla el encuadre: dos con mano o brazo en cuadro y dos con borde de
-  polaroid. Se intentó recortar la buena a mano y no salió; no se
-  insistió, porque es una imagen provisional. **Relanzar con las
-  reglas de arriba, no reparar.**
+  no me importas, nada de siamés ni de mono—. Falla el encuadre: dos
+  con mano o brazo en cuadro y dos con borde de polaroid. Se intentó
+  recortar la buena a mano y no salió; no se insistió, porque es una
+  imagen provisional. **Relanzar con las reglas de arriba, no
+  reparar.**
+
+  ⚠️ Una nota vieja decía que el registro del gato también estaba
+  bien. **Ya no vale**: aquella tanda salió tipo Shinkai, que es justo
+  el registro que se descartó. Al relanzarla va en cel shading como
+  todo lo demás.
+
+---
+
+## Lo barato se cuenta con el envase y la luz, no con el sitio
+
+De cómo se resolvió `ryu_ramen`, y sirve para todo lo que venga.
+
+La primera tanda buena era un cuenco de cerámica en un mostrador de
+madera cálida. Limpia, sin marcas, bonita. Y mal:
+
+> *«Me gustaría que se vea más tipo tienda. Ryu siento que se iría a
+> por lo más barato posible.»* — Gabriela
+
+Un cuenco de cerámica es un puesto, y un puesto cuesta dinero. El
+problema es que **el objeto barato es justo el objeto con marca** —y
+ahí prohibir no vale, que es la regla de la sección anterior. La
+salida fue repartir el trabajo:
+
+| Qué tiene que decir | Quién lo dice |
+|---|---|
+| Que es barato | El envase: vaso blanco de usar y tirar, palillos finos, servilleta de papel |
+| Que es una tienda | **La luz**: fluorescente blanco, duro y plano, desde arriba |
+| Que es de noche | La ventana: la calle en manchas planas, sin formas legibles |
+| Los estantes | Nadie. La cámara mira a la ventana, así que la tienda queda **detrás de quien mira** |
+
+Lo que hay que quedarse: **el sitio se cuenta con su luz y su
+mobiliario, no enseñándolo.** Un fluorescente plano sobre laminado gris
+dice «abierto toda la noche» sin traer un solo logotipo. Enseñar un
+estante trae productos, y los productos traen marcas.
+
+**Y la tapa va, en blanco.** Se prohibió la tapa por miedo a que
+llegara impresa, el modelo la puso igual, y resultó ser lo que salva
+la miniatura: a 107 px rompe la silueta, así que el vaso deja de ser
+un cilindro blanco y pasa a ser una forma reconocible. El problema era
+la impresión, no la tapa. **Prohibir el objeto entero por una parte
+suya sale caro.**
+
+### El encuadre: pedirlo cerca desde el principio
+
+El modelo por defecto se aleja, y entonces la imagen parece que
+alguien se levantó a hacer una sesión de fotos en vez de una foto de
+móvil de madrugada.
+
+> *«Yo la recortaría un poco para que parezca tomada más de cerca.»*
+> — Gabriela
+
+Se probaron tres recortes y se aprobó el medio. **Pasado cierto punto,
+acercarse quita el sitio**: el más cerrado enseñaba mejor la comida y
+se comía el fluorescente y la ventana, o sea deshacía lo que acababa
+de costar conseguir. El medio es donde caben las dos cosas.
+
+Para el prompt: decir **cerca, grande, llenando el encuadre, cámara a
+la altura del objeto** desde la primera línea. Sale más barato que
+recortar después.
+
+Y ojo con la diferencia: **recortar para elegir el encuadre está
+bien** —es una decisión de composición—, pero **reparar a mano lo que
+salió mal sigue prohibido** (ver abajo). Lo primero elige, lo segundo
+arregla.
 
 ---
 
