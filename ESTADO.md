@@ -45,7 +45,7 @@ ya están dentro. Ellos creen que están chateando.
 | **Stickers** | **40 de 40 instalados.** |
 | **Fotos de perfil** | **4 de 4 instaladas.** |
 | **Retratos y expresiones** | Generados, en `assets/`. Provisionales. |
-| **Álbum** | **0 de 23 instaladas.** Todo sigue dibujado por código. |
+| **Álbum** | **2 de 25 instaladas** (`ryu_ramen`, `kenta_cat`). El resto sigue dibujado por código. |
 | **Comprobaciones** | Dos scripts. No hay suite ni CI. |
 | **Pieles** | Una, `piel-noche.css`, cargada siempre. No hay selector. |
 
@@ -156,7 +156,9 @@ en su dibujo:
 
 **El álbum, en marcha.** 26 fotos en 16 escenas. Descontando el archivo
 vacío, la foto repetida a propósito y la puerta que sale dos veces:
-**23 imágenes base + 6 gemelas corruptas**.
+**23 imágenes base + 2 gemelas pintadas = 25**. Las otras cuatro
+«gemelas» las hace el motor o reutilizan otra imagen: contar fotos con
+versión corrupta no es contar encargos.
 
 ### 3.4 Herramientas
 
@@ -292,7 +294,8 @@ Los sujetos van del C-02 al C-05. O significa algo, o es un hueco.
    `DECISIONES.md`: el sujeto manda sobre la prohibición, la referencia
    es el diseño de personaje y no el avatar, y el registro se comprueba
    abriendo los `portrait.png`.
-4. **Las 6 gemelas corruptas.**
+4. **Las 2 gemelas pintadas** (`ryu_fw` y `kenta_room`). Las otras
+   cuatro ya las hace el código.
 
 Cada tanda cuesta una vuelta de conversación: `cdn.openart.ai` no llega
 desde la sesión, así que el agente lanza y Gabriela descarga el zip y
