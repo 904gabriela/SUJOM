@@ -169,6 +169,7 @@ export const PHOTOS = {
   },
   lara_outfit: {
     of: 'lara', scene: 'outfit',
+    img: 'assets/album/lara_outfit.jpg',
     title: '¿Este o el otro?',
     caption: 'dime la verdad. LA VERDAD.',
     exif: { fecha: '18/07 · 09:40', lugar: 'Su cuarto', disp: 'ASSIST Cam', tam: '1.6 MB' }
