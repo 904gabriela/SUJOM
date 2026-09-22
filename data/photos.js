@@ -216,6 +216,7 @@ export const PHOTOS = {
   },
   reiko_coffee: {
     of: 'reiko', scene: 'coffee',
+    img: 'assets/album/reiko_coffee.jpg',
     title: 'Las seis de la mañana',
     caption: 'La única hora del día que sigue siendo mía.',
     exif: { fecha: '20/07 · 06:00', lugar: 'Su casa', disp: 'ASSIST Cam', tam: '1.1 MB' }

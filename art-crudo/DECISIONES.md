@@ -27,6 +27,16 @@ uno. Tono aprobado: *«monigotes feos»*, graciosos, **no ultra cute**.
 toy, cabeza redonda, ojos oscuros y redondos, patas cortas. Se pidió
 una vez como terrier de pelo duro y estaba mal.
 
+> ⚠️ Eso es lo que Sándwich **es**, no cómo hay que **pedirlo**. Esas
+> mismas palabras metidas en un prompt devuelven un peluche kawaii con
+> ojos enormes: ver «El sujeto arrastra su género». Para pedirlo hay
+> que decir *perro pequeño y blanco con el pelo un poco revuelto, ojos
+> pequeños y normales, en proporción de perro real*.
+
+**Del álbum, aprobadas:** `ryu_ramen`, `kenta_cat` y `reiko_coffee`.
+La taza es la que mejor da el registro del reparto de las tres, así
+que sirve de vara de medir para las que vengan.
+
 ---
 
 ## Los rechazos, que es donde está la información
@@ -223,20 +233,70 @@ Los cuatro diseños están subidos a OpenArt con estos nombres:
 las que causaron esto. Siguen valiendo para los stickers, donde lo que
 importa es la identidad del personaje. Para el álbum, no.
 
-### Lo que esto NO demuestra
+### El borde de polaroid NO venía de la referencia
 
-Hay que decirlo, porque es fácil sacar de aquí más de lo que hay.
+Aquí llegó a parecer que el borde blanco —prohibido y salido igual
+varias veces— venía también del avatar de Kenta, por ser un selfie.
+**Era falso, y ya está comprobado:** el borde volvió a salir en una
+tanda de `ryu_cross` hecha con los diseños de personaje, sin ningún
+avatar de por medio.
 
-Durante la investigación pareció que el borde blanco de polaroid
-—prohibido y salido igual varias veces— también venía de la referencia
-de Kenta. **No está demostrado.** Una tanda anterior con la referencia
-de Ryu también trajo un borde, y la tanda que por fin salió bien cambió
-dos cosas a la vez, la referencia y el prompt, así que no sirve de
-prueba.
+Así que el borde es otra cosa, y lo más probable es que sea lo de la
+sección siguiente: el género del sujeto. `ryu_cross` pedía un bodegón
+de joyería, y ese género viene con marco.
 
-Lo que sí queda firme es el brazo: **estaba literalmente dentro de la
-referencia.** Eso es causa directa, no estadística. Con el borde,
-quédate con que sale menos, no con que está resuelto.
+Lo que sí queda firme de la referencia es **el brazo**: estaba
+literalmente dentro del avatar de Kenta. Eso es causa directa, no
+estadística. Y la regla de usar el diseño de personaje se sostiene por
+el registro, que sí mejoró de forma clara, no por el borde.
+
+> Queda como aviso de método: **una tanda que cambia dos cosas a la vez
+> no demuestra ninguna de las dos.** Aquella cambió referencia y prompt
+> juntos, y la conclusión fácil era la equivocada.
+
+---
+
+## El sujeto arrastra su género, y el género trae su acabado
+
+La tercera cara del mismo patrón, y la que más cara sale porque parece
+que el fallo está en el estilo cuando está en el qué.
+
+Salió lanzando tres escenas **con el mismo prompt de estilo, las mismas
+referencias y las mismas prohibiciones**. Una salió perfecta y dos
+salieron irreconocibles:
+
+| Escena | Qué salió | Qué género arrastraba |
+|---|---|---|
+| `reiko_coffee` | **Bien a la primera.** | Ninguno. Una taza en una mesa no se parece a ningún tipo de foto. |
+| `ryu_cross` | Fotorrealista, y con borde de polaroid | Un colgante de plata sobre madera con luz de lámpara **es** una foto de producto de joyería. |
+| `lara_momo` | Peluche kawaii con ojos enormes | Un perrito blanco de pelo rizado **es** una ilustración kawaii. |
+
+> **Cada sujeto tiene un género de imagen asociado, y ese género viene
+> con su propio acabado.** Si lo que pides se parece a un tipo de foto
+> que existe ahí fuera —producto, mascota, comida de revista, retrato
+> de estudio—, el modelo trae el acabado de ese género y **la
+> referencia de estilo pierde**.
+
+En `lara_momo` la prohibición estaba escrita con esas palabras —«NOT a
+big-eyed mascot»— y salió exactamente eso. Otra vez: la prohibición no
+gana contra el sujeto.
+
+**Cómo se arregla:** quitar del prompt las palabras que invocan el
+género, aunque describan bien la cosa.
+
+- «colgante», «plata», «pulido», primer plano y luz cálida → invocan el
+  bodegón de joyería. Se cambió por **la cruz colgada de un clavo en
+  una pared desnuda**, vista desde lejos, con más habitación y menos
+  macro. Además dice mejor lo que dice la foto: «es lo único que traje».
+- «toy», «fluffy», «curly», «bichón» → invocan lo kawaii. Se cambió por
+  **un perro pequeño y blanco con el pelo un poco revuelto, ojos
+  pequeños y normales**, en proporción de perro real y visto desde unos
+  pasos. Sándwich sigue siendo lo aprobado; cambia cómo se nombra.
+
+**Y la señal para detectarlo antes de gastar una tanda:** si el sujeto
+que vas a pedir se parece a algo que hayas visto en un catálogo, en una
+tienda de regalos o en un banco de imágenes, ya tienes el problema.
+Busca la versión aburrida y corriente de esa misma escena.
 
 ---
 
