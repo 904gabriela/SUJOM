@@ -183,7 +183,8 @@ vacío, la foto repetida a propósito y la puerta que sale dos veces:
 |---|---|
 | El chibi es **sólo para stickers** | 27 piezas del jugador que ya no se encargan |
 | El **arte final lo dibujan personas** | Pulir imágenes que se van a redibujar |
-| El **álbum va en cel shading** | Que la anomalía se lea como diferencia de estilo |
+| El **álbum va en el registro del reparto** | Que la anomalía se lea como diferencia de estilo |
+| La referencia es el **diseño de personaje**, no el avatar | Manos y brazos colados en escenas sin gente |
 | **Todo está pintado**, también las fotos | El perro fotorrealista que descuadraba todo |
 | El **creador de personaje** se dibuja por código | Encargar arte de algo que el jugador combina |
 | El arte se pide **siempre a `portraits.js`** | Que `assets/` incompleto rompa la interfaz |
@@ -251,6 +252,11 @@ manera de meterlas en el juego.** Hace falta:
 Es trabajo de motor, no de arte, y **conviene hacerlo antes de generar
 las 23**, no después.
 
+⚠️ **Ya hay dos imágenes aprobadas —`ryu_ramen` y `kenta_cat`— esperando
+a que esto exista.** Cuanto más se tarde, más imágenes aprobadas se
+acumulan sin poder comprobarse dentro del juego, que es donde de verdad
+se ve si funcionan. **Es el siguiente paso.**
+
 ### Lo que no verifica nadie
 
 `tools/comprueba_guardado.js` cubre `state.js`, y la comprobación de
@@ -279,10 +285,13 @@ Los sujetos van del C-02 al C-05. O significa algo, o es un hueco.
 
 1. **Construir la entrada de arte del álbum** (hueco de arriba). Antes
    de generar, no después.
-2. **Relanzar `kenta_cat`** en cel shading, con las reglas de
-   `DECISIONES.md`.
-3. **Las 21 escenas restantes**, en tandas de dos o tres. La receta ya
-   está validada con `ryu_ramen`.
+2. ~~Relanzar `kenta_cat`.~~ **Hecha y aprobada**, igual que
+   `ryu_ramen`. Las dos escenas de prueba están cerradas.
+3. **Las 21 escenas restantes**, en tandas de dos o tres. La receta
+   está validada con las dos, y las reglas que costaron están en
+   `DECISIONES.md`: el sujeto manda sobre la prohibición, la referencia
+   es el diseño de personaje y no el avatar, y el registro se comprueba
+   abriendo los `portrait.png`.
 4. **Las 6 gemelas corruptas.**
 
 Cada tanda cuesta una vuelta de conversación: `cdn.openart.ai` no llega
