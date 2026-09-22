@@ -63,6 +63,7 @@ export const PHOTOS = {
   },
   ryu_cross: {
     of: 'ryu', scene: 'gift',
+    img: 'assets/album/ryu_cross.jpg',
     title: 'Lo único que traje',
     caption: 'Era de mi padre. Es lo único que traje conmigo.',
     exif: { fecha: '24/07 · 23:50', lugar: '—', disp: 'ASSIST Cam', tam: '1.1 MB' }
@@ -147,12 +148,17 @@ export const PHOTOS = {
   /* ---------------- LARA ---------------- */
   lara_momo: {
     of: 'lara', scene: 'dog',
+    img: 'assets/album/lara_momo.jpg',
     title: 'SÁNDWICH',
     caption: '¡¡se ha sentado solo!! nadie se lo ha pedido!!',
     exif: { fecha: '12/07 · 17:20', lugar: 'Parque Higashi', disp: 'ASSIST Cam', tam: '2.2 MB' }
   },
   lara_momo2: {
     of: 'lara', scene: 'dog',
+    // El MISMO fichero que lara_momo, a propósito. La anomalía de esta
+    // foto es que es la misma foto: cambia el pie, no la imagen. Si
+    // alguna vez alguien pinta una segunda, se rompe el chiste.
+    img: 'assets/album/lara_momo.jpg',
     title: 'Sándwich otra vez',
     caption: 'perdón. otra. la última. mentira.',
     exif: { fecha: '16/07 · 18:02', lugar: 'Parque Higashi', disp: 'ASSIST Cam', tam: '2.0 MB' },

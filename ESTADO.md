@@ -45,7 +45,7 @@ ya están dentro. Ellos creen que están chateando.
 | **Stickers** | **40 de 40 instalados.** |
 | **Fotos de perfil** | **4 de 4 instaladas.** |
 | **Retratos y expresiones** | Generados, en `assets/`. Provisionales. |
-| **Álbum** | **2 de 25 instaladas** (`ryu_ramen`, `kenta_cat`). El resto sigue dibujado por código. |
+| **Álbum** | **5 de 25 instaladas** (`ryu_ramen`, `kenta_cat`, `reiko_coffee`, `ryu_cross`, `lara_momo`). El resto sigue dibujado por código. |
 | **Comprobaciones** | Dos scripts. No hay suite ni CI. |
 | **Pieles** | Una, `piel-noche.css`, cargada siempre. No hay selector. |
 
