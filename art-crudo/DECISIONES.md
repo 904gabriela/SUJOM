@@ -170,6 +170,11 @@ Así que:
   instalación.
 - **Las caras, medio cubiertas.** Un visor sobre los ojos: se les
   reconoce por el pelo, la piel y la mandíbula.
+- **Ropa gris de la instalación, igual para los cuatro.** Hay que
+  pedirlo explícitamente: la referencia del personaje trae su ropa de
+  calle y el modelo se la pone. **Una sola excepción: Ryu lleva la
+  cruz al cuello**, que enlaza con `ryu_cross` —«es lo único que
+  traje»—. Los otros tres, sin nada personal.
 - **`sys_chairs` es un mosaico de 2×2**, una cámara por persona. El
   «4/4» se lee solo: cuatro pantallas ocupadas. Cada celda se genera y
   se aprueba por separado, y el mosaico lo monta el código.
@@ -377,9 +382,19 @@ dibujado debajo: ombligo y cintura asomando entre la parte de arriba
 - **la parte de arriba puesta encima de la de abajo, en su sitio**, que
   es la forma de una persona tumbada aunque no haya nadie.
 
-Por más «NO body» que lleve el prompt, gana el sujeto. La salida es
-cambiar la situación: **vestidos enteros, colgados de la puerta del
-armario**, sin partes que se puedan juntar en forma de cuerpo.
+Por más «NO body» que lleve el prompt, gana el sujeto. Se probó a
+cambiar la situación —vestidos enteros colgados en el armario— y el
+cuerpo desapareció, pero **la foto se quedó sin Lara**: dos vestidos
+en un armario no le preguntan nada a nadie.
+
+**Decidido: es un selfie en el espejo.** Lara con un conjunto puesto y
+el otro sujeto en una percha contra el cuerpo, **con el móvil tapándole
+media cara**. Es lo que haría cualquiera para preguntar «¿este o el
+otro?», y resuelve lo del cuerpo de raíz: si la ropa la lleva alguien,
+ya no hay un cuerpo inventado debajo. Es la primera foto del álbum en
+la que sale uno de ellos, así que la referencia es identidad: sólo el
+diseño de Lara. Y ojo al móvil: pedirlo con **funda lisa sin logo**, o
+trae una manzana.
 
 > Detalle que costó elegir entre dos: pide **una cadena corta**. En una
 > versión salió dando tres vueltas al alféizar —*«más larga que una
