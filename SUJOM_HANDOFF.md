@@ -320,12 +320,21 @@ El plan está escrito en `art-crudo/ENCARGO-ALBUM.md`. Resumen:
   la cámara mira a la ventana. Está contado entero en
   `art-crudo/DECISIONES.md`, sección «Lo barato se cuenta con el
   envase y la luz». El exif `lugar: 'Konbini Aoi'` sigue valiendo.
-- **`kenta_cat` — relanzada, pendiente del visto bueno.** El gato ya
-  estaba aprobado —callejero, feo, mirada de no me importas—; lo que
-  fallaba era el encuadre (mano o brazo en cuadro, borde de polaroid)
-  y el registro, que era el Shinkai ya descartado. Se relanza en cel
-  shading, sin nadie en cuadro y con encuadre cerrado.
+- **`kenta_cat` — APROBADA**, y es la que más enseñó. Costó tres
+  relanzamientos porque el fallo no estaba en el prompt: se pasaba como
+  referencia de estilo el **avatar** de Kenta, que es un selfie con el
+  brazo estirado. Por eso salían manos y brazos en una escena sin
+  nadie. **La referencia del álbum es `portrait.png`, el diseño de
+  personaje, nunca `avatar.png`** — está en `BIBLIA.md` y en
+  `DECISIONES.md`, «La referencia arrastra su equipaje».
 - **Pendiente:** las 21 escenas restantes. No las lances de golpe.
+
+**Antes de pedir la primera:** las cuatro reglas que costaron estas dos
+escenas están en `art-crudo/DECISIONES.md` y se resumen en que el
+modelo obedece al sujeto y a la referencia, no a las prohibiciones. Si
+sólo puedes recordar dos: la referencia es el diseño de personaje, y el
+registro se comprueba abriendo los `portrait.png` en vez de fiarse de
+cómo lo describe un documento.
 
 Receta que funciona, de `ENCARGO-ALBUM.md`: pasar arte pintado de un
 personaje como referencia de estilo **aunque en la imagen no salga

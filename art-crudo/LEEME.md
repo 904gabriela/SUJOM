@@ -57,7 +57,31 @@ la escena. Van directas, con este nombre exacto:
 
 ## Qué referencia es quién
 
-En OpenArt, por si te lías al identificarlas:
+Hay **dos juegos de referencias en OpenArt y no son intercambiables.**
+Coger el que no es costó tres tandas en `kenta_cat`; el motivo largo
+está en `DECISIONES.md`, «La referencia arrastra su equipaje».
+
+### Para los stickers: los avatares
+
+Lo que importa ahí es la identidad del personaje.
 
     IMG_9046 → Reiko      IMG_9048 → Lara
     IMG_9047 → Ryu        IMG_9049 → Kenta
+
+### Para el álbum: el diseño de personaje
+
+Son los `assets/characters/<id>/portrait.png`, subidos aparte.
+
+    diseno-ryu      3R7ym4ShmtptyN5Qzf15
+    diseno-kenta    ZMChR31IJgZElREpzves
+    diseno-lara     ZU6aoznHahQaghJMAck7
+    diseno-reiko    04xYyaH1oy6sUJNQJAaE
+
+**En el álbum no uses los avatares.** Un avatar es una foto de dentro
+del mundo —el de Kenta es un selfie con el brazo en cuadro—, y la
+referencia arrastra lo que contiene: salen manos y brazos en escenas
+donde no hay nadie, y el dibujo sale con más textura que el reparto.
+
+Y como el álbum casi nunca lleva gente, **la referencia se elige por
+estilo, no por de quién es la escena.** Pasa dos diseños a la vez, y di
+en el prompt que son de estilo y que no dibuje a esas personas.

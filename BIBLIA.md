@@ -178,12 +178,39 @@ lado de los otros tres avatares pintados cantaba muchísimo.
 referencia de estilo**, aunque en la imagen no salga nadie. Así lo pinta
 la misma mano que al reparto.
 
+> ⚠️ **Y tiene que ser el diseño de personaje —`portrait.png`— no el
+> avatar.** Los dos están en `assets/characters/<id>/` y es fácil coger
+> el que no es. El avatar **es una foto de dentro del mundo**: el de
+> Kenta es un selfie con el brazo estirado hacia la cámara, el de Ryu es
+> una mano en la barra de un bar. Pasar eso como referencia de estilo le
+> pide al modelo que imite *una foto hecha por el personaje* en vez de
+> *cómo está dibujado el personaje*, y se cuela lo que haya dentro: con
+> el avatar de Kenta salieron manos y brazos en escenas donde no había
+> nadie, y el dibujo salió con más textura y más grano que el reparto.
+>
+> Es el mismo patrón que «la palabra arrastra su equipaje», pero con una
+> imagen: **la referencia arrastra lo que contiene, no sólo su estilo.**
+> En escenas donde no sale nadie, la referencia se elige **por estilo, no
+> por de quién es la escena**: no hay identidad que preservar.
+
 ### Y tampoco realista «bonito»
 
 No basta con que no sea una fotografía. **El álbum va en el mismo
-registro que el reparto**, cel shading, y no en fondo de anime
-realista tipo Shinkai —reflejos, profundidad de campo, mucho detalle—,
-por muy bien que quede suelto.
+registro que el reparto**, y no en fondo de anime realista tipo Shinkai
+—reflejos, profundidad de campo, mucho detalle—, por muy bien que quede
+suelto.
+
+Y ese registro hay que mirarlo, no recordarlo. Abre los cuatro
+`portrait.png` y compáralos con lo que acabas de generar. Descrito:
+**línea fina y limpia, sombra suave con degradados, paleta apagada y
+clara, superficies lisas y muy poca textura.** Es un dibujo ligero y
+luminoso, no uno sucio y contrastado.
+
+> Una nota anterior lo llamaba «cel shading plano, línea visible». No
+> es exacto: eso describe el avatar de Ryu, no a los personajes, y
+> llevó a pedir negros aplastados, hormigón rugoso y pelo dibujado pelo
+> a pelo. Si tienes que resumirlo en una frase: **línea fina, sombra
+> suave, paleta clara, sin textura.**
 
 Dos motivos, y el segundo es el que manda:
 

@@ -110,10 +110,30 @@ personajes, el jugador atribuye la rareza al estilo y no al mundo —
 piensa «estas se ven distintas» en vez de «aquí pasa algo», y la
 anomalía se pierde dentro de la diferencia de registro.
 
-Para el prompt: pedir **cel shading plano, línea visible, poco
-detalle**, y decir explícitamente que **no** es un fondo realista ni
+Para el prompt: decir explícitamente que **no** es un fondo realista ni
 cinematográfico. Y la referencia de estilo del personaje sigue yendo
 siempre, aunque no salga nadie.
+
+### Cómo es ese registro, mirado y no recordado
+
+Esto estuvo mal escrito un tiempo y costó dos tandas. Decía «cel shading
+plano, línea visible, poco detalle», y con eso salieron gatos oscuros,
+hormigón rugoso y pelo dibujado pelo a pelo. El problema es que esa
+frase describe **el avatar de Ryu**, no a los personajes.
+
+Abre `assets/characters/*/portrait.png` y míralos. El reparto es:
+
+- **Línea fina y limpia**, no contorno negro grueso.
+- **Sombra suave, con degradados**, no manchas planas de dos tonos.
+- **Paleta apagada y clara** —grises, rosas polvorientos, blancos
+  cálidos—, no contraste alto.
+- **Superficies lisas, muy poca textura.** Nada de grano ni de picado.
+
+En una frase: **línea fina, sombra suave, paleta clara, sin textura.**
+Es un dibujo ligero, no uno sucio.
+
+> Cuando dudes, no lo recuerdes: abre los `portrait.png` y pon tu imagen
+> al lado. Se ve en dos segundos y no hay que discutirlo.
 
 ---
 
@@ -151,17 +171,72 @@ Traducido a reglas concretas para el álbum:
 
 - **`ryu_ramen`**: **resuelta y aprobada.** Ver abajo, «Lo barato se
   cuenta con el envase y la luz».
-- **`kenta_cat`**: el gato está **bien** —callejero, feo, mirada de
-  no me importas, nada de siamés ni de mono—. Falla el encuadre: dos
-  con mano o brazo en cuadro y dos con borde de polaroid. Se intentó
-  recortar la buena a mano y no salió; no se insistió, porque es una
-  imagen provisional. **Relanzar con las reglas de arriba, no
-  reparar.**
+- **`kenta_cat`**: **resuelta y aprobada.** Costó tres relanzamientos y
+  el que valió fue el que cambió la referencia por el diseño de
+  personaje. Ver abajo, «La referencia arrastra su equipaje».
 
-  ⚠️ Una nota vieja decía que el registro del gato también estaba
-  bien. **Ya no vale**: aquella tanda salió tipo Shinkai, que es justo
-  el registro que se descartó. Al relanzarla va en cel shading como
-  todo lo demás.
+---
+
+## La referencia arrastra su equipaje
+
+Lo mismo que la palabra, pero con una imagen. Salió resolviendo
+`kenta_cat`, que se resistió tres tandas.
+
+**El fallo:** en escenas donde no había nadie salían manos y brazos, y
+el dibujo salía sucio y con grano, nada que ver con el reparto. Se
+probó a reforzar las prohibiciones —«no hands, no arms, nobody is
+petting the cat»— y siguió pasando.
+
+**La causa:** se estaba pasando como referencia de estilo el
+**avatar** del personaje. Y un avatar, en este juego, **es una foto de
+dentro del mundo**: el de Kenta es un selfie con el brazo estirado
+hacia la cámara. El brazo no se lo inventaba el modelo, **estaba
+dentro de la referencia**. Se le estaba pidiendo que imitara una foto
+hecha por Kenta en vez de cómo está dibujado Kenta.
+
+> **La referencia aporta lo que contiene, no sólo su estilo.** Si no
+> quieres lo que hay dentro, cambia la referencia. Prohibirlo en el
+> prompt no gana, igual que con las palabras.
+
+**La regla, y vale para las 21 escenas que quedan:**
+
+- La referencia del álbum es **`assets/characters/<id>/portrait.png`**,
+  el diseño de personaje. **Nunca `avatar.png`.**
+- En escenas donde no sale nadie, la referencia se elige **por estilo,
+  no por de quién es la escena**. No hay identidad que preservar.
+- Van bien **dos diseños a la vez**: dos ejemplos de la misma mano
+  definen el estilo mejor que uno.
+- Y hay que añadir una línea que antes no hacía falta: **las
+  referencias son de estilo, no de contenido; que no dibuje a las
+  personas que salen en ellas.** Con una mano y un selfie daba igual;
+  con dos personajes de cuerpo entero, si no lo dices te planta a uno
+  en la escena.
+
+Los cuatro diseños están subidos a OpenArt con estos nombres:
+
+    diseno-ryu      3R7ym4ShmtptyN5Qzf15
+    diseno-kenta    ZMChR31IJgZElREpzves
+    diseno-lara     ZU6aoznHahQaghJMAck7
+    diseno-reiko    04xYyaH1oy6sUJNQJAaE
+
+⚠️ **Las `IMG_9046`–`IMG_9049` de `LEEME.md` son los avatares**, y son
+las que causaron esto. Siguen valiendo para los stickers, donde lo que
+importa es la identidad del personaje. Para el álbum, no.
+
+### Lo que esto NO demuestra
+
+Hay que decirlo, porque es fácil sacar de aquí más de lo que hay.
+
+Durante la investigación pareció que el borde blanco de polaroid
+—prohibido y salido igual varias veces— también venía de la referencia
+de Kenta. **No está demostrado.** Una tanda anterior con la referencia
+de Ryu también trajo un borde, y la tanda que por fin salió bien cambió
+dos cosas a la vez, la referencia y el prompt, así que no sirve de
+prueba.
+
+Lo que sí queda firme es el brazo: **estaba literalmente dentro de la
+referencia.** Eso es causa directa, no estadística. Con el borde,
+quédate con que sale menos, no con que está resuelto.
 
 ---
 
