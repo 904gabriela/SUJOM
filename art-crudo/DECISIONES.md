@@ -317,6 +317,22 @@ pedir se parece a algo de un catálogo o de una tienda de regalos, ya
 tienes el problema. Pero la salida no es pedir otra cosa: es pedir la
 misma cosa en un día cualquiera.
 
+**Y funcionó, las dos a la primera con la regla corregida:**
+
+- **Sándwich** volvió a ser un bichón —rizos, cabeza redonda, orejas
+  caídas, patas cortas— y lo que se quitó fue el acabado: ojos
+  pequeños y sin brillo, fondo nítido y plano. Misma raza que la tanda
+  del peluche, otro dibujo.
+- **La cruz** pasó a ser **un collar recién quitado encima del
+  alféizar**, con la cadena amontonada de cualquier manera. Ese
+  desorden es lo que lo delata: un adorno estaría colocado; un collar
+  que alguien se quita de un tirón, no.
+
+> Detalle que costó elegir entre dos: pide **una cadena corta**. En una
+> versión salió dando tres vueltas al alféizar —*«más larga que una
+> cadena de bicicleta»*— y deja de parecer un collar por exceso de
+> cuerda, no por el encuadre.
+
 ---
 
 ## Lo barato se cuenta con el envase y la luz, no con el sitio
