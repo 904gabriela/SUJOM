@@ -27,11 +27,11 @@ uno. Tono aprobado: *«monigotes feos»*, graciosos, **no ultra cute**.
 toy, cabeza redonda, ojos oscuros y redondos, patas cortas. Se pidió
 una vez como terrier de pelo duro y estaba mal.
 
-> ⚠️ Eso es lo que Sándwich **es**, no cómo hay que **pedirlo**. Esas
-> mismas palabras metidas en un prompt devuelven un peluche kawaii con
-> ojos enormes: ver «El sujeto arrastra su género». Para pedirlo hay
-> que decir *perro pequeño y blanco con el pelo un poco revuelto, ojos
-> pequeños y normales, en proporción de perro real*.
+> ⚠️ **Los rizos no se negocian.** Se probó a quitar «rizado», «bichón»
+> y «toy» del prompt para escapar del peluche kawaii, y salió un perro
+> de pelo liso que Gabriela rechazó: *«Sándwich es más parecido al
+> perro de peluche de antes.»* Lo que hay que quitar es el **acabado**
+> —ojos enormes, brillo, desenfoque de fondo—, no la raza.
 
 **Del álbum, aprobadas:** `ryu_ramen`, `kenta_cat` y `reiko_coffee`.
 La taza es la que mejor da el registro del reparto de las tres, así
@@ -281,22 +281,41 @@ En `lara_momo` la prohibición estaba escrita con esas palabras —«NOT a
 big-eyed mascot»— y salió exactamente eso. Otra vez: la prohibición no
 gana contra el sujeto.
 
-**Cómo se arregla:** quitar del prompt las palabras que invocan el
-género, aunque describan bien la cosa.
+### Cómo se arregla, y cómo NO
 
-- «colgante», «plata», «pulido», primer plano y luz cálida → invocan el
-  bodegón de joyería. Se cambió por **la cruz colgada de un clavo en
-  una pared desnuda**, vista desde lejos, con más habitación y menos
-  macro. Además dice mejor lo que dice la foto: «es lo único que traje».
-- «toy», «fluffy», «curly», «bichón» → invocan lo kawaii. Se cambió por
-  **un perro pequeño y blanco con el pelo un poco revuelto, ojos
-  pequeños y normales**, en proporción de perro real y visto desde unos
-  pasos. Sándwich sigue siendo lo aprobado; cambia cómo se nombra.
+El primer intento lo arregló mal: **quitando del prompt las palabras
+que invocan el género.** Las dos volvieron rechazadas, y por el motivo
+contrario al anterior:
 
-**Y la señal para detectarlo antes de gastar una tanda:** si el sujeto
-que vas a pedir se parece a algo que hayas visto en un catálogo, en una
-tienda de regalos o en un banco de imágenes, ya tienes el problema.
-Busca la versión aburrida y corriente de esa misma escena.
+| Qué se quitó | Qué se perdió |
+|---|---|
+| «colgante», «plata», primer plano → se colgó de un clavo en la pared | *«Parece una cruz de adorno de pared más que su colgante.»* |
+| «rizado», «bichón», «toy» → perro de pelo liso | *«Sándwich es más parecido al perro de peluche de antes.»* |
+
+Quitando esas palabras se escapa del género, sí, **pero también se
+pierde lo que la cosa es.** Un colgante que ni cuelga de un cuello ni
+está quitado encima de algo deja de leerse como colgante. Un bichón sin
+rizos deja de ser Sándwich.
+
+> **El género no está en lo que la cosa es, está en cómo la miras.**
+> Lo que hay que cambiar es el **encuadre, la luz y el acabado**, no la
+> identidad del sujeto.
+
+Traducido a qué tocar y qué no:
+
+- **Quédate** con lo que define la cosa: la cruz es un colgante con su
+  cadena; el perro es un bichón blanco y rizado.
+- **Cambia** lo que trae el género: el macro, la luz cálida de foco, la
+  madera oscura, el metal pulido, el fondo desenfocado, los ojos
+  enormes y brillantes.
+- **Y ponla en una situación corriente, no en una pose.** La cruz
+  quitada de un tirón encima del alféizar donde siempre la deja, no
+  colocada sobre terciopelo ni colgada como adorno.
+
+**La señal para detectarlo antes de gastar una tanda:** si lo que vas a
+pedir se parece a algo de un catálogo o de una tienda de regalos, ya
+tienes el problema. Pero la salida no es pedir otra cosa: es pedir la
+misma cosa en un día cualquiera.
 
 ---
 
