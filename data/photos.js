@@ -90,6 +90,7 @@ export const PHOTOS = {
   /* ---------------- KENTA ---------------- */
   kenta_ramen: {
     of: 'kenta', scene: 'ramen',
+    img: 'assets/album/kenta_ramen.jpg',
     title: 'Cena de campeones',
     caption: 'mira esto. MÍRALO. esto es libertad',
     exif: { fecha: '13/07 · 01:30', lugar: 'Su cocina', disp: 'ASSIST Cam', tam: '0.7 MB' }
@@ -174,6 +175,7 @@ export const PHOTOS = {
   },
   lara_coffee: {
     of: 'lara', scene: 'coffee',
+    img: 'assets/album/lara_coffee.jpg',
     title: 'Desayuno de campeona',
     caption: 'me he levantado a las 6. voluntariamente. estoy creciendo',
     exif: { fecha: '22/07 · 06:31', lugar: 'Cafetería Nube', disp: 'ASSIST Cam', tam: '1.3 MB' }

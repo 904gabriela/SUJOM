@@ -95,10 +95,6 @@ había entendido en la primera. No repetirlo.
 
 ## Sin resolver, y son decisiones suyas
 
-**`sys_chairs`** — «OCUPACIÓN: 4/4 · PROTOCOLO: LAZO DORADO». Cuatro
-sillones con los cuatro dentro. Es la foto que lo cuenta todo, y no
-está decidido si se les ve la cara.
-
 **En qué año transcurre el juego.** Bloquea el arreglo de las fechas de
 ingreso, que no dan los años que la historia dice. Ver `BIBLIA.md`.
 
@@ -144,6 +140,49 @@ Es un dibujo ligero, no uno sucio.
 
 > Cuando dudes, no lo recuerdes: abre los `portrait.png` y pon tu imagen
 > al lado. Se ve en dos segundos y no hay que discutirlo.
+
+---
+
+## El laboratorio: DECIDIDO
+
+Afecta a `sys_chairs` y `ryu_lab`, y a cualquier imagen de los cuatro
+dentro de la instalación.
+
+Se probó primero **los cuatro en fila, en sillones, en una misma
+habitación blanca**, de frente y de espaldas. Los cuatro salieron
+reconocibles, pero el concepto estaba mal:
+
+> *«Las imágenes de ellos en el laboratorio podríamos acceder a ellas a
+> través de cámaras de vigilancia o por informes internos. Ellos no
+> están todos juntos en una habitación y además están con muchas
+> máquinas alrededor sin que parezca un hospital.»* — Gabriela
+
+Así que:
+
+- **El jugador las ve por cámaras de vigilancia o por informes
+  internos**, nunca como una foto hecha por alguien. Es material que no
+  debería tener.
+- **Nunca están juntos.** Cada uno en su sitio.
+- **Rodeados de máquinas, sin que parezca un hospital.** Fuera camas,
+  goteros, monitores de constantes y blanco clínico. Dentro racks,
+  mazos de cable, tuberías de refrigeración, luces de estado: más centro
+  de datos que clínica. La persona, como una pieza más de la
+  instalación.
+- **Las caras, medio cubiertas.** Un visor sobre los ojos: se les
+  reconoce por el pelo, la piel y la mandíbula.
+- **`sys_chairs` es un mosaico de 2×2**, una cámara por persona. El
+  «4/4» se lee solo: cuatro pantallas ocupadas. Cada celda se genera y
+  se aprueba por separado, y el mosaico lo monta el código.
+- **El aspecto de cámara y los textos los pone el código**, igual que en
+  los documentos: `ASSIST-CAM`, la hora, `OCUPACIÓN 4/4`. El dibujo sale
+  limpio y en el registro del reparto. Por eso en el prompt se pide
+  «desde una esquina del techo», nunca «cámara de seguridad»: eso trae
+  la fecha sobreimpresa, que es texto.
+
+**Y para estas la referencia se invierte.** Es la única vez que las
+personas de la referencia SÍ tienen que salir, así que la referencia es
+identidad, no estilo. Se pasa **sólo el diseño de esa persona**: con dos
+a la vez, las caras se mezclan.
 
 ---
 
@@ -327,6 +366,20 @@ misma cosa en un día cualquiera.
   alféizar**, con la cadena amontonada de cualquier manera. Ese
   desorden es lo que lo delata: un adorno estaría colocado; un collar
   que alguien se quita de un tirón, no.
+
+**La ropa: un conjunto colocado pide un cuerpo.** En `lara_outfit` se
+pidieron dos conjuntos tirados en la cama, y salieron con el cuerpo
+dibujado debajo: ombligo y cintura asomando entre la parte de arriba
+«cropped» y la de abajo. Dos cosas lo invocan a la vez:
+
+- la palabra **«cropped»**, que en las imágenes que ha visto el modelo
+  va casi siempre con una tripa debajo;
+- **la parte de arriba puesta encima de la de abajo, en su sitio**, que
+  es la forma de una persona tumbada aunque no haya nadie.
+
+Por más «NO body» que lleve el prompt, gana el sujeto. La salida es
+cambiar la situación: **vestidos enteros, colgados de la puerta del
+armario**, sin partes que se puedan juntar en forma de cuerpo.
 
 > Detalle que costó elegir entre dos: pide **una cadena corta**. En una
 > versión salió dando tres vueltas al alféizar —*«más larga que una
