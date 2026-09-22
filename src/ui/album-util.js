@@ -14,11 +14,16 @@ import { CHARS } from '../../data/characters.js';
  * que hay algo raro en ella. Esa es toda la lógica.
  */
 export function photoThumb(pid, def) {
-  if (def.file) {
-    return `<img src="${def.file}" alt="${def.title || ''}" loading="lazy"
-      onerror="this.outerHTML=this.getAttribute('data-fb')"
-      data-fb="${photoArt({ ...def, spec: CHARS[def.of] }, { corrupt: S.photosCorrupt.includes(pid) }).replace(/"/g, '&quot;')}">`;
-  }
+  /* El arte pintado NO se pide aquí, se pide dentro de `photo()`, con
+     los campos `img` / `imgCorrupt` de `data/photos.js`.
+
+     Aquí hubo un camino que metía un `<img src="${def.file}">` suelto
+     con respaldo por `onerror`. Se ha quitado porque **se saltaba
+     `photo()` entero**: la foto pintada salía sin anomalía, sin el
+     filtro de corrupción y sin las bandas de glitch. En una foto
+     corrupta eso se lleva por delante justo la prueba que el jugador
+     tiene que encontrar — la pulsera, la puerta con teclado, el
+     reflejo. No lo usaba ninguna foto, así que no rompe nada. */
   return photoArt(
     { ...def, spec: CHARS[def.of] },
     { corrupt: S.photosCorrupt.includes(pid) }

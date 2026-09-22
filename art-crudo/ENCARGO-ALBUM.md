@@ -38,14 +38,69 @@ No son 26. Tres descuentos:
 - **`reiko_door` y `sys_door` son la misma puerta.** Una la ve ella,
   la otra la ve el sistema.
 
-Quedan **23 imágenes base** y **6 gemelas corruptas**.
+Quedan **23 imágenes base**.
+
+### Y sólo DOS gemelas se pintan
+
+De las seis fotos que «necesitan gemela», cuatro no llevan imagen
+aparte, porque su anomalía no es un objeto que alguien pueda pintar:
+
+| Foto | Quién hace la gemela |
+|---|---|
+| `ryu_fw` | **Pintada.** Un reflejo en un cristal es un objeto. |
+| `kenta_room` | **Pintada.** Una puerta con teclado es un objeto. |
+| `ryu_window` | El código (`nosun`): la luna no se ha movido. |
+| `reiko_city` | El código (`nosun`). |
+| `kenta_city` | El código (`dup`): tiene que ser idéntico de verdad. |
+| `lara_momo2` | Reutiliza la imagen de `lara_momo`. Es el chiste. |
+
+> **Total a pintar: 23 base + 2 gemelas = 25 imágenes.**
+
+Antes aquí ponía «23 base + 6 gemelas», que sale de contar las seis
+fotos que tienen versión corrupta. Pero contar fotos no es contar
+encargos: cuatro de esas seis no le cuestan nada a nadie porque las
+hace el motor.
+
+## Cómo entra el arte al juego
+
+Ya existe la entrada, así que una imagen aprobada se mete en dos pasos:
+
+1. Guarda el fichero en **`assets/album/<id>.jpg`** (cuadrado; 1024 px
+   basta y pesa ~120 KB, que a 107 px y a pantalla completa sobra).
+2. Añade el campo en `data/photos.js`:
+
+       img: 'assets/album/<id>.jpg'
+
+   Y `imgCorrupt` **sólo** en `ryu_fw` y `kenta_room`.
+
+Eso es todo: `photo()` la dibuja dentro del mismo grupo donde estaba el
+SVG, así que el glitch y las anomalías siguen funcionando encima. Si el
+fichero falta, se ve el dibujo de código de siempre — se puede ir
+metiendo foto a foto sin romper nada.
+
+### Las coordenadas hay que volver a medirlas
+
+`luna` y `dup` están medidas sobre el SVG y no valen sobre una imagen
+pintada.
+
+- **La luna la mide una herramienta:**
+
+      python3 tools/mide_luna.py assets/album/ryu_window.jpg
+
+  Busca la mancha compacta más brillante de la mitad superior e imprime
+  la línea lista para pegar. Si no está segura lo dice y no inventa un
+  número.
+
+- **El `dup` se elige a ojo.** No hay herramienta y no debería haberla:
+  decidir qué dos trozos son «el mismo edificio» es composición, no
+  medida.
 
 ## Las tres clases de foto
 
 | Clase | Cuántas | Qué se pide |
 |---|---|---|
 | **Sólo limpia** | 11 | La foto bonita. Nunca se corrompe. |
-| **Necesita gemela** | 6 | La limpia y la misma con algo cambiado. |
+| **Necesita gemela** | 6 | La limpia y la misma con algo cambiado. **Sólo 2 se pintan** (ver arriba). |
 | **Sólo corrupta** | 9 | Nace rota. No existe versión limpia. |
 
 **Sólo limpia:** `ryu_ramen` `ryu_cross` `kenta_ramen` `kenta_cat`

@@ -198,12 +198,11 @@ export class ChatRunner {
     const same = this.lastSpeaker === cid;
     const spec = CHARS[cid];
     const isCorrupt = S.photosCorrupt.includes(node.photo);
-    // Si la foto tiene archivo propio se usa; si no, se dibuja.
-    const gen = photoArt({ ...def, spec: CHARS[def.of] }, { corrupt: isCorrupt });
-    const svg = def.file
-      ? `<img src="${def.file}" alt="${def.title || ''}" loading="lazy"
-           onerror="this.outerHTML=this.getAttribute('data-fb')" data-fb="${gen.replace(/"/g, '&quot;')}">`
-      : gen;
+    // El arte pintado lo resuelve `photo()` con los campos `img` /
+    // `imgCorrupt`. Aquí había un `<img src="${def.file}">` que se
+    // saltaba `photo()` y dejaba la foto sin anomalía ni glitch; ver
+    // la nota en `src/ui/album-util.js`.
+    const svg = photoArt({ ...def, spec: CHARS[def.of] }, { corrupt: isCorrupt });
 
     if (!this.replay) { await wait(typeTime('', 620)); if (this.stopped) return; }
 

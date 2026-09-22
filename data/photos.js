@@ -5,6 +5,32 @@
    ventana. Más tarde, la misma imagen se abre en la galería
    y no es la misma. La anomalía y los metadatos rotos son
    lo que convierte una foto bonita en una prueba.
+   ---------------------------------------------------------
+   ARTE PINTADO — campos `img` e `imgCorrupt`
+
+   `img` apunta a la imagen pintada, en `assets/album/`. Si falta o no
+   carga, `photo()` dibuja la escena SVG de siempre, así que se puede
+   ir metiendo arte foto a foto sin tocar nada más. El juego funciona
+   con `assets/album/` vacío.
+
+   `imgCorrupt` es la gemela pintada, y **sólo la necesitan dos fotos**:
+   `ryu_fw` y `kenta_room`. Son las únicas cuya anomalía es un objeto
+   dentro de la escena —un reflejo en un cristal, una puerta con
+   teclado— y eso hay que pintarlo. Las demás «gemelas» no llevan
+   imagen aparte:
+
+     ryu_window, reiko_city  ->  `nosun`, la hace el código
+     kenta_city              ->  `dup`, la hace el código
+     lara_momo2              ->  reutiliza la imagen de `lara_momo`,
+                                 que es justamente el chiste
+
+   Total a pintar: **23 base + 2 gemelas = 25 imágenes.**
+
+   ⚠️ Las coordenadas de `luna` y `dup` están medidas sobre el DIBUJO
+   SVG. Al meter una imagen pintada hay que volver a medirlas o la luna
+   sale pegada en un trozo de cielo vacío. Para la luna existe
+   `tools/mide_luna.py`, que la encuentra sola. El `dup` se elige a
+   ojo: es una decisión de composición, no una medida.
    ========================================================= */
 
 export const PHOTOS = {
@@ -30,6 +56,7 @@ export const PHOTOS = {
   },
   ryu_ramen: {
     of: 'ryu', scene: 'ramen',
+    img: 'assets/album/ryu_ramen.jpg',
     title: 'Cena a las tres',
     caption: 'Kenta dice que esto no es cenar. Kenta se equivoca.',
     exif: { fecha: '19/07 · 03:02', lugar: 'Konbini Aoi', disp: 'ASSIST Cam', tam: '0.9 MB' }
@@ -80,6 +107,7 @@ export const PHOTOS = {
   },
   kenta_cat: {
     of: 'kenta', scene: 'cat',
+    img: 'assets/album/kenta_cat.jpg',
     title: 'El gato del callejón',
     caption: 'viene cuando le da la gana. como yo',
     exif: { fecha: '21/07 · 23:08', lugar: 'Callejón sin nombre', disp: 'ASSIST Cam', tam: '1.8 MB' }

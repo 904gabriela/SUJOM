@@ -673,6 +673,47 @@ const SCENES = {
   }
 };
 
+/**
+ * Arte pintado de una foto, si lo hay.
+ *
+ * Devuelve un `<image>` que se dibuja DENTRO del grupo `esc`, encima de
+ * la escena SVG. Esa colocación es todo el truco, y resuelve dos cosas
+ * de golpe:
+ *
+ *  - **Las anomalías siguen funcionando sin tocarlas.** `dup` clona el
+ *    grupo con `<use href="#esc">`, y `<use>` clona también un
+ *    `<image>`. Así que copiar una región de la imagen pintada sale
+ *    gratis: el mismo código que copiaba vectores copia un raster.
+ *  - **Respaldo automático.** Si el fichero falta o no carga, `<image>`
+ *    no pinta nada y se ve la escena SVG de debajo. Es lo mismo que
+ *    `portraits.js` hace con los personajes, pero sin `onerror`: el
+ *    juego sigue funcionando con `assets/album/` vacío.
+ *
+ * `imgCorrupt` sólo lo necesitan las dos fotos cuya gemela hay que
+ * pintar —`ryu_fw` y `kenta_room`—, porque su anomalía es un objeto
+ * dentro de la escena. Las demás gemelas las hace el código
+ * (`nosun`, `dup`) o reutilizan la imagen de otra (`lara_momo2`).
+ */
+function artLayer(def, corrupt) {
+  const src = (corrupt && def.imgCorrupt) || def.img;
+  if (!src) return '';
+
+  // Los tres `paper` no admiten arte todavía, y no es un descuido: ahí
+  // el texto lo pinta el código ENCIMA del papel (ver `data/photos.js`,
+  // campo `doc`). Una imagen puesta aquí taparía justo lo que el
+  // jugador tiene que leer. Para admitirlos hay que partir la escena
+  // `paper` en papel y texto, y meter la imagen entre los dos.
+  if (def.doc) return '';
+
+  // El `onerror` no es decoración: sin él, Chromium pinta su icono de
+  // «imagen rota» estirado a 160x160 y tapa la escena SVG de debajo, o
+  // sea que el respaldo no respalda nada. Quitando el elemento se ve el
+  // dibujo, que es lo que tiene que pasar. Comprobado en el navegador;
+  // en node esto no se nota, porque allí nadie carga la imagen.
+  return `<image href="${esc(src)}" x="0" y="0" width="160" height="160"
+    preserveAspectRatio="xMidYMid slice" onerror="this.remove()"/>`;
+}
+
 export function photo(def, opts = {}) {
   const u = 'ph' + Math.random().toString(36).slice(2, 8);
   const scene = SCENES[def.scene] || SCENES.empty;
@@ -754,7 +795,7 @@ export function photo(def, opts = {}) {
 
   return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(def.title || 'foto')}">
     ${defs}
-    <g filter="url(#cr${u})"><g id="esc${u}">${scene(u, def.spec, def)}</g></g>
+    <g filter="url(#cr${u})"><g id="esc${u}">${scene(u, def.spec, def)}${artLayer(def, corrupt)}</g></g>
     ${/* La anomalia va FUERA del filtro. El glitch es ambiente; la anomalia
           es la prueba, y una prueba que no se puede leer no prueba nada.
           En `dup` ademas lo rompia del todo: el desplazamiento deforma
