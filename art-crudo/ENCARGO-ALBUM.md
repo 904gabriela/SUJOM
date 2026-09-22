@@ -130,9 +130,19 @@ De los errores ya cometidos, por orden de cuántas veces han pasado:
 - **`sys_chairs`** dice «OCUPACIÓN: 4/4 · PROTOCOLO: LAZO DORADO».
   Cuatro sillones con los cuatro dentro. Es la foto que lo cuenta
   todo, y no está escrito si se les ve la cara o no.
-- **Los tres `paper`** son documentos con texto legible, y el punto 2
-  de arriba dice que nada de texto. Son la excepción: ahí el texto
-  *es* la foto. Hay que decidir si se pinta el papel en blanco y el
-  texto lo pone el código encima —que además permite traducirlo y que
-  se lea a 107 px— o si se pide pintado y se acepta que el modelo
-  escriba garabatos.
+
+Y nada más. Lo demás está decidido.
+
+## Los tres `paper`: decidido y hecho
+
+Son documentos con texto legible, y el punto 2 de arriba dice que nada
+de texto. Son la excepción, porque ahí el texto *es* la foto.
+
+**Se decidió que lo pone el código, y ya está implementado.** El texto
+vive en `data/photos.js`, en el campo `doc` de cada uno, y lo dibuja
+`src/engine/art.js`. Al artista se le pide **sólo el papel**, sin nada
+escrito.
+
+Sale gratis dos veces: se corrige sin volver a encargar nada, y a
+107 px se convierte solo en un bloque ilegible, que es lo que parece
+un documento visto de lejos.

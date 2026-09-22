@@ -4,7 +4,7 @@ Para un agente nuevo que tiene el repositorio pero no la conversación.
 Todo lo que hay aquí está comprobado contra el código, no supuesto.
 
 Rama de trabajo: `claude/sujom-otome-game-uxw5ev`.
-Último commit al escribir esto: `b482243`.
+El traspaso se actualiza con el trabajo; mira `git log` para el estado.
 
 > Antes de nada: **`BIBLIA.md` manda.** Cuando el guion y ese documento
 > no coincidan, el que está mal es el guion. Este traspaso describe el
