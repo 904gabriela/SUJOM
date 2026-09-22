@@ -277,6 +277,15 @@ export const PHOTOS = {
   },
   sys_chairs: {
     of: null, scene: 'lab',
+    // Mosaico de 2×2 montado a partir de cuatro celdas aprobadas por
+    // separado. El orden es el de los sillones en el informe interno de
+    // `data/files.js` (SILLÓN 1 · C-05 … SILLÓN 4 · C-04), para que la
+    // cámara y el informe digan lo mismo.
+    img: 'assets/album/sys_chairs.jpg',
+    cam: {
+      celdas: ['SILLÓN 1 · C-05', 'SILLÓN 2 · C-02', 'SILLÓN 3 · C-03', 'SILLÓN 4 · C-04'],
+      pie: 'SECTOR C · SALA 2 · OCUPACIÓN 4/4'
+    },
     title: 'ARCHIVO NO CATALOGADO',
     caption: '',
     exif: { fecha: '—— ——', lugar: 'SECTOR C · SALA 2', disp: 'ASSIST-CAM 02', tam: '8.8 MB', extra: 'OCUPACIÓN: 4/4 · PROTOCOLO: LAZO DORADO' },

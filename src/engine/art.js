@@ -694,7 +694,7 @@ const SCENES = {
  * dentro de la escena. Las demás gemelas las hace el código
  * (`nosun`, `dup`) o reutilizan la imagen de otra (`lara_momo2`).
  */
-function artLayer(def, corrupt) {
+function artLayer(def, corrupt, u) {
   const src = (corrupt && def.imgCorrupt) || def.img;
   if (!src) return '';
 
@@ -710,8 +710,51 @@ function artLayer(def, corrupt) {
   // sea que el respaldo no respalda nada. Quitando el elemento se ve el
   // dibujo, que es lo que tiene que pasar. Comprobado en el navegador;
   // en node esto no se nota, porque allí nadie carga la imagen.
+  // Las fotos de cámara se ven a través del filtro de cámara: casi sin
+  // color y tiradas a verde. El dibujo llega limpio y en el registro del
+  // reparto; que parezca vigilancia lo pone esto, no el pintor.
+  const cam = def.cam ? ` filter="url(#cf${u})"` : '';
   return `<image href="${esc(src)}" x="0" y="0" width="160" height="160"
-    preserveAspectRatio="xMidYMid slice" onerror="this.remove()"/>`;
+    preserveAspectRatio="xMidYMid slice" onerror="this.remove()"${cam}/>`;
+}
+
+/**
+ * Rótulos de cámara de vigilancia, encima de una foto con `cam`.
+ *
+ * El jugador ve el laboratorio por cámaras o por informes internos,
+ * nunca como una foto que alguien hizo (ver `DECISIONES.md`, «El
+ * laboratorio»). El pintor entrega el dibujo limpio; los textos viven
+ * en `data/photos.js` y los pone esto, igual que en los documentos:
+ * se corrigen sin volver a encargar nada.
+ *
+ * Con cuatro celdas, parte la foto en un mosaico de 2×2, una cámara por
+ * sillón, en el orden de `celdas`. Con una sola, rotula la foto entera.
+ *
+ * Va FUERA del filtro de corrupción, como toda prueba: un rótulo que el
+ * glitch hace ilegible no dice nada.
+ */
+function camHud(c) {
+  const MONO = 'ui-monospace,SFMono-Regular,Menlo,monospace';
+  const celdas = c.celdas || [];
+  const n = celdas.length === 4 ? 2 : 1;
+  const w = 160 / n;
+  let s = '';
+  if (n === 2) {
+    s += `<path d="M80 0 V160 M0 80 H160" stroke="#05080a" stroke-width="1.8"/>`;
+  }
+  celdas.forEach((rotulo, i) => {
+    const x = (i % n) * w;
+    const y = Math.floor(i / n) * w;
+    const ancho = rotulo.length * 2.55 + 4;
+    s += `<rect x="${x + 2}" y="${y + 2}" width="${ancho}" height="7" fill="#05080a" opacity=".72"/>
+      <text x="${x + 4}" y="${y + 7.1}" font-family="${MONO}" font-size="4.1" fill="#7fe3c0">${esc(rotulo)}</text>
+      <circle cx="${x + w - 5}" cy="${y + 5.5}" r="1.4" fill="#ff5a6e"/>`;
+  });
+  if (c.pie) {
+    s += `<rect y="151" width="160" height="9" fill="#05080a" opacity=".78"/>
+      <text x="80" y="157.2" font-family="${MONO}" font-size="4.1" fill="#7fe3c0" text-anchor="middle">${esc(c.pie)}</text>`;
+  }
+  return s;
 }
 
 export function photo(def, opts = {}) {
@@ -727,7 +770,12 @@ export function photo(def, opts = {}) {
       <stop offset="0%" stop-color="#ffb36e"/><stop offset="100%" stop-color="#ff7fb6"/>
     </linearGradient>
     <filter id="cr${u}"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="1" result="t"/>
-      <feDisplacementMap in="SourceGraphic" in2="t" scale="${corrupt ? (def.doc ? 2 : 9) : 0}" xChannelSelector="R"/></filter>
+      <feDisplacementMap in="SourceGraphic" in2="t" scale="${corrupt ? (def.doc || def.cam ? 2 : 9) : 0}" xChannelSelector="R"/></filter>
+    ${def.cam ? `<filter id="cf${u}" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values=".28"/>
+      <feColorMatrix type="matrix" values=".82 0 0 0 0  0 .98 0 0 .035  0 0 .9 0 .025  0 0 0 1 0"/></filter>
+    <pattern id="sl${u}" width="4" height="1.6" patternUnits="userSpaceOnUse">
+      <rect width="4" height=".55" fill="#05080a" opacity=".38"/></pattern>` : ''}
   </defs>`;
 
   // La anomalía: un detalle que no debería estar ahí.
@@ -795,7 +843,8 @@ export function photo(def, opts = {}) {
 
   return `<svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(def.title || 'foto')}">
     ${defs}
-    <g filter="url(#cr${u})"><g id="esc${u}">${scene(u, def.spec, def)}${artLayer(def, corrupt)}</g></g>
+    <g filter="url(#cr${u})"><g id="esc${u}">${scene(u, def.spec, def)}${artLayer(def, corrupt, u)}</g></g>
+    ${def.cam ? `<rect width="160" height="160" fill="url(#sl${u})"/>` : ''}
     ${/* La anomalia va FUERA del filtro. El glitch es ambiente; la anomalia
           es la prueba, y una prueba que no se puede leer no prueba nada.
           En `dup` ademas lo rompia del todo: el desplazamiento deforma
@@ -804,6 +853,7 @@ export function photo(def, opts = {}) {
           De rebote queda mejor: el bloque pegado se ve nitido mientras todo
           lo demas tiembla, y se nota que no pertenece a la foto. */ ''}
     ${anomaly}
+    ${def.cam ? camHud(def.cam) : ''}
     ${glitchBars}
     ${corrupt ? `<rect width="160" height="160" fill="#5fe3ff" opacity=".05"/>` : ''}
   </svg>`;

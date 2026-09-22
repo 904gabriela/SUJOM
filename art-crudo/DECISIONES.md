@@ -143,6 +143,29 @@ Es un dibujo ligero, no uno sucio.
 
 ---
 
+## Con gente en la imagen: contar brazos antes que nada
+
+El primer selfie de Lara salió con **tres brazos** —uno en el móvil,
+otro en la cadera, otro sujetando la percha— y **se dio por bueno**. Lo
+vio Gabriela, no quien lo revisaba. Pasó por mirar las dos versiones en
+una hoja de contactos reducida y fijarse en la ropa y el encuadre.
+
+Dos reglas, las dos pagadas:
+
+1. **Cuando sale una persona, lo primero es la anatomía, y a tamaño
+   completo.** Contar brazos, manos, dedos y piernas antes de opinar de
+   nada más. En una miniatura una mano de más pasa perfectamente.
+2. **No pidas más acciones que manos.** Se pidió sujetar el móvil,
+   sujetar la percha y «el peso en una cadera», y el modelo resolvió la
+   pose con una tercera mano en la cintura. En el prompt hay que decir
+   **qué hace cada mano, una por una**, y que no hay más.
+
+Es la misma familia que «no pidas una acción que necesita un cuerpo»:
+cada gesto que pides reclama una parte del cuerpo, y si no hay parte
+libre el modelo se la inventa.
+
+---
+
 ## El laboratorio: DECIDIDO
 
 Afecta a `sys_chairs` y `ryu_lab`, y a cualquier imagen de los cuatro
