@@ -289,8 +289,7 @@ export const PHOTOS = {
     title: 'ARCHIVO NO CATALOGADO',
     caption: '',
     exif: { fecha: '—— ——', lugar: 'SECTOR C · SALA 2', disp: 'ASSIST-CAM 02', tam: '8.8 MB', extra: 'OCUPACIÓN: 4/4 · PROTOCOLO: LAZO DORADO' },
-    corruptDefault: true,
-    anomaly: 'figure'
+    corruptDefault: true
   },
   sys_door: {
     of: null, scene: 'door',

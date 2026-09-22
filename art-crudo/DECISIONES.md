@@ -207,6 +207,16 @@ Así que:
   «desde una esquina del techo», nunca «cámara de seguridad»: eso trae
   la fecha sobreimpresa, que es texto.
 
+**Ajustes tras verlo montado:**
+
+- **El filtro de cámara deja pasar el color.** Con el color casi
+  quitado, el rosa de Lara y el plateado de Reiko salían gris verdoso y
+  a 107 px no se sabía quién era quién. Lo que hace que parezca
+  vigilancia son las líneas de barrido y los rótulos, no el gris.
+- **Fuera la silueta de `figure`.** Era una forma oscura de vector
+  plantada encima del dibujo: *«parece una matrioshka»*. `sys_chairs`
+  ya no lleva anomalía; ella entera es la prueba.
+
 **Y para estas la referencia se invierte.** Es la única vez que las
 personas de la referencia SÍ tienen que salir, así que la referencia es
 identidad, no estilo. Se pasa **sólo el diseño de esa persona**: con dos

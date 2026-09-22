@@ -772,8 +772,8 @@ export function photo(def, opts = {}) {
     <filter id="cr${u}"><feTurbulence type="fractalNoise" baseFrequency="0.02 0.6" numOctaves="1" result="t"/>
       <feDisplacementMap in="SourceGraphic" in2="t" scale="${corrupt ? (def.doc || def.cam ? 2 : 9) : 0}" xChannelSelector="R"/></filter>
     ${def.cam ? `<filter id="cf${u}" color-interpolation-filters="sRGB">
-      <feColorMatrix type="saturate" values=".28"/>
-      <feColorMatrix type="matrix" values=".82 0 0 0 0  0 .98 0 0 .035  0 0 .9 0 .025  0 0 0 1 0"/></filter>
+      <feColorMatrix type="saturate" values=".85"/>
+      <feColorMatrix type="matrix" values=".94 0 0 0 0  0 .98 0 0 .03  0 0 .94 0 .02  0 0 0 1 0"/></filter>
     <pattern id="sl${u}" width="4" height="1.6" patternUnits="userSpaceOnUse">
       <rect width="4" height=".55" fill="#05080a" opacity=".38"/></pattern>` : ''}
   </defs>`;
