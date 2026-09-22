@@ -176,15 +176,38 @@ Decisiones tomadas, con su motivo. **No deshacerlas sin hablarlo.**
 
 # 4. CURRENT TESTS / REGRESSION SUITES
 
-**No hay ninguna. Esto está comprobado, no supuesto.**
+**No hay suite, y sigue sin haberla a propósito.**
 
 - No hay `package.json`, así que **no hay scripts de test**.
 - No hay ficheros `*.test.js`, `*.spec.js` ni carpeta de tests.
 - No hay runner, ni CI, ni linter configurado.
 
-**No hay recuentos que registrar porque no hay suites que los
-produzcan.** Si encuentras un número de tests en alguna nota, está
-inventado.
+Hay **una sola comprobación**, y cubre un solo fichero:
+
+    node tools/comprueba_guardado.js
+
+Mira `src/engine/state.js` y nada más. El motivo de que exista sólo
+ésa: es el único sitio del proyecto donde un error **destruye un dato
+real del jugador, y en silencio**. Si alguien cambia la forma del
+guardado y no sube `SAVE_VERSION`, `load()` se lo come sin quejarse y
+la partida se pierde sin que nadie se entere. Comprueba cuatro cosas:
+
+1. Que la forma del guardado no ha cambiado a escondidas. Lleva una
+   huella (`FORMA_ESPERADA`) del árbol de campos; si la forma cambia y
+   `SAVE_VERSION` sigue igual, **falla con código 1**.
+2. Ida y vuelta: llena la partida con las funciones públicas, guarda,
+   la carga desde una instancia nueva del módulo y compara campo por
+   campo.
+3. Que una partida de otra versión, o ilegible, se rechaza sin
+   reventar.
+4. Que el guardado con retardo (220 ms, el que usa casi todo) acaba
+   escribiendo.
+
+**`conditions.js`, `story.js`, `chat.js` y la interfaz no los mira
+nadie**, y es una decisión de Gabriela, no un descuido: no los está
+tocando nadie y lo que viene son 21 escenas de arte. Cuando alguien
+vaya a tocar esos sistemas, se cubren entonces. **No montes una suite
+ni añadas `package.json`** sin preguntar.
 
 ## Cómo se ha verificado el trabajo hasta ahora
 
@@ -210,6 +233,9 @@ Manualmente, y conviene seguir igual mientras no se decida otra cosa:
 
 Montar una suite de verdad es una decisión que **no se ha tomado**.
 No la tomes tú sin preguntar.
+
+> Si tocas `src/engine/state.js`, pasa `node tools/comprueba_guardado.js`
+> antes de dar nada por bueno. Es la única red que hay.
 
 ---
 

@@ -111,6 +111,12 @@ De los errores ya cometidos, por orden de cuántas veces han pasado:
 
 1. **Nada de fotorrealismo.** Pasar arte del personaje como
    referencia de estilo aunque no salga nadie. Pasó con el perro.
+   Y desde la decisión del registro (ver `DECISIONES.md`): **cel
+   shading plano, línea visible, poco detalle**, diciendo
+   explícitamente que **no** es un fondo pintado realista ni
+   cinematográfico. Las dos escenas de prueba salieron tipo Shinkai y
+   por eso se descartó ese registro: el álbum va en la misma mano que
+   el reparto.
 2. **Ni texto, ni marca de agua, ni firma.** Pasó con un sticker que
    traía «Ryu» escrito.
 3. **Ni marco decorativo, ni borde blanco, ni efecto polaroid, ni
