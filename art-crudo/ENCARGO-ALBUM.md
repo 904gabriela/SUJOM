@@ -40,9 +40,9 @@ No son 26. Tres descuentos:
 
 Quedan **23 imágenes base**.
 
-### Y sólo DOS gemelas se pintan
+### Y sólo TRES gemelas se pintan
 
-De las seis fotos que «necesitan gemela», cuatro no llevan imagen
+De las seis fotos que «necesitan gemela», tres no llevan imagen
 aparte, porque su anomalía no es un objeto que alguien pueda pintar:
 
 | Foto | Quién hace la gemela |
@@ -50,16 +50,16 @@ aparte, porque su anomalía no es un objeto que alguien pueda pintar:
 | `ryu_fw` | **Pintada.** Un reflejo en un cristal es un objeto. |
 | `kenta_room` | **Pintada.** Una puerta con teclado es un objeto. |
 | `ryu_window` | El código (`nosun`): la luna no se ha movido. |
-| `reiko_city` | El código (`nosun`). |
+| `reiko_city` | **Pintada.** La ciudad se acaba en un corte limpio y detrás no hay nada dibujado. Antes era `nosun`, pero su nota nunca habló de la luna. |
 | `kenta_city` | El código (`dup`): tiene que ser idéntico de verdad. |
 | `lara_momo2` | Reutiliza la imagen de `lara_momo`. Es el chiste. |
 
-> **Total a pintar: 23 base + 2 gemelas = 25 imágenes.**
+> **Total a pintar: 23 base + 3 gemelas = 26 imágenes.**
 
 Antes aquí ponía «23 base + 6 gemelas», que sale de contar las seis
 fotos que tienen versión corrupta. Pero contar fotos no es contar
-encargos: cuatro de esas seis no le cuestan nada a nadie porque las
-hace el motor.
+encargos: tres de esas seis no le cuestan nada a nadie porque las
+hace el motor o reutilizan otra imagen.
 
 ## Cómo entra el arte al juego
 
@@ -71,7 +71,7 @@ Ya existe la entrada, así que una imagen aprobada se mete en dos pasos:
 
        img: 'assets/album/<id>.jpg'
 
-   Y `imgCorrupt` **sólo** en `ryu_fw` y `kenta_room`.
+   Y `imgCorrupt` **sólo** en `ryu_fw`, `kenta_room` y `reiko_city`.
 
 Eso es todo: `photo()` la dibuja dentro del mismo grupo donde estaba el
 SVG, así que el glitch y las anomalías siguen funcionando encima. Si el
@@ -100,7 +100,7 @@ pintada.
 | Clase | Cuántas | Qué se pide |
 |---|---|---|
 | **Sólo limpia** | 11 | La foto bonita. Nunca se corrompe. |
-| **Necesita gemela** | 6 | La limpia y la misma con algo cambiado. **Sólo 2 se pintan** (ver arriba). |
+| **Necesita gemela** | 6 | La limpia y la misma con algo cambiado. **Sólo 3 se pintan** (ver arriba). |
 | **Sólo corrupta** | 9 | Nace rota. No existe versión limpia. |
 
 **Sólo limpia:** `ryu_ramen` `ryu_cross` `kenta_ramen` `kenta_cat`
@@ -152,8 +152,8 @@ un detalle de la foto, parece un botón.
 | `nosun` | **código** | No es un objeto: es que no se ha movido. |
 
 > **Cuidado al sustituir el arte de esas dos.** Las dos llevan
-> coordenadas en `data/photos.js` —`luna: [cx, cy, r]` en `ryu_window`
-> y `reiko_city`, y `dup: { de, a }` en `kenta_city`— y esas
+> coordenadas en `data/photos.js` —`luna: [cx, cy, r]` en `ryu_window`,
+> y `dup: { de, a }` en `kenta_city`— y esas
 > coordenadas apuntan al dibujo que hay **ahora**, que es el SVG. En
 > cuanto entre una imagen pintada, la luna estará en otro sitio y los
 > edificios también. Hay que volver a medirlas sobre la imagen nueva,

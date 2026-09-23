@@ -13,18 +13,18 @@
    ir metiendo arte foto a foto sin tocar nada más. El juego funciona
    con `assets/album/` vacío.
 
-   `imgCorrupt` es la gemela pintada, y **sólo la necesitan dos fotos**:
-   `ryu_fw` y `kenta_room`. Son las únicas cuya anomalía es un objeto
-   dentro de la escena —un reflejo en un cristal, una puerta con
-   teclado— y eso hay que pintarlo. Las demás «gemelas» no llevan
+   `imgCorrupt` es la gemela pintada, y **sólo la necesitan tres fotos**:
+   `ryu_fw`, `kenta_room` y `reiko_city`. Son las únicas cuya anomalía
+   hay que pintar —un reflejo en un cristal, una puerta con teclado, una
+   ciudad que se acaba en seco—. Las demás «gemelas» no llevan
    imagen aparte:
 
-     ryu_window, reiko_city  ->  `nosun`, la hace el código
+     ryu_window              ->  `nosun`, la hace el código
      kenta_city              ->  `dup`, la hace el código
      lara_momo2              ->  reutiliza la imagen de `lara_momo`,
                                  que es justamente el chiste
 
-   Total a pintar: **23 base + 2 gemelas = 25 imágenes.**
+   Total a pintar: **23 base + 3 gemelas = 26 imágenes.**
 
    ⚠️ Las coordenadas de `luna` y `dup` están medidas sobre el DIBUJO
    SVG. Al meter una imagen pintada hay que volver a medirlas o la luna
@@ -46,11 +46,13 @@ export const PHOTOS = {
   },
   ryu_window: {
     of: 'ryu', scene: 'window',
+    img: 'assets/album/ryu_window.jpg',
     title: 'Desde su ventana',
     caption: 'Esto es todo lo que se ve desde aquí. No es gran cosa.',
     exif: { fecha: '15/07 · 02:14', lugar: 'Distrito 6', disp: 'ASSIST Cam', tam: '1.4 MB' },
     anomaly: 'nosun',
-    luna: [112, 36, 8],
+    // Medida con tools/mide_luna.py sobre assets/album/ryu_window.jpg.
+    luna: [80, 34, 7],
     corruptExif: { fecha: '15/07 · 02:14', lugar: 'Distrito 6', disp: 'ASSIST Cam', tam: '1.4 MB', extra: 'CAPA DE CIELO: PRESET_NOCHE_03 (bucle)' },
     corruptNote: 'La luna está en el mismo sitio que hace tres semanas. Exactamente el mismo.'
   },
@@ -232,11 +234,13 @@ export const PHOTOS = {
   },
   reiko_city: {
     of: 'reiko', scene: 'city',
+    img: 'assets/album/reiko_city.jpg',
     title: 'Desde arriba',
     caption: 'Antes esto me parecía una promesa.',
     exif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB' },
-    anomaly: 'nosun',
-    luna: [126, 26, 12],
+    // La gemela pintada es la prueba: la ciudad se acaba en un corte
+    // limpio y detrás no hay nada dibujado. Hasta que llegue,
+    // la corrupta muestra sólo el glitch.
     corruptExif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB', extra: 'HORIZONTE: MALLA CERRADA — SIN EXTERIOR' },
     corruptNote: 'La ciudad se acaba. Detrás de la última torre no hay nada dibujado.'
   },

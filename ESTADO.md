@@ -45,7 +45,7 @@ ya están dentro. Ellos creen que están chateando.
 | **Stickers** | **40 de 40 instalados.** |
 | **Fotos de perfil** | **4 de 4 instaladas.** |
 | **Retratos y expresiones** | Generados, en `assets/`. Provisionales. |
-| **Álbum** | **9 de 25 instaladas** (`ryu_ramen`, `kenta_cat`, `reiko_coffee`, `ryu_cross`, `lara_momo`, `kenta_ramen`, `lara_coffee`, `sys_chairs`, `lara_outfit`). El resto sigue dibujado por código. |
+| **Álbum** | **11 de 26 instaladas** (`ryu_ramen`, `kenta_cat`, `reiko_coffee`, `ryu_cross`, `lara_momo`, `kenta_ramen`, `lara_coffee`, `sys_chairs`, `lara_outfit`, `ryu_window`, `reiko_city`). El resto sigue dibujado por código. |
 | **Comprobaciones** | Dos scripts. No hay suite ni CI. |
 | **Pieles** | Una, `piel-noche.css`, cargada siempre. No hay selector. |
 
@@ -156,7 +156,7 @@ en su dibujo:
 
 **El álbum, en marcha.** 26 fotos en 16 escenas. Descontando el archivo
 vacío, la foto repetida a propósito y la puerta que sale dos veces:
-**23 imágenes base + 2 gemelas pintadas = 25**. Las otras cuatro
+**23 imágenes base + 3 gemelas pintadas = 26**. Las otras cuatro
 «gemelas» las hace el motor o reutilizan otra imagen: contar fotos con
 versión corrupta no es contar encargos.
 

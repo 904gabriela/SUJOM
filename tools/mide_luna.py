@@ -100,61 +100,71 @@ def busca(ruta):
     # charcos, faros y ventanas que brillan igual o más.
     arriba = luz[: LADO // 2, :]
 
-    fondo = float(np.median(arriba))
+    alto, ancho = arriba.shape
+    yy, xx = np.mgrid[0:alto, 0:ancho]
+
+    def fondo_local(cy, cx, r):
+        """El cielo que rodea a ESTA mancha, no la media de toda la mitad
+        de arriba. Con la mediana global, una pared blanca que ocupe
+        medio encuadre pasaba por «cielo» y el disco se medía contra
+        ella: así falló `ryu_window`, que es una ventana en una pared."""
+        d = np.hypot(yy - cy, xx - cx)
+        anillo = arriba[(d >= r * 1.6) & (d <= r * 3 + 2)]
+        return float(np.median(anillo)) if anillo.size else float(np.median(arriba))
 
     for p in PERCENTILES:
         corte = np.percentile(arriba, p)
-        semillas = manchas(arriba >= corte)
 
-        # 1 · Localizar. De todos los núcleos brillantes, el más brillante
-        #     que además sea pequeño y redondo.
-        semilla = None
-        for g in semillas:
-            ys, xs = g[:, 0], g[:, 1]
-            if not (R_MIN <= (len(g) / np.pi) ** 0.5 <= R_MAX):
+        # 1 · Localizar. Candidatos de tamaño razonable, del más brillante
+        #     al menos. Si el primero no es una luna se prueba el
+        #     siguiente, en vez de rendirse y bajar el umbral: con una
+        #     pared clara en cuadro, el más brillante suele ser la pared.
+        semillas = []
+        for g in manchas(arriba >= corte):
+            if R_MIN <= (len(g) / np.pi) ** 0.5 <= R_MAX:
+                semillas.append((float(arriba[g[:, 0], g[:, 1]].mean()), g))
+        semillas.sort(key=lambda s: -s[0])
+
+        for _, g in semillas:
+            # 2 · Medir, a media altura entre el pico de la luna y el cielo
+            #     de su alrededor. Es donde de verdad se acaba el disco:
+            #     por encima se corta el borde, por debajo se traga el halo.
+            pico = float(arriba[g[:, 0], g[:, 1]].max())
+            y0, x0 = int(round(g[:, 0].mean())), int(round(g[:, 1].mean()))
+            fondo = fondo_local(y0, x0, (len(g) / np.pi) ** 0.5)
+            if pico - fondo < 25:
+                continue          # no destaca de lo que tiene alrededor
+            media = (pico + fondo) / 2.0
+            disco = None
+            for cand in manchas(arriba >= media):
+                if ((cand[:, 0] == y0) & (cand[:, 1] == x0)).any():
+                    disco = cand
+                    break
+            if disco is None:
+                disco = g
+
+            ys, xs = disco[:, 0], disco[:, 1]
+            area = len(disco)
+            r = (area / np.pi) ** 0.5
+            h = ys.max() - ys.min() + 1
+            w = xs.max() - xs.min() + 1
+
+            # 3 · Comprobar la forma sobre el disco entero, no sobre el
+            #     núcleo. Aquí es donde se cae una tira de neón, el canto
+            #     de un edificio o un trozo de pared, que de núcleo parecen
+            #     una luna y de disco no.
+            if not (R_MIN <= r <= R_MAX):
                 continue
-            brillo = float(arriba[ys, xs].mean())
-            if semilla is None or brillo > semilla[0]:
-                semilla = (brillo, g)
-        if semilla is None:
-            continue
+            if max(h, w) / max(1, min(h, w)) > PROPORCION:
+                continue
+            if area / (h * w) < LLENADO_MIN:
+                continue
 
-        # 2 · Medir, a media altura entre el pico de la luna y el cielo de
-        #     alrededor. Es donde de verdad se acaba el disco: por encima
-        #     se corta el borde, por debajo se traga el halo.
-        _, g = semilla
-        pico = float(arriba[g[:, 0], g[:, 1]].max())
-        media = (pico + fondo) / 2.0
-        y0, x0 = int(round(g[:, 0].mean())), int(round(g[:, 1].mean()))
-        disco = None
-        for cand in manchas(arriba >= media):
-            if ((cand[:, 0] == y0) & (cand[:, 1] == x0)).any():
-                disco = cand
-                break
-        if disco is None:
-            disco = g
-
-        ys, xs = disco[:, 0], disco[:, 1]
-        area = len(disco)
-        r = (area / np.pi) ** 0.5
-        h = ys.max() - ys.min() + 1
-        w = xs.max() - xs.min() + 1
-
-        # 3 · Comprobar la forma sobre el disco entero, no sobre el núcleo.
-        #     Aquí es donde se cae una tira de neón o el canto de un
-        #     edificio, que de núcleo parecen una luna y de disco no.
-        if not (R_MIN <= r <= R_MAX):
-            continue
-        if max(h, w) / max(1, min(h, w)) > PROPORCION:
-            continue
-        if area / (h * w) < LLENADO_MIN:
-            continue
-
-        return {
-            'cx': float(xs.mean()), 'cy': float(ys.mean()), 'r': float(r),
-            'brillo': float(arriba[ys, xs].mean()), 'p': p,
-            'pico': pico, 'fondo': fondo,
-        }
+            return {
+                'cx': float(xs.mean()), 'cy': float(ys.mean()), 'r': float(r),
+                'brillo': float(arriba[ys, xs].mean()), 'p': p,
+                'pico': pico, 'fondo': fondo,
+            }
     return None
 
 
