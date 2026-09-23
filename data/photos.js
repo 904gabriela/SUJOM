@@ -239,9 +239,9 @@ export const PHOTOS = {
     caption: 'Antes esto me parecía una promesa.',
     // El hospital de su madre, de noche, desde el pasillo de planta.
     exif: { fecha: '25/07 · 23:30', lugar: 'Hospital · planta 7', disp: 'ASSIST Cam', tam: '2.6 MB' },
-    // La gemela pintada es la prueba: la ciudad se acaba en un corte
-    // limpio y detrás no hay nada dibujado. Hasta que llegue,
-    // la corrupta muestra sólo el glitch.
+    // La gemela pintada es la prueba: la misma foto, y la ciudad se
+    // acaba en un corte limpio. Detrás no hay nada dibujado.
+    imgCorrupt: 'assets/album/reiko_city_corrupta.jpg',
     corruptExif: { fecha: '25/07 · 23:30', lugar: 'Hospital · planta 7', disp: 'ASSIST Cam', tam: '2.6 MB', extra: 'HORIZONTE: MALLA CERRADA — SIN EXTERIOR' },
     corruptNote: 'La ciudad se acaba. Detrás de la última torre no hay nada dibujado.'
   },
