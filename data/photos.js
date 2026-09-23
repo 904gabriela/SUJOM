@@ -82,11 +82,19 @@ export const PHOTOS = {
   },
   ryu_lab: {
     of: 'ryu', scene: 'lab',
+    // La otra toma de la celda de Ryu del mosaico de `sys_chairs`: la
+    // misma instalación vista por otra cámara. Aquí sale sola y con su
+    // propio rótulo, y por eso se reconoce el sitio al verlas juntas.
+    img: 'assets/album/ryu_lab.jpg',
+    cam: { celdas: ['ASSIST-CAM 11'], pie: 'SECTOR C · SUJETO EN SILLÓN: C-04' },
     title: 'No sé qué es esto',
     caption: 'Me ha llegado a mí. Yo no la he hecho.',
     exif: { fecha: '—— ——', lugar: 'INSTALACIÓN — SECTOR C', disp: 'ASSIST-CAM 11', tam: '5.2 MB', extra: 'SUJETO EN SILLÓN: C-04' },
-    corruptDefault: true,
-    anomaly: 'wires'
+    corruptDefault: true
+    // Sin `anomaly`: los cables ya están pintados en la foto, saliendo
+    // del visor hacia las máquinas. La anomalía `wires` dibujaba dos
+    // líneas cian de lado a lado por encima, y sobre una imagen eso no
+    // parece un detalle de la foto, parece un botón.
   },
 
   /* ---------------- KENTA ---------------- */
