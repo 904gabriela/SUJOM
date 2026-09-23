@@ -67,7 +67,7 @@ Las hojas de diseño mandan. Están en `art-crudo/` y son de septiembre de
 > toy, cabeza redonda y esponjosa, ojos oscuros y redondos, patas cortas.
 > No es un terrier de pelo duro: se pidió así una vez y estaba mal. Siete
 > años y una oreja rota.
-| **Reiko Kimura** | 25 | Bailarina. Segura de sí misma, le gusta intimidar a los hombres | Su padre las abandonó al saber del embarazo. Su madre lo dio todo por ella y hace un año enfermó de leucemia. Reiko dejó el baile y sirve en bares y discotecas para pagarle la quimio. Una gata siamesa, Jade. Pelo gris claro, ojos casi blancos. |
+| **Reiko Kimura** | 25 | Bailarina **de heels** —baile con tacones—, no de ballet. Segura de sí misma, le gusta intimidar a los hombres | Su padre las abandonó al saber del embarazo. Su madre lo dio todo por ella y hace un año enfermó de leucemia. Reiko dejó el baile y sirve en bares y discotecas para pagarle la quimio. Una gata siamesa, Jade. Pelo gris claro, ojos casi blancos. |
 
 ## Lo que el repo contradice ahora mismo
 

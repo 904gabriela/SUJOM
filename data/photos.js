@@ -237,11 +237,12 @@ export const PHOTOS = {
     img: 'assets/album/reiko_city.jpg',
     title: 'Desde arriba',
     caption: 'Antes esto me parecía una promesa.',
-    exif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB' },
+    // El hospital de su madre, de noche, desde el pasillo de planta.
+    exif: { fecha: '25/07 · 23:30', lugar: 'Hospital · planta 7', disp: 'ASSIST Cam', tam: '2.6 MB' },
     // La gemela pintada es la prueba: la ciudad se acaba en un corte
     // limpio y detrás no hay nada dibujado. Hasta que llegue,
     // la corrupta muestra sólo el glitch.
-    corruptExif: { fecha: '25/07 · 23:30', lugar: 'Torre Ainsel', disp: 'ASSIST Cam', tam: '2.6 MB', extra: 'HORIZONTE: MALLA CERRADA — SIN EXTERIOR' },
+    corruptExif: { fecha: '25/07 · 23:30', lugar: 'Hospital · planta 7', disp: 'ASSIST Cam', tam: '2.6 MB', extra: 'HORIZONTE: MALLA CERRADA — SIN EXTERIOR' },
     corruptNote: 'La ciudad se acaba. Detrás de la última torre no hay nada dibujado.'
   },
   reiko_paper: {

@@ -143,6 +143,24 @@ Es un dibujo ligero, no uno sucio.
 
 ---
 
+## Antes de pedir una escena, contrastarla con la biblia
+
+`data/photos.js` arrastra títulos, pies y lugares **del guion viejo**, y
+la biblia manda sobre él. Se generó `reiko_office` —«Mi antigua mesa»,
+en la Torre Ainsel— leyendo sólo `photos.js`, y era falso: **Reiko es
+bailarina de heels**, lo dejó para cuidar de su madre y sirve en bares
+para pagarle la quimio. La oficina y Ainsel no existen.
+
+Y al corregirlo se volvió a suponer: se propuso ballet. La biblia sólo
+decía «bailarina», y rellenar el hueco con lo primero que viene no es
+leerla. Ya dice **heels**.
+
+> Antes de describir una escena, lee la fila del personaje en
+> `BIBLIA.md`. Si el texto de la foto no cuadra con ella, pregunta; no
+> lo arregles inventando.
+
+---
+
 ## Con gente en la imagen: contar brazos antes que nada
 
 El primer selfie de Lara salió con **tres brazos** —uno en el móvil,
