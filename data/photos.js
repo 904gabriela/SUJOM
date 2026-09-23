@@ -220,10 +220,14 @@ export const PHOTOS = {
 
   /* ---------------- REIKO ---------------- */
   reiko_office: {
+    // El id se queda por compatibilidad con el guion y la partida
+    // guardada; la foto ya no es una oficina. Reiko baila heels y lo
+    // dejó para cuidar de su madre (ver BIBLIA.md).
     of: 'reiko', scene: 'office',
-    title: 'Mi antigua mesa',
-    caption: 'La conservo porque me recuerda que existió.',
-    exif: { fecha: '14/07 · 08:00', lugar: 'Torre Ainsel, planta 9', disp: 'ASSIST Cam', tam: '1.9 MB' }
+    img: 'assets/album/reiko_office.jpg',
+    title: 'Mis tacones',
+    caption: 'Los conservo porque me recuerdan que existió.',
+    exif: { fecha: '14/07 · 08:00', lugar: 'Su casa', disp: 'ASSIST Cam', tam: '1.9 MB' }
   },
   reiko_coffee: {
     of: 'reiko', scene: 'coffee',

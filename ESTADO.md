@@ -45,7 +45,7 @@ ya están dentro. Ellos creen que están chateando.
 | **Stickers** | **40 de 40 instalados.** |
 | **Fotos de perfil** | **4 de 4 instaladas.** |
 | **Retratos y expresiones** | Generados, en `assets/`. Provisionales. |
-| **Álbum** | **11 de 26 instaladas** (`ryu_ramen`, `kenta_cat`, `reiko_coffee`, `ryu_cross`, `lara_momo`, `kenta_ramen`, `lara_coffee`, `sys_chairs`, `lara_outfit`, `ryu_window`, `reiko_city`). El resto sigue dibujado por código. |
+| **Álbum** | **13 de 26 instaladas** (`ryu_ramen`, `kenta_cat`, `reiko_coffee`, `ryu_cross`, `lara_momo`, `kenta_ramen`, `lara_coffee`, `sys_chairs`, `lara_outfit`, `ryu_window`, `reiko_city`, `reiko_city` gemela, `reiko_office`). El resto sigue dibujado por código. |
 | **Comprobaciones** | Dos scripts. No hay suite ni CI. |
 | **Pieles** | Una, `piel-noche.css`, cargada siempre. No hay selector. |
 
@@ -84,6 +84,10 @@ no se pierda otra vez:
   contrario: su ruta hay que rehacerla.
 - **Reiko** es sustitución entera. Ainsel, el fraude de sus socios y la
   prensa no existen. Unas 25 menciones.
+  ⚠️ **Y ya choca con el álbum.** La foto `reiko_office` ahora son sus
+  tacones de heels, pero en `data/story/reiko.js` (sesión «Ainsel»)
+  ella la manda y dice «Esa era mi mesa. Monté una empresa…». Hasta que
+  se rehaga su ruta, el jugador ve unos tacones y lee una oficina.
 - **Ryu** aguanta con cambio de piel: hermana → hermano, 20 → 26.
 - **Lara** cambia de piel y de color.
 
