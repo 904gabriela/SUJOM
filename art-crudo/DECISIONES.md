@@ -447,6 +447,14 @@ la que sale uno de ellos, así que la referencia es identidad: sólo el
 diseño de Lara. Y ojo al móvil: pedirlo con **funda lisa sin logo**, o
 trae una manzana.
 
+**Lo mismo con el calzado: una abertura pide lo que suele haber
+dentro.** Los botines de heels de Reiko tienen puntera abierta y caña
+de rejilla, y salieron las tres versiones con **dedos de pie** dentro,
+y con el forro color carne asomando por la rejilla como si fuera piel.
+«NO feet» estaba escrito. Se arregla llenando la abertura con otra
+cosa: **papel de seda arrugado dentro, como se guardan los zapatos, y
+el forro negro**.
+
 > Detalle que costó elegir entre dos: pide **una cadena corta**. En una
 > versión salió dando tres vueltas al alféizar —*«más larga que una
 > cadena de bicicleta»*— y deja de parecer un collar por exceso de
